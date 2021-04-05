@@ -1,9 +1,10 @@
+@import "./shared/variables.scss";
+
 body {
   margin: 0;
   background-color: #000000;
   background-image: url("./assets/home/BG-stardust.png");
   height: 100vh;
-  font-family: "Quando", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,4 +12,19 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+p {
+  line-height: 1.5;
+  font-family: "Inconsolata", monospace;
+  color: $clr-text;
+}
+
+h1,
+h2 {
+  font-family: "Quando", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  color: $clr-title;
 }

@@ -1,7 +1,11 @@
 @import "./shared/variables.scss";
 
-body {
+* {
   margin: 0;
+  box-sizing: border-box;
+}
+
+body {
   background-color: #000000;
   background-image: url("./assets/home/BG-stardust.png");
   height: 100vh;
@@ -24,6 +28,7 @@ h3 {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
   color: $clr-title;
+  font-weight: normal;
 }
 
 h1 {

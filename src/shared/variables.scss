@@ -1,6 +1,10 @@
 // Color Names
 $clr-butteryWhite: #fffce8;
+$clr-foggyGrey: #d1cebd;
+$clr-dawn: #a09e93;
 $clr-vulcan: #0c0e19;
+$clr-bunker: #07090f;
+$clr-black: #000000;
 $clr-martinique: #2a294c;
 $clr-anzac: #e1b554;
 $clr-driftwood: #a88740;
@@ -10,6 +14,14 @@ $clr-pesto: #7a6432;
 $clr-primary: $clr-anzac;
 $clr-primary-hover: $clr-driftwood;
 $clr-primary-active: $clr-pesto;
+
+$clr-secondary: $clr-vulcan;
+$clr-secondary-hover: $clr-bunker;
+$clr-secondary-active: $clr-black;
+
+$clr-arrow: $clr-butteryWhite;
+$clr-arrow-hover: $clr-foggyGrey;
+$clr-arrow-active: $clr-dawn;
 
 // Text
 $clr-text: $clr-butteryWhite;

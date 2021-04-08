@@ -1,21 +1,14 @@
 import React from "react";
 import classes from "./Taskbar.module.scss";
 
+import ArrowLeft from "../../Arrows/ArrowLeft";
+import ArrowRight from "../../Arrows/ArrowRight";
+
 const Taskbar = (props) => (
   <div className={classes.Taskbar}>
-    <button>
-      <i
-        className="fas fa-arrow-alt-circle-left"
-        onClick={props.clickedLeft}
-      ></i>
-    </button>
+    <ArrowLeft clickedLeft={props.clickedLeft} />
     <div className={classes.ToolName}>{props.activeToolName}</div>
-    <button>
-      <i
-        className="fas fa-arrow-alt-circle-right"
-        onClick={props.clickedRight}
-      ></i>
-    </button>
+    <ArrowRight clickedRight={props.clickedRight} />
   </div>
 );
 

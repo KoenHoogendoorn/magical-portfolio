@@ -1,0 +1,44 @@
+@import "../../../shared/variables.scss";
+
+.Taskbar {
+  margin-top: 8px;
+  display: flex;
+
+  button {
+    // remove default button styles
+    border: none;
+    cursor: pointer;
+    background: none;
+    outline: 0;
+    padding: 0;
+
+    i {
+      font-size: 48px;
+      color: $clr-arrow;
+
+      &:hover {
+        color: $clr-arrow-hover;
+      }
+      &:active {
+        color: $clr-arrow-active;
+      }
+    }
+    &:first-of-type i {
+      margin-right: 8px;
+    }
+    &:last-of-type i {
+      margin-left: 8px;
+    }
+  }
+}
+
+.ToolName {
+  height: 48px;
+  background-color: $clr-martinique;
+  line-height: 48px;
+  width: 170px;
+  padding-left: 16px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}

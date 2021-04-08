@@ -1,4 +1,4 @@
-import HomeWrapper from "./containers/HomeWrapper";
+import HomeWrapper from "./containers/HomeWrapper/HomeWrapper";
 
 function App() {
   return (

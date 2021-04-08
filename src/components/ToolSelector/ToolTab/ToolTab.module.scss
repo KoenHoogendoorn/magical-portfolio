@@ -1,0 +1,81 @@
+@import "../../../shared/variables.scss";
+
+.ToolTab {
+  padding: 8px 12px 8px 16px;
+  display: inline-block;
+  background-color: $clr-secondary;
+  border-left: 4px solid $clr-martinique;
+  border-top: 4px solid $clr-martinique;
+  border-bottom: 4px solid $clr-martinique;
+  border-right: 4px solid transparent;
+  font-weight: bold;
+
+  -webkit-border-radius: 8px 0 0 0;
+  -moz-border-radius: 8px 0 0 0;
+  border-radius: 8px 0 0 0;
+  width: fit-content;
+  position: relative;
+  z-index: 1;
+
+  // remove default button styles
+  cursor: pointer;
+  outline: 0;
+
+  &:before {
+    height: 43px;
+    width: 64px;
+    border-radius: 0 8px 0px 0px;
+    background-color: $clr-vulcan;
+    border-right: 6px solid $clr-martinique;
+    border-bottom: 4px solid $clr-martinique;
+    border-top: 4px solid $clr-martinique;
+    content: "";
+    position: absolute;
+    right: -26px;
+    top: -4px;
+    z-index: -1;
+    -webkit-transform: skew(30deg);
+    transform: skew(30deg);
+  }
+  &:first-of-type {
+    margin-left: 8px;
+  }
+
+  &:last-of-type {
+    margin-left: 24px;
+  }
+  &:hover,
+  &:hover:before,
+  &:hover h3 {
+    background-color: $clr-secondary-hover;
+    color: $clr-primary-hover;
+  }
+  &:active,
+  &:active:before,
+  &:active h3 {
+    background-color: $clr-secondary-active;
+    color: $clr-primary-active;
+  }
+}
+
+.Active {
+  border: 4px solid $clr-martinique;
+  background-color: $clr-martinique;
+  z-index: 2;
+  cursor: default;
+
+  &:hover,
+  &:active,
+  &:hover:before,
+  &:active:before,
+  &:hover h3,
+  &:active h3 {
+    background-color: $clr-martinique;
+    color: $clr-primary;
+  }
+
+  &:before {
+    border: 4px solid $clr-martinique;
+    background-color: $clr-martinique;
+  }
+}

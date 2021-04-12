@@ -12,7 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Inconsolata", monospace;
-  font-size: 20px;
+  font-size: $fnt-size-big;
   color: $clr-text;
 }
 
@@ -45,7 +45,7 @@ h3 {
 }
 
 p {
-  line-height: 1.5;
+  line-height: $fnt-lineHeight-big;
   font-weight: 300;
 }
 

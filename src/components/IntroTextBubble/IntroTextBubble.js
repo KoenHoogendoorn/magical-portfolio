@@ -3,7 +3,6 @@ import React from "react";
 import classes from "./IntroTextBubble.module.scss";
 
 const IntroTextBubble = () => {
-  //let IntroTextBubbleClasses = `${classes.TextBubble} ${classes.TextBubbleRectangle}`;
   return (
     <div className={classes.TextBubble}>
       <h1>Well met, traveller. I’m Koen</h1>

@@ -1,0 +1,66 @@
+@import "../../../shared/variables.scss";
+
+.FeaturedProject {
+  height: 428px;
+  position: absolute;
+  width: 33%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  transition: transform 0.5s ease, filter 0.5s ease, z-index 0.5s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    position: relative;
+  }
+
+  .ProjectInformationContainer,
+  h3 {
+    z-index: 2;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+  }
+
+  .ProjectInformationContainer {
+    width: 100%;
+    padding: 16px;
+    background-color: rgba($color: $clr-vulcan, $alpha: 0.75);
+    position: absolute;
+    bottom: 0;
+
+    h3 {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.Inactive {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  z-index: 0;
+  h3 {
+    opacity: 0;
+  }
+
+  .ProjectInformationContainer {
+    opacity: 0;
+  }
+}
+
+.Left {
+  transform: translatex(calc(-100% - 16px)) scale(0.9);
+}
+
+.Center {
+  z-index: 1;
+  transform: translatex(0) scale(1);
+  filter: initial;
+}
+
+.Right {
+  transform: translatex(calc(100% + 16px)) scale(0.9);
+}

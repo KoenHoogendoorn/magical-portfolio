@@ -3,7 +3,7 @@ import classes from "./ToolSelector.module.scss";
 
 import ToolTab from "./ToolTab/ToolTab";
 import Toolbar from "./Toolbar/Toolbar";
-import Taskbar from "./Taskbar/Taskbar";
+import ToolArrowSelector from "./ToolArrowSelector/ToolArrowSelector";
 
 const ToolSelector = (props) => {
   const [activeTab, setActiveTab] = useState("Design");
@@ -61,7 +61,7 @@ const ToolSelector = (props) => {
     }
   };
 
-  // Sets the name in the taskbar below. This useEffect is needed so it also changes when changing tabs or using arrows
+  // Sets the name in the ToolArrowSelector below. This useEffect is needed so it also changes when changing tabs or using arrows
   useEffect(() => {
     if (activeTab === "Design") {
       const activeTool = designTools.find((tool) => tool.active === true);
@@ -143,7 +143,7 @@ const ToolSelector = (props) => {
         setActiveTool={(index) => setActiveTool(index)}
         activeTab={activeTab}
       />
-      <Taskbar
+      <ToolArrowSelector
         activeToolName={activeToolName}
         clickedLeft={() => clickLeftArrowHandler()}
         clickedRight={() => clickRightArrowHandler()}

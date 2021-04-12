@@ -1,6 +1,8 @@
 import React from "react";
 import classes from "./FeaturedProject.module.scss";
 
+import Tag from "../../Tag/Tag";
+
 const FeaturedProject = (props) => {
   let FeaturedProjectClasses = `${classes.FeaturedProject} `;
 
@@ -65,6 +67,7 @@ const FeaturedProject = (props) => {
       <div className={classes.ProjectInformationContainer}>
         <h3>{props.name}</h3>
         <p>{props.tagline}</p>
+        <Tag bgLight={true}>Design</Tag>
       </div>
       <img src={props.image} alt={props.imageAlt}></img>
     </div>

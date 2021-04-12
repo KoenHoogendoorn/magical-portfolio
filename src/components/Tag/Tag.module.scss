@@ -1,0 +1,17 @@
+@import "../../shared/variables.scss";
+
+.Tag {
+  font-size: $fnt-size-small;
+  line-height: $fnt-lineHeight-small;
+  font-weight: bold;
+  padding: 4px 8px;
+  background-color: $clr-vulcan;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  display: initial;
+}
+
+.BgLight {
+  background-color: $clr-martinique;
+}

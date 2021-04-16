@@ -1,8 +1,8 @@
 import React from "react";
 import classes from "./ToolArrowSelector.module.scss";
 
-import ArrowLeft from "../../Arrows/ArrowLeft";
-import ArrowRight from "../../Arrows/ArrowRight";
+import ArrowLeft from "../../ArrowSelector/Arrows/ArrowLeft";
+import ArrowRight from "../../ArrowSelector/Arrows/ArrowRight";
 
 const ToolArrowSelector = (props) => (
   <div className={classes.ToolArrowSelector}>

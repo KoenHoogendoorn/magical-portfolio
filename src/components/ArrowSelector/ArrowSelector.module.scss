@@ -1,9 +1,10 @@
-@import "../../../shared/variables.scss";
+@import "../../shared/variables.scss";
 
-.FeaturedProjectsArrowSelector {
+.ArrowSelector {
   width: 100%;
   margin-top: 16px;
   display: flex;
+  position: initial;
   justify-content: center;
 }
 
@@ -18,6 +19,6 @@
   border-radius: 8px;
 }
 
-#FeaturedProjectsButton {
-  width: 33%;
-}
+// #FeaturedProjectsButton {
+//   width: 33%;
+// }

@@ -6,13 +6,13 @@ import StefanoKeizersImg from "../../assets/home/project-previews/StefanoKeizers
 import KinderImg from "../../assets/home/project-previews/Kinder-selector.jpg";
 
 import FeaturedProject from "./FeaturedProject/FeaturedProject";
-import FeaturedProjectsArrowSelector from "./FeaturedProjectsArrowSelector/FeaturedProjectsArrowSelector";
+import ArrowSelector from "../ArrowSelector/ArrowSelector";
 
 const FeaturedProjects = (props) => {
-  const [activeProjectId, setActiveProjectId] = useState("id1");
+  const [activeProjectId, setActiveProjectId] = useState("fp1");
   const [featuredProjects, setFeaturedProjects] = useState([
     {
-      id: "id0",
+      id: "fp0",
       name: "Jelle Kuiper",
       tagline: "A theater producer and marriage officiant",
       image: JelleKuiperImg,
@@ -21,7 +21,7 @@ const FeaturedProjects = (props) => {
       active: false
     },
     {
-      id: "id1",
+      id: "fp1",
       name: "Stefano Keizers",
       tagline: "Comedian, TV host, writer and all-round artist",
       image: StefanoKeizersImg,
@@ -30,7 +30,7 @@ const FeaturedProjects = (props) => {
       active: true
     },
     {
-      id: "id2",
+      id: "fp2",
       name: "Kinder",
       tagline: "Improving the charitable sector and creating a Kinder world",
       image: KinderImg,
@@ -88,7 +88,6 @@ const FeaturedProjects = (props) => {
       key={project.id}
       id={project.id}
       clicked={() => setActiveProject(index)}
-      featuredProjects={featuredProjects}
       name={project.name}
       tagline={project.tagline}
       image={project.image}
@@ -101,7 +100,8 @@ const FeaturedProjects = (props) => {
   return (
     <div className={classes.FeaturedProjects}>
       <div className={classes.PreviewImages}>{projects}</div>
-      <FeaturedProjectsArrowSelector
+      <ArrowSelector
+        style={{ width: "33%" }}
         clickedLeft={() => clickLeftArrowHandler()}
         clickedRight={() => clickRightArrowHandler()}
       />

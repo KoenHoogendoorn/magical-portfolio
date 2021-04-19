@@ -2,11 +2,12 @@ import React from "react";
 import classes from "./DndProjectSelector.module.scss";
 
 import ArrowSelector from "../ArrowSelector/ArrowSelector";
-import DndProject from "./DndProjects/DndProject/DndProject";
+// import DndProject from "./DndProjects/DndProject/DndProject";
+import ProjectCard from "../ProjectCard/ProjectCard";
 
 const DndProjectSelector = (props) => {
   const projects = props.dndProjects.map((project) => (
-    <DndProject
+    <ProjectCard
       key={project.id}
       id={project.id}
       logo={project.logo}
@@ -15,6 +16,7 @@ const DndProjectSelector = (props) => {
       position={project.position}
       development={project.development}
       hidden={project.hidden}
+      dndSection={true}
     />
   ));
 

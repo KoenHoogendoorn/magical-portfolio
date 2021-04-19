@@ -35,11 +35,13 @@ const DndSection = (props) => {
   ]);
 
   useEffect(() => {
+    //create 2 copies before and after the actual content
     let projects = [...dndProjects];
 
     let clonedProjectsBefore = [];
     let clonedProjectsAfter = [];
 
+    //give them id's and add them to array
     projects.forEach((project) => {
       const newIdBefore = project.id + "A";
       const beforeClone = { ...project };
@@ -55,14 +57,67 @@ const DndSection = (props) => {
     });
 
     projects = clonedProjectsBefore.concat(projects, clonedProjectsAfter);
-    //eerste en laatste onzichtbaar maken
+
+    //make first and last one hidden
     projects[0].hidden = true;
     projects[projects.length - 1].hidden = true;
 
     setDndProjects(projects);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const clickedLeft = () => {
+    let projects = [...dndProjects];
+
+    const currentActiveIdIndex = projects.findIndex(
+      (project) => project.id === activeProjectId
+    );
+
+    switch (currentActiveIdIndex) {
+      case 2:
+        projects[projects.length - 1].hidden = true;
+        projects[projects.length - 1].position = "left";
+        // --
+        projects[currentActiveIdIndex - 2].hidden = false;
+        break;
+      case 1:
+        projects[projects.length - 2].hidden = true;
+        projects[projects.length - 2].position = "left";
+        // --
+        projects[projects.length - 1].hidden = false;
+        break;
+      case 0:
+        projects[projects.length - 3].hidden = true;
+        projects[projects.length - 3].position = "left";
+        // --
+        projects[projects.length - 2].hidden = false;
+        break;
+
+      default:
+        projects[currentActiveIdIndex - 3].hidden = true;
+        projects[currentActiveIdIndex - 3].position = "left";
+        // --
+        projects[currentActiveIdIndex - 2].hidden = false;
+        break;
+    }
+
+    // setting new id
+    let newActiveIdIndex;
+    if (currentActiveIdIndex === 0) {
+      newActiveIdIndex = projects.length - 1;
+    } else {
+      newActiveIdIndex = currentActiveIdIndex - 1;
+    }
+    const newActiveId = projects[newActiveIdIndex].id;
+    setActiveProjectId(newActiveId);
+
+    // sliding cards
+    projects[currentActiveIdIndex].position = "right";
+    projects[newActiveIdIndex].position = "center";
+    setDndProjects(projects);
+  };
+
+  const clickedRight = () => {
     let projects = [...dndProjects];
 
     const currentActiveIdIndex = projects.findIndex(
@@ -109,60 +164,6 @@ const DndSection = (props) => {
 
     // sliding cards
     projects[currentActiveIdIndex].position = "left";
-    projects[newActiveIdIndex].position = "center";
-    setDndProjects(projects);
-  };
-
-  const clickedRight = () => {
-    let projects = [...dndProjects];
-
-    const currentActiveIdIndex = projects.findIndex(
-      (project) => project.id === activeProjectId
-    );
-
-    // cant clone & unshift because transform doesn't work  if indexes change
-    // active index - 3 -> change position to left and make hidden
-    // active index - 2 -> make visible
-    switch (currentActiveIdIndex) {
-      case 2:
-        projects[projects.length - 1].hidden = true;
-        projects[projects.length - 1].position = "left";
-        // --
-        projects[currentActiveIdIndex - 2].hidden = false;
-        break;
-      case 1:
-        projects[projects.length - 2].hidden = true;
-        projects[projects.length - 2].position = "left";
-        // --
-        projects[projects.length - 1].hidden = false;
-        break;
-      case 0:
-        projects[projects.length - 3].hidden = true;
-        projects[projects.length - 3].position = "left";
-        // --
-        projects[projects.length - 2].hidden = false;
-        break;
-
-      default:
-        projects[currentActiveIdIndex - 3].hidden = true;
-        projects[currentActiveIdIndex - 3].position = "left";
-        // --
-        projects[currentActiveIdIndex - 2].hidden = false;
-        break;
-    }
-
-    // setting new id
-    let newActiveIdIndex;
-    if (currentActiveIdIndex === 0) {
-      newActiveIdIndex = projects.length - 1;
-    } else {
-      newActiveIdIndex = currentActiveIdIndex - 1;
-    }
-    const newActiveId = projects[newActiveIdIndex].id;
-    setActiveProjectId(newActiveId);
-
-    // sliding cards
-    projects[currentActiveIdIndex].position = "right";
     projects[newActiveIdIndex].position = "center";
     setDndProjects(projects);
   };

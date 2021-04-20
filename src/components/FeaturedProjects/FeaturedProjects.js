@@ -7,7 +7,7 @@ import FeaturedProject from "./FeaturedProject/FeaturedProject";
 import ArrowSelector from "../ArrowSelector/ArrowSelector";
 
 const FeaturedProjects = (props) => {
-  const [activeProjectId, setActiveProjectId] = useState("fp1");
+  const [activeProjectId, setActiveProjectId] = useState("fp-sk");
 
   const setActiveProject = (index) => {
     props.setActiveFeaturedProjectHandler(index);

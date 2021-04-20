@@ -10,7 +10,7 @@ import HitpointCalculatorLogo from "../../assets/home/dnd-projects-logos/Hitpoin
 const initialState = {
   featuredProjects: [
     {
-      id: "fp0",
+      id: "fp-jk",
       name: "Jelle Kuiper",
       tagline: "A theater producer and marriage officiant",
       image: JelleKuiperImg,
@@ -19,7 +19,7 @@ const initialState = {
       active: false
     },
     {
-      id: "fp1",
+      id: "fp-sk",
       name: "Stefano Keizers",
       tagline: "Comedian, TV host, writer and all-round artist",
       image: StefanoKeizersImg,
@@ -28,7 +28,7 @@ const initialState = {
       active: true
     },
     {
-      id: "fp2",
+      id: "fp-ki",
       name: "Kinder",
       tagline: "Improving the charitable sector and creating a Kinder world",
       image: KinderImg,

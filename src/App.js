@@ -3,7 +3,7 @@ import HomeWrapper from "./containers/HomeWrapper/HomeWrapper";
 function App() {
   return (
     <div className="App">
-      <HomeWrapper />
+      <HomeWrapper dev={true} />
     </div>
   );
 }

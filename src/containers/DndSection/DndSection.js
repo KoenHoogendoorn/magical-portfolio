@@ -5,7 +5,6 @@ import * as actions from "../../store/actions/actionIndex";
 import classes from "./DndSection.module.scss";
 
 import isometricMap from "../../assets/home/isometric-Illustration/isometric-selector.png";
-
 import DndProjectSelector from "../../components/DndProjectSelector/DndProjectSelector";
 import IsometricMapDots from "../../components/IsometricMapDots/IsometricMapDots";
 

@@ -13,9 +13,9 @@ const DndSection = (props) => {
 
   const { cloneDndProjectsHandler } = props;
 
-  useEffect(() => {
-    cloneDndProjectsHandler();
-  }, [cloneDndProjectsHandler]);
+  // useEffect(() => {
+  //   cloneDndProjectsHandler();
+  // }, [cloneDndProjectsHandler]);
 
   const clickedLeft = () => {
     let projects = [...props.dndProjects];

@@ -16,6 +16,7 @@ const initialState = {
       image: JelleKuiperImg,
       imageAlt: "Jelle Kuiper officiating a wedding ceremony",
       position: "left",
+      development: false,
       active: false
     },
     {
@@ -25,6 +26,7 @@ const initialState = {
       image: StefanoKeizersImg,
       imageAlt: "Stefano Keizers without shirt staring forward menacingly",
       position: "center",
+      development: false,
       active: true
     },
     {
@@ -35,6 +37,7 @@ const initialState = {
       imageAlt:
         "Koen Hoogendoorn wearing a Kinder shirt at a reception desk helping people",
       position: "right",
+      development: false,
       active: false
     }
   ],

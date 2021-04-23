@@ -7,7 +7,7 @@ import Button from "../../components/Button/Button";
 
 const AdditionalProjectsSection = (props) => {
   const projects = props.additionalProjects.map((project) => (
-    <div className={classes.AdditionalProject}>
+    <div key={`div-${project.id}`} className={classes.AdditionalProject}>
       <ProjectCard
         key={project.id}
         name={project.name}

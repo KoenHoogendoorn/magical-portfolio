@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import classes from "./AdditionalProjectsSection.module.scss";
 
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
@@ -16,7 +17,9 @@ const AdditionalProjectsSection = (props) => {
         development={project.development}
         dndSection={false}
       />
-      <Button>Read more</Button>
+      <Link to={`/${project.name.replace(/ +/g, "-").toLowerCase()}`}>
+        <Button priority={"primary"}>Read more</Button>
+      </Link>
     </div>
   ));
 

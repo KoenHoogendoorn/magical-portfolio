@@ -1,32 +1,15 @@
-TEST DRAGON
+![Koen sitting at a table playing Dungeons and Dragons](ProjectsImages/DragonsQuill/DragonsQuill-playingPhoto.jpg)
 
-//----ALLE IMAGES MOETEN NAAR EEN PUBLIC FOLDER WORDEN GEZET EN DAN ![alt text](Favicons/favicon-16x16.png)
+### What is D&D?
 
-### testheader
+Dungeons and Dragons is a role playing game where people take control of heroes in a fantasy world. Using improv, imagination and dicerolls they weave a collaborative story. The group is guided through this bij the ’Dungeon master’ (DM). They prepare and describe the world, play all of its characters (including the creatures you’ll fight) and oversee the rules.
 
-Jelle is a versatile public speaker. He officiates weddings and provides comic relief during business conferences. Besides that, he also produces theater shows. The challenge was to create a website that addresses all of these different services that he provides.
+In my D&D groups, I’m the DM. Preparing game sessions can get pretty confusing. There’s a lot going on in our imaginary world and a lot of possible ways the group can choose to go. I like to write down the possible people they could meet or possible places they could visit at the top of my google document. When I'm actually writing out possible scenes and I need to look up details from a person, I eventually get lost and frustrated by all the scrolling. This is why I created a system that uses digital index cards. The subjects of these cards can be linked to while writing out scenes so you can quickly find the relevant information.
 
-To get the creative juices flowing, I presented websites of Jelle’s competitors and different styles of websites to him in our first meeting. He commented on what he liked and disliked and shared what he thought was important on his website. Together we formulated 5 requirements.
+![Mockup of the Dragon's Quill project](ProjectsImages/DragonsQuill/DragonsQuill-mockup.png)
 
-**1. Clearly show and explain that there are three different services Jelle is offering**
-To show the way he takes on different services, I chose to show his main characteristics as USP’s at each job section. This makes the site feel more personal and convinces people to hire him for each specific job. Also, that way people understand that the weddings Jelle officiates (which are described as: personal, humorous, relaxed) have a different feeling to them than the plays he produces (which are described as: creative, touching, radical).
+After taking an online React course, this was the first project I created. First I designed it in Figma and then developed it in React. It made me more comfortable with coding and really put me to the test of doing a project from beginning to end.
 
-![alt txt](src\assets\JelleKuiper\JelleKuiper-site-mockup.png)
+After creating a demo, I showed it to my target audience. In a subreddit dedicated to DM’s, I finally showed it to people other than my friends. They loved it. It got a lot more upvotes than the average post on this subreddit and people were asking me to keep them updated so they could use it when it goes live.
 
-<!-- ![alt text](http://localhost:3000/static/media/JelleKuiper-site-mockup.34d34dd4.png) -->
-
-**2. Make sure the detailpages stand on their own**
-Based on data from Jelle's previous website, a lot of people come to his site directed from wedding and corporate speaker sites. These are people who are often interested in one specific service that is offered. This means the detail pages should explain everything they need to know about Jelle and what he’s offering without needing to see the homepage.
-
-![alt tedsafxt](../src/assets/JelleKuiper/JelleKuiper-site-mockup.png)
-
-**3. Give a small taste of other services I’m offering on the detail pages to show my wider skillset**
-Previously, Jelle has had referrals to officiate a wedding after having done a speech at a conference. This is why it was important to let people from one target audience know what else is offered.
-
-**4. Give a sense of trust to convince people Jelle is good at what he does**
-After explaining what it actually is that Jelle does, it’s important to build some extra trust before showing a contact form. That’s why a slider with positive testimonials and a section with impressive statistics are on almost every detailpage.
-
-**5. Make it easy for people to get in contact**
-The main goal of the website is for people to get in contact with Jelle to hire him. That’s why there is a contact form on every page. Because they are at the bottom of the page, a button was added to the main navigation that really stands out. This way it’s always within reach.
-
-In this project I was the project manager and overall designer. Together with another developer we brought my ideas to life.
+A prototype of this project can be found [here](https://dragons-quill.web.app/).

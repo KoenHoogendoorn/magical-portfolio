@@ -1,8 +1,7 @@
 @import "../../shared/variables.scss";
 
 .Button {
-  padding: 12px 32px;
-  background: $clr-primary;
+  padding: 12px 24px;
   -webkit-border-radius: 16px;
   -moz-border-radius: 16px;
   border-radius: 16px;
@@ -15,10 +14,39 @@
   outline: 0;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
+  i {
+    font-size: 18px;
+  }
+}
+
+.Primary {
+  background: $clr-primary;
+  color: $clr-secondary;
+
   &:hover {
     background-color: $clr-primary-hover;
+    color: $clr-secondary-hover;
   }
   &:active {
     background-color: $clr-primary-active;
+    color: $clr-secondary-active;
+  }
+}
+
+.Secondary {
+  background: $clr-secondary;
+  color: $clr-primary;
+  border: 2px solid $clr-primary;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: $clr-secondary-hover;
+    color: $clr-primary-hover;
+    border: 2px solid $clr-primary-hover;
+  }
+  &:active {
+    background-color: $clr-secondary-active;
+    color: $clr-primary-active;
+    border: 2px solid $clr-primary-active;
   }
 }

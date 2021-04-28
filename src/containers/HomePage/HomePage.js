@@ -1,7 +1,6 @@
 import React from "react";
-// import classes from "./HomePage.module.scss";
+import classes from "./HomePage.module.scss";
 
-import MainWrapper from "../../components/MainWrapper/MainWrapper";
 import IntroductionToolsSection from "../IntroductionToolsSection/IntroductionToolsSection";
 import TextBubbleAvatar from "../../components/TextBubbleAvatar/TextBubbleAvatar";
 import FeaturedProjects from "../../components/FeaturedProjects/FeaturedProjects";
@@ -10,8 +9,7 @@ import AdditionalProjectsSection from "../AdditionalProjectsSection/AdditionalPr
 import SignOffSection from "../SignOffSection/SignOffSection";
 
 const HomePage = (props) => (
-  // <div className={classes.Body}>
-  <MainWrapper>
+  <div className={classes.HomePage}>
     <IntroductionToolsSection />
     <TextBubbleAvatar avatarLeft={false}>
       <h2>These are some of the projects I’m proud of</h2>
@@ -28,8 +26,7 @@ const HomePage = (props) => (
     </TextBubbleAvatar>
     <AdditionalProjectsSection />
     <SignOffSection />
-  </MainWrapper>
-  // </div>
+  </div>
 );
 
 export default HomePage;

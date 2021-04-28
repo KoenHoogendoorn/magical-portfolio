@@ -52,4 +52,11 @@ p {
 a {
   font-weight: bold;
   color: $clr-primary;
+
+  &:hover {
+    color: $clr-primary-hover;
+  }
+  &:active {
+    color: $clr-primary-active;
+  }
 }

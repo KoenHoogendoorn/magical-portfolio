@@ -8,11 +8,17 @@ import ArrowSelector from "../ArrowSelector/ArrowSelector";
 
 const FeaturedProjects = (props) => {
   const [activeProjectId, setActiveProjectId] = useState("fp-sk");
+  const [selectedProjectPath, setSelectedProjectPath] = useState(
+    "/stefano-keizers"
+  );
 
   const setActiveProject = (index) => {
     props.setActiveFeaturedProjectHandler(index);
     const clickedProject = { ...props.featuredProjects[index] };
     setActiveProjectId(clickedProject.id);
+    setSelectedProjectPath(
+      `/${clickedProject.name.replace(/ +/g, "-").toLowerCase()}`
+    );
   };
 
   const clickLeftArrowHandler = () => {
@@ -62,6 +68,7 @@ const FeaturedProjects = (props) => {
       <div className={classes.PreviewImages}>{projects}</div>
       <ArrowSelector
         style={{ width: "33%" }}
+        selectedProjectPath={selectedProjectPath}
         clickedLeft={() => clickLeftArrowHandler()}
         clickedRight={() => clickRightArrowHandler()}
       />

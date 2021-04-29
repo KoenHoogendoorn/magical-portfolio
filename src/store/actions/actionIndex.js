@@ -1,6 +1,1 @@
-export {
-  setActiveFeaturedProject,
-  cloneDndProjects,
-  clickedLeftDnd,
-  clickedRightDnd
-} from "./contentData.js";
+export { setActiveFeaturedProject } from "./contentData.js";

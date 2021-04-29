@@ -28,6 +28,7 @@
   .ProjectInformationContainer {
     width: 100%;
     padding: 16px;
+    border-radius: 0 0 16px 16px;
     background-color: rgba($color: $clr-vulcan, $alpha: 0.75);
     position: absolute;
     bottom: 0;
@@ -41,6 +42,24 @@
       line-height: $fnt-lineHeight-medium;
       margin-bottom: 8px;
     }
+  }
+
+  svg {
+    position: absolute;
+    margin-left: calc(-100% - 8px);
+    margin-top: -10px;
+    path {
+      stroke: $clr-butteryWhite;
+    }
+  }
+
+  .ActiveSvg {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+
+  .InactiveSvg {
+    opacity: 0;
   }
 }
 

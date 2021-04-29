@@ -25,6 +25,7 @@ const DndProjectSelector = (props) => {
       <div className={classes.DndProjects}>{projects}</div>
       <div className={classes.ArrowSelector}>
         <ArrowSelector
+          selectedProjectPath={props.selectedProjectPath}
           style={{ width: "100%" }}
           clickedLeft={props.clickedLeft}
           clickedRight={props.clickedRight}

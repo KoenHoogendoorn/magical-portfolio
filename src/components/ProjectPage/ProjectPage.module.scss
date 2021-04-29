@@ -1,0 +1,78 @@
+@import "../../shared/variables.scss";
+
+.ProjectPage {
+  box-sizing: border-box;
+  width: 968px; //720 + 120 padding + 4 border
+  margin: 0 auto;
+  padding: 95px 0 160px 0; //160 - 49 button - 16 space between button and box
+
+  .ProjectContentContainer {
+    margin-top: 16px;
+    padding: 80px 120px;
+    border: 4px solid $clr-martinique;
+    background-color: $clr-vulcan;
+    border-radius: 8px;
+
+    .Tags {
+      margin-top: 12px;
+    }
+
+    .ProjectContent {
+      margin-top: 32px;
+
+      p {
+        margin-bottom: 32px;
+
+        img {
+          width: 100%;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      h3 {
+        margin-bottom: 8px;
+      }
+    }
+  }
+  nav {
+    margin-top: 16px;
+    font-size: $fnt-size-small;
+    line-height: $fnt-lineHeight-small;
+    font-weight: 700;
+
+    .ProjectLink {
+      color: $clr-butteryWhite;
+      text-decoration: none;
+      opacity: 0.4;
+
+      &:hover {
+        color: $clr-primary;
+        opacity: 1;
+      }
+      &:active {
+        color: $clr-primary-hover;
+        opacity: 1;
+      }
+    }
+    .ActiveProjectLink {
+      color: $clr-primary;
+      opacity: 1;
+      text-decoration: underline;
+      &:active {
+        color: $clr-primary-hover;
+        opacity: 1;
+      }
+    }
+
+    .Slash {
+      opacity: 0.4;
+
+      &:last-of-type {
+        display: none;
+      }
+    }
+  }
+}

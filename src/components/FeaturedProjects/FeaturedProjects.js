@@ -1,62 +1,28 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../store/actions/actionIndex";
 import classes from "./FeaturedProjects.module.scss";
-
-import JelleKuiperImg from "../../assets/home/project-previews/JelleKuiper-selector.jpg";
-import StefanoKeizersImg from "../../assets/home/project-previews/StefanoKeizers-selector.jpg";
-import KinderImg from "../../assets/home/project-previews/Kinder-selector.jpg";
 
 import FeaturedProject from "./FeaturedProject/FeaturedProject";
 import ArrowSelector from "../ArrowSelector/ArrowSelector";
 
 const FeaturedProjects = (props) => {
-  const [activeProjectId, setActiveProjectId] = useState("fp1");
-  const [featuredProjects, setFeaturedProjects] = useState([
-    {
-      id: "fp0",
-      name: "Jelle Kuiper",
-      tagline: "A theater producer and marriage officiant",
-      image: JelleKuiperImg,
-      imageAlt: "Jelle Kuiper officiating a wedding ceremony",
-      position: "left",
-      active: false
-    },
-    {
-      id: "fp1",
-      name: "Stefano Keizers",
-      tagline: "Comedian, TV host, writer and all-round artist",
-      image: StefanoKeizersImg,
-      imageAlt: "Stefano Keizers without shirt staring forward menacingly",
-      position: "center",
-      active: true
-    },
-    {
-      id: "fp2",
-      name: "Kinder",
-      tagline: "Improving the charitable sector and creating a Kinder world",
-      image: KinderImg,
-      imageAlt:
-        "Koen Hoogendoorn wearing a Kinder shirt at a reception desk helping people",
-      position: "right",
-      active: false
-    }
-  ]);
+  const [activeProjectId, setActiveProjectId] = useState("fp-sk");
+  const [selectedProjectPath, setSelectedProjectPath] = useState(
+    "/stefano-keizers"
+  );
 
   const setActiveProject = (index) => {
-    let projects = [...featuredProjects];
-    let clickedProject = { ...projects[index] };
-
-    projects.forEach((project) => {
-      project.active = false;
-    });
-    clickedProject.active = true;
-    projects[index] = clickedProject;
-
+    props.setActiveFeaturedProjectHandler(index);
+    const clickedProject = { ...props.featuredProjects[index] };
     setActiveProjectId(clickedProject.id);
-    setFeaturedProjects(projects);
+    setSelectedProjectPath(
+      `/${clickedProject.name.replace(/ +/g, "-").toLowerCase()}`
+    );
   };
 
   const clickLeftArrowHandler = () => {
-    const activeProjectIndex = featuredProjects.findIndex(
+    const activeProjectIndex = props.featuredProjects.findIndex(
       (project) => project.active === true
     );
     let newActiveProjectIndex;
@@ -64,18 +30,18 @@ const FeaturedProjects = (props) => {
     if (activeProjectIndex > 0) {
       newActiveProjectIndex = activeProjectIndex - 1;
     } else {
-      newActiveProjectIndex = featuredProjects.length - 1;
+      newActiveProjectIndex = props.featuredProjects.length - 1;
     }
     setActiveProject(newActiveProjectIndex);
   };
 
   const clickRightArrowHandler = () => {
-    const activeProjectIndex = featuredProjects.findIndex(
+    const activeProjectIndex = props.featuredProjects.findIndex(
       (project) => project.active === true
     );
     let newActiveProjectIndex;
 
-    if (activeProjectIndex < featuredProjects.length - 1) {
+    if (activeProjectIndex < props.featuredProjects.length - 1) {
       newActiveProjectIndex = activeProjectIndex + 1;
     } else {
       newActiveProjectIndex = 0;
@@ -83,7 +49,7 @@ const FeaturedProjects = (props) => {
     setActiveProject(newActiveProjectIndex);
   };
 
-  const projects = featuredProjects.map((project, index) => (
+  const projects = props.featuredProjects.map((project, index) => (
     <FeaturedProject
       key={project.id}
       id={project.id}
@@ -102,6 +68,7 @@ const FeaturedProjects = (props) => {
       <div className={classes.PreviewImages}>{projects}</div>
       <ArrowSelector
         style={{ width: "33%" }}
+        selectedProjectPath={selectedProjectPath}
         clickedLeft={() => clickLeftArrowHandler()}
         clickedRight={() => clickRightArrowHandler()}
       />
@@ -109,4 +76,17 @@ const FeaturedProjects = (props) => {
   );
 };
 
-export default FeaturedProjects;
+const mapStateToProps = (state) => {
+  return {
+    featuredProjects: state.featuredProjects
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setActiveFeaturedProjectHandler: (index) =>
+      dispatch(actions.setActiveFeaturedProject(index))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FeaturedProjects);

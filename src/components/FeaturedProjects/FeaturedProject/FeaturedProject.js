@@ -6,15 +6,15 @@ import Tag from "../../Tag/Tag";
 const FeaturedProject = (props) => {
   let FeaturedProjectClasses = `${classes.FeaturedProject} `;
 
-  if (props.activeProjectId === "fp0") {
+  if (props.activeProjectId === "fp-jk") {
     switch (props.id) {
-      case "fp2":
+      case "fp-ki":
         FeaturedProjectClasses += `${classes.Left} `;
         break;
-      case "fp1":
+      case "fp-sk":
         FeaturedProjectClasses += `${classes.Right} `;
         break;
-      case "fp0":
+      case "fp-jk":
         FeaturedProjectClasses += `${classes.Center} `;
         break;
       default:
@@ -22,15 +22,15 @@ const FeaturedProject = (props) => {
     }
   }
 
-  if (props.activeProjectId === "fp1") {
+  if (props.activeProjectId === "fp-sk") {
     switch (props.id) {
-      case "fp0":
+      case "fp-jk":
         FeaturedProjectClasses += `${classes.Left} `;
         break;
-      case "fp2":
+      case "fp-ki":
         FeaturedProjectClasses += `${classes.Right} `;
         break;
-      case "fp1":
+      case "fp-sk":
         FeaturedProjectClasses += `${classes.Center} `;
         break;
       default:
@@ -38,15 +38,15 @@ const FeaturedProject = (props) => {
     }
   }
 
-  if (props.activeProjectId === "fp2") {
+  if (props.activeProjectId === "fp-ki") {
     switch (props.id) {
-      case "fp1":
+      case "fp-sk":
         FeaturedProjectClasses += `${classes.Left} `;
         break;
-      case "fp0":
+      case "fp-jk":
         FeaturedProjectClasses += `${classes.Right} `;
         break;
-      case "fp2":
+      case "fp-ki":
         FeaturedProjectClasses += `${classes.Center} `;
         break;
       default:

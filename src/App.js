@@ -1,11 +1,99 @@
-import HomeWrapper from "./containers/HomeWrapper/HomeWrapper";
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <HomeWrapper />
-    </div>
+import classes from "./App.module.scss";
+
+import HomePage from "./containers/HomePage/HomePage";
+import ProjectPage from "./components/ProjectPage/ProjectPage";
+import LoadingGif from "./assets/home/Loading.gif";
+
+function App(props) {
+  const [projectsTexts, setProjectsTexts] = useState(null);
+
+  // get projects markdown content
+  const importAll = (r) => r.keys().map(r);
+  const markdownFiles = importAll(
+    require.context("./assets/ProjectsContent", false, /\.md$/)
   );
+
+  useEffect(() => {
+    const fetchFiles = async () => {
+      const files = await Promise.all(
+        markdownFiles.map((file) =>
+          fetch(file.default).then((res) => res.text())
+        )
+      ).catch((err) => console.error(err));
+
+      setProjectsTexts(files);
+    };
+    fetchFiles();
+  }, [markdownFiles]);
+
+  // get projects metadata
+  const fprojects = [...props.featuredProjects];
+  const dprojects = [...props.dndProjects];
+  const aprojects = [...props.additionalProjects];
+
+  let allProjects = fprojects.concat(dprojects.concat(aprojects));
+  let projects;
+
+  if (projectsTexts !== null) {
+    allProjects.forEach(
+      (project, index) => (project.content = projectsTexts[index])
+    );
+
+    projects = allProjects.map((project) => (
+      <Route
+        key={`R-${project.id}`}
+        path={`/${project.name.replace(/ +/g, "-").toLowerCase()}`}
+        exact
+      >
+        <ProjectPage
+          key={project.id}
+          id={project.id}
+          name={project.name}
+          tagline={project.tagline}
+          development={project.development}
+          content={project.content}
+        />
+      </Route>
+    ));
+  }
+
+  let content;
+
+  if (projectsTexts !== null) {
+    content = (
+      <div className="App">
+        <Switch>
+          {projects}
+          <Route path="/" exact component={HomePage} />
+          <Redirect to="/" />
+        </Switch>
+      </div>
+    );
+  } else {
+    content = (
+      <div className="App">
+        <img
+          className={classes.LoadingGif}
+          src={LoadingGif}
+          alt={"Loading..."}
+        ></img>
+      </div>
+    );
+  }
+
+  return content;
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    featuredProjects: state.featuredProjects,
+    dndProjects: state.dndProjects,
+    additionalProjects: state.additionalProjects
+  };
+};
+
+export default withRouter(connect(mapStateToProps)(App));

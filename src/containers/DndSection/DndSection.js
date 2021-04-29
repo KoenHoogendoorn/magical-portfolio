@@ -1,48 +1,28 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+
 import classes from "./DndSection.module.scss";
 
-import DragonsQuillLogo from "../../assets/home/dnd-projects-logos/DragonsQuillLogo.png";
-import HitpointCalculatorLogo from "../../assets/home/dnd-projects-logos/HitpointCalculatorLogo.png";
 import isometricMap from "../../assets/home/isometric-Illustration/isometric-selector.png";
-
 import DndProjectSelector from "../../components/DndProjectSelector/DndProjectSelector";
 import IsometricMapDots from "../../components/IsometricMapDots/IsometricMapDots";
 
 const DndSection = (props) => {
   const [activeProjectId, setActiveProjectId] = useState("dnd-dq");
-  const [dndProjects, setDndProjects] = useState([
-    {
-      id: "dnd-dq",
-      name: "Dragon's Quill",
-      logo: DragonsQuillLogo,
-      alt: "Dragon's Quill logo",
-      tagline: "Helps people write structured RPG adventures",
-      position: "center",
-      development: true,
-      hidden: false
-    },
-    {
-      id: "dnd-hc",
-      name: "Hitpoint Calculator",
-      logo: HitpointCalculatorLogo,
-      alt: "Hitpoint Calculator logo",
-      tagline:
-        "Helps people who suck at math to track hitpoints in D&D battles",
-      position: "right",
-      development: false,
-      hidden: false
-    }
-  ]);
+  const [selectedProjectPath, setSelectedProjectPath] = useState(
+    "/dragon's-quill"
+  );
+  const [dndProjectsCopy, setDndProjectsCopy] = useState([]);
 
   useEffect(() => {
     //create 2 copies before and after the actual content
-    let projects = [...dndProjects];
+    let dndProjects = [...props.dndProjects];
 
     let clonedProjectsBefore = [];
     let clonedProjectsAfter = [];
 
     //give them id's and add them to array
-    projects.forEach((project) => {
+    dndProjects.forEach((project) => {
       const newIdBefore = project.id + "A";
       const beforeClone = { ...project };
       beforeClone.id = newIdBefore;
@@ -56,29 +36,43 @@ const DndSection = (props) => {
       clonedProjectsAfter.push(afterClone);
     });
 
-    projects = clonedProjectsBefore.concat(projects, clonedProjectsAfter);
+    dndProjects = clonedProjectsBefore.concat(dndProjects, clonedProjectsAfter);
 
     //make first and last one hidden
-    projects[0].hidden = true;
-    projects[projects.length - 1].hidden = true;
+    dndProjects[0].hidden = true;
+    dndProjects[dndProjects.length - 1].hidden = true;
 
-    setDndProjects(projects);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    //create a local state to not influence the reducer store
+    setDndProjectsCopy(dndProjects);
+  }, [props.dndProjects]);
 
   const clickedLeft = () => {
-    let projects = [...dndProjects];
+    let projects = [...dndProjectsCopy];
 
-    const currentActiveIdIndex = projects.findIndex(
+    const activeProjectIndex = projects.findIndex(
       (project) => project.id === activeProjectId
     );
 
-    switch (currentActiveIdIndex) {
+    // setting new active id
+    let newActiveProjectIndex;
+    if (activeProjectIndex === 0) {
+      newActiveProjectIndex = projects.length - 1;
+    } else {
+      newActiveProjectIndex = activeProjectIndex - 1;
+    }
+
+    const newActiveProject = projects[newActiveProjectIndex];
+    setActiveProjectId(newActiveProject.id);
+    setSelectedProjectPath(
+      `/${newActiveProject.name.replace(/ +/g, "-").toLowerCase()}`
+    );
+
+    switch (activeProjectIndex) {
       case 2:
         projects[projects.length - 1].hidden = true;
         projects[projects.length - 1].position = "left";
         // --
-        projects[currentActiveIdIndex - 2].hidden = false;
+        projects[activeProjectIndex - 2].hidden = false;
         break;
       case 1:
         projects[projects.length - 2].hidden = true;
@@ -94,42 +88,46 @@ const DndSection = (props) => {
         break;
 
       default:
-        projects[currentActiveIdIndex - 3].hidden = true;
-        projects[currentActiveIdIndex - 3].position = "left";
+        projects[activeProjectIndex - 3].hidden = true;
+        projects[activeProjectIndex - 3].position = "left";
         // --
-        projects[currentActiveIdIndex - 2].hidden = false;
+        projects[activeProjectIndex - 2].hidden = false;
         break;
     }
 
-    // setting new id
-    let newActiveIdIndex;
-    if (currentActiveIdIndex === 0) {
-      newActiveIdIndex = projects.length - 1;
-    } else {
-      newActiveIdIndex = currentActiveIdIndex - 1;
-    }
-    const newActiveId = projects[newActiveIdIndex].id;
-    setActiveProjectId(newActiveId);
-
     // sliding cards
-    projects[currentActiveIdIndex].position = "right";
-    projects[newActiveIdIndex].position = "center";
-    setDndProjects(projects);
+    projects[activeProjectIndex].position = "right";
+    projects[newActiveProjectIndex].position = "center";
+    setDndProjectsCopy(projects);
   };
 
   const clickedRight = () => {
-    let projects = [...dndProjects];
+    let projects = [...dndProjectsCopy];
 
-    const currentActiveIdIndex = projects.findIndex(
+    const activeProjectIndex = projects.findIndex(
       (project) => project.id === activeProjectId
     );
 
-    switch (currentActiveIdIndex) {
+    // setting new active id
+    let newActiveProjectIndex;
+    if (activeProjectIndex === projects.length - 1) {
+      newActiveProjectIndex = 0;
+    } else {
+      newActiveProjectIndex = activeProjectIndex + 1;
+    }
+
+    const newActiveProject = projects[newActiveProjectIndex];
+    setActiveProjectId(newActiveProject.id);
+    setSelectedProjectPath(
+      `/${newActiveProject.name.replace(/ +/g, "-").toLowerCase()}`
+    );
+
+    switch (activeProjectIndex) {
       case 3:
         projects[0].hidden = true;
         projects[0].position = "right";
         // --
-        projects[currentActiveIdIndex + 2].hidden = false;
+        projects[activeProjectIndex + 2].hidden = false;
         break;
       case 4:
         projects[1].hidden = true;
@@ -145,27 +143,17 @@ const DndSection = (props) => {
         break;
 
       default:
-        projects[currentActiveIdIndex + 3].hidden = true;
-        projects[currentActiveIdIndex + 3].position = "right";
+        projects[activeProjectIndex + 3].hidden = true;
+        projects[activeProjectIndex + 3].position = "right";
         // --
-        projects[currentActiveIdIndex + 2].hidden = false;
+        projects[activeProjectIndex + 2].hidden = false;
         break;
     }
 
-    // setting new id
-    let newActiveIdIndex;
-    if (currentActiveIdIndex === projects.length - 1) {
-      newActiveIdIndex = 0;
-    } else {
-      newActiveIdIndex = currentActiveIdIndex + 1;
-    }
-    const newActiveId = projects[newActiveIdIndex].id;
-    setActiveProjectId(newActiveId);
-
     // sliding cards
-    projects[currentActiveIdIndex].position = "left";
-    projects[newActiveIdIndex].position = "center";
-    setDndProjects(projects);
+    projects[activeProjectIndex].position = "left";
+    projects[newActiveProjectIndex].position = "center";
+    setDndProjectsCopy(projects);
   };
 
   return (
@@ -178,7 +166,8 @@ const DndSection = (props) => {
         alt="Isometric illustration with glowing dot."
       />
       <DndProjectSelector
-        dndProjects={dndProjects}
+        selectedProjectPath={selectedProjectPath}
+        dndProjects={dndProjectsCopy}
         clickedLeft={() => clickedLeft()}
         clickedRight={() => clickedRight()}
       />
@@ -186,4 +175,10 @@ const DndSection = (props) => {
   );
 };
 
-export default DndSection;
+const mapStateToProps = (state) => {
+  return {
+    dndProjects: state.dndProjects
+  };
+};
+
+export default connect(mapStateToProps)(DndSection);

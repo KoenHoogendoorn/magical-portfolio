@@ -22,16 +22,15 @@ const ProjectPage = (props) => {
 
   let allProjects = fprojects.concat(dprojects.concat(aprojects));
   const links = allProjects.map((project) => (
-    <React.Fragment>
+    <React.Fragment key={`NL-${project.id}`}>
       <NavLink
-        key={`NL-${project.id}`}
         className={classes.ProjectLink}
         activeClassName={classes.ActiveProjectLink}
         to={`/${project.name.replace(/ +/g, "-").toLowerCase()}`}
       >
         {project.name}
       </NavLink>
-      <span class={classes.Slash}> / </span>
+      <span className={classes.Slash}> / </span>
     </React.Fragment>
   ));
 

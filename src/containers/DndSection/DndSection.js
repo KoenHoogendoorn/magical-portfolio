@@ -44,7 +44,7 @@ const DndSection = (props) => {
 
     //create a local state to not influence the reducer store
     setDndProjectsCopy(dndProjects);
-  }, []);
+  }, [props.dndProjects]);
 
   const clickedLeft = () => {
     let projects = [...dndProjectsCopy];

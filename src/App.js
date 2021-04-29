@@ -28,7 +28,7 @@ function App(props) {
       setProjectsTexts(files);
     };
     fetchFiles();
-  }, []);
+  }, [markdownFiles]);
 
   // get projects metadata
   const fprojects = [...props.featuredProjects];

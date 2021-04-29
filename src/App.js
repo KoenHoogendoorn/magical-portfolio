@@ -46,7 +46,10 @@ function App(props) {
     projects = allProjects.map((project) => (
       <Route
         key={`R-${project.id}`}
-        path={`/${project.name.replace(/ +/g, "-").toLowerCase()}`}
+        path={`/${project.name
+          .replace(/ +/g, "-")
+          .replace(/'/g, "")
+          .toLowerCase()}`}
         exact
       >
         <ProjectPage

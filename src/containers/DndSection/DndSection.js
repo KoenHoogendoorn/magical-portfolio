@@ -10,7 +10,7 @@ import IsometricMapDots from "../../components/IsometricMapDots/IsometricMapDots
 const DndSection = (props) => {
   const [activeProjectId, setActiveProjectId] = useState("dnd-dq");
   const [selectedProjectPath, setSelectedProjectPath] = useState(
-    "/dragon's-quill"
+    "/dragons-quill"
   );
   const [dndProjectsCopy, setDndProjectsCopy] = useState([]);
 
@@ -64,7 +64,10 @@ const DndSection = (props) => {
     const newActiveProject = projects[newActiveProjectIndex];
     setActiveProjectId(newActiveProject.id);
     setSelectedProjectPath(
-      `/${newActiveProject.name.replace(/ +/g, "-").toLowerCase()}`
+      `/${newActiveProject.name
+        .replace(/ +/g, "-")
+        .replace(/'/g, "")
+        .toLowerCase()}`
     );
 
     switch (activeProjectIndex) {
@@ -119,7 +122,10 @@ const DndSection = (props) => {
     const newActiveProject = projects[newActiveProjectIndex];
     setActiveProjectId(newActiveProject.id);
     setSelectedProjectPath(
-      `/${newActiveProject.name.replace(/ +/g, "-").toLowerCase()}`
+      `/${newActiveProject.name
+        .replace(/ +/g, "-")
+        .replace(/'/g, "")
+        .toLowerCase()}`
     );
 
     switch (activeProjectIndex) {

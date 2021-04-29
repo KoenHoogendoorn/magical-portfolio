@@ -60,6 +60,7 @@ const FeaturedProjects = (props) => {
       position={project.position}
       active={project.active}
       activeProjectId={activeProjectId}
+      featuredProjects={props.featuredProjects}
     />
   ));
 

@@ -4,17 +4,18 @@ import classes from "./FeaturedProject.module.scss";
 import Tag from "../../Tag/Tag";
 
 const FeaturedProject = (props) => {
+  const FeaturedProjects = [...props.featuredProjects];
   let FeaturedProjectClasses = `${classes.FeaturedProject} `;
 
-  if (props.activeProjectId === "fp-jk") {
+  if (props.activeProjectId === FeaturedProjects[0].id) {
     switch (props.id) {
-      case "fp-ki":
+      case FeaturedProjects[2].id:
         FeaturedProjectClasses += `${classes.Left} `;
         break;
-      case "fp-sk":
+      case FeaturedProjects[1].id:
         FeaturedProjectClasses += `${classes.Right} `;
         break;
-      case "fp-jk":
+      case FeaturedProjects[0].id:
         FeaturedProjectClasses += `${classes.Center} `;
         break;
       default:
@@ -22,15 +23,15 @@ const FeaturedProject = (props) => {
     }
   }
 
-  if (props.activeProjectId === "fp-sk") {
+  if (props.activeProjectId === FeaturedProjects[1].id) {
     switch (props.id) {
-      case "fp-jk":
+      case FeaturedProjects[0].id:
         FeaturedProjectClasses += `${classes.Left} `;
         break;
-      case "fp-ki":
+      case FeaturedProjects[2].id:
         FeaturedProjectClasses += `${classes.Right} `;
         break;
-      case "fp-sk":
+      case FeaturedProjects[1].id:
         FeaturedProjectClasses += `${classes.Center} `;
         break;
       default:
@@ -38,15 +39,15 @@ const FeaturedProject = (props) => {
     }
   }
 
-  if (props.activeProjectId === "fp-ki") {
+  if (props.activeProjectId === FeaturedProjects[2].id) {
     switch (props.id) {
-      case "fp-sk":
+      case FeaturedProjects[1].id:
         FeaturedProjectClasses += `${classes.Left} `;
         break;
-      case "fp-jk":
+      case FeaturedProjects[0].id:
         FeaturedProjectClasses += `${classes.Right} `;
         break;
-      case "fp-ki":
+      case FeaturedProjects[2].id:
         FeaturedProjectClasses += `${classes.Center} `;
         break;
       default:

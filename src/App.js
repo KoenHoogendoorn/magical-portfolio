@@ -5,7 +5,7 @@ import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import classes from "./App.module.scss";
 
 import HomePage from "./containers/HomePage/HomePage";
-import ProjectPage from "./components/ProjectPage/ProjectPage";
+import DetailPage from "./components/DetailPage/DetailPage";
 import LoadingGif from "./assets/home/Loading.gif";
 import NavigationBar from "./containers/NavigationBar/NavigationBar";
 
@@ -35,8 +35,9 @@ function App(props) {
   const fprojects = [...props.featuredProjects];
   const dprojects = [...props.dndProjects];
   const aprojects = [...props.additionalProjects];
+  const pages = [...props.pages];
 
-  let allProjects = fprojects.concat(dprojects.concat(aprojects));
+  let allProjects = fprojects.concat(dprojects.concat(aprojects.concat(pages)));
   let projects;
 
   if (projectsTexts !== null) {
@@ -53,7 +54,7 @@ function App(props) {
           .toLowerCase()}`}
         exact
       >
-        <ProjectPage
+        <DetailPage
           key={project.id}
           id={project.id}
           name={project.name}
@@ -97,7 +98,8 @@ const mapStateToProps = (state) => {
   return {
     featuredProjects: state.featuredProjects,
     dndProjects: state.dndProjects,
-    additionalProjects: state.additionalProjects
+    additionalProjects: state.additionalProjects,
+    pages: state.pages
   };
 };
 

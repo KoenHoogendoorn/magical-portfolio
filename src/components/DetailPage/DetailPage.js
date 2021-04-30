@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-import classes from "./ProjectPage.module.scss";
+import classes from "./DetailPage.module.scss";
 
 import Tag from "../Tag/Tag";
+import SignOffSection from "../../containers/SignOffSection/SignOffSection";
 
 function ScrollToTopOnMount() {
   useEffect(() => {
@@ -14,7 +15,7 @@ function ScrollToTopOnMount() {
   return null;
 }
 
-const ProjectPage = (props) => {
+const DetailPage = (props) => {
   const fprojects = [...props.featuredProjects];
   const dprojects = [...props.dndProjects];
   const aprojects = [...props.additionalProjects];
@@ -33,21 +34,40 @@ const ProjectPage = (props) => {
     </React.Fragment>
   ));
 
-  return (
-    <div className={classes.ProjectPage}>
+  const projectContent = (
+    <React.Fragment>
       <ScrollToTopOnMount />
-      <div className={classes.ProjectContentContainer}>
+      <div className={classes.ContentContainer}>
         <h1>{props.name}</h1>
         <p>{props.tagline}</p>
         <div className={classes.Tags}>
           <Tag bgLight={true}>Design</Tag>
           {props.development ? <Tag bgLight={true}>Development</Tag> : null}
         </div>
-        <ReactMarkdown className={classes.ProjectContent}>
+        <ReactMarkdown className={classes.Content}>
           {props.content}
         </ReactMarkdown>
       </div>
       <nav>Projects: {links}</nav>
+    </React.Fragment>
+  );
+
+  const aboutContent = (
+    <React.Fragment>
+      <div className={classes.ContentContainer}>
+        <h1>{props.name}</h1>
+        <p>{props.tagline}</p>
+        <ReactMarkdown className={classes.Content}>
+          {props.content}
+        </ReactMarkdown>
+      </div>
+      <SignOffSection style={{ width: "720px", margin: "48px auto 0 auto" }} />
+    </React.Fragment>
+  );
+
+  return (
+    <div className={classes.DetailPage}>
+      {props.id === "p-about" ? aboutContent : projectContent}
     </div>
   );
 };
@@ -60,4 +80,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ProjectPage);
+export default connect(mapStateToProps)(DetailPage);

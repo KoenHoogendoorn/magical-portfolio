@@ -89,6 +89,13 @@ const initialState = {
       tagline: "A director that loves westerns",
       development: false
     }
+  ],
+  pages: [
+    {
+      id: "p-about",
+      name: "About me",
+      tagline: "UX/UI designer, React developer, imaginary wizard"
+    }
   ]
 };
 

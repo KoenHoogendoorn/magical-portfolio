@@ -8,7 +8,7 @@ import FullWidthTextBubble from "../../components/FullWidthTextBubble/FullWidthT
 
 const SignOffSection = (props) => {
   return (
-    <div className={classes.SignOffSection}>
+    <div className={classes.SignOffSection} style={props.style}>
       <FullWidthTextBubble pointPosition="center">
         <h1>I'm currently looking for new opportunities</h1>
         <p>

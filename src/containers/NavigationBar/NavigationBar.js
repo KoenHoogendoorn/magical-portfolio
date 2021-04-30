@@ -23,9 +23,9 @@ const NavigationBar = (props) => (
         className={classes.NavLink}
         activeClassName={classes.ActiveNavLink}
         exact
-        to={"/about"}
+        to={"/about-me"}
       >
-        About
+        About me
       </NavLink>
     </div>
   </nav>

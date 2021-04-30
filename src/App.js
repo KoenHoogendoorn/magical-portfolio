@@ -7,6 +7,7 @@ import classes from "./App.module.scss";
 import HomePage from "./containers/HomePage/HomePage";
 import ProjectPage from "./components/ProjectPage/ProjectPage";
 import LoadingGif from "./assets/home/Loading.gif";
+import NavigationBar from "./containers/NavigationBar/NavigationBar";
 
 function App(props) {
   const [projectsTexts, setProjectsTexts] = useState(null);
@@ -69,6 +70,7 @@ function App(props) {
   if (projectsTexts !== null) {
     content = (
       <div className="App">
+        <NavigationBar />
         <Switch>
           {projects}
           <Route path="/" exact component={HomePage} />

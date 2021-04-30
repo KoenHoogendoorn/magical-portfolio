@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import classes from "./ProjectPage.module.scss";
 
-import Button from "../Button/Button";
 import Tag from "../Tag/Tag";
 
 function ScrollToTopOnMount() {
@@ -37,11 +36,6 @@ const ProjectPage = (props) => {
   return (
     <div className={classes.ProjectPage}>
       <ScrollToTopOnMount />
-      <Link to="/">
-        <Button priority={"secondary"}>
-          <i className="fas fa-arrow-left"></i> Home
-        </Button>
-      </Link>
       <div className={classes.ProjectContentContainer}>
         <h1>{props.name}</h1>
         <p>{props.tagline}</p>

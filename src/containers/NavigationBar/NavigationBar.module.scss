@@ -1,0 +1,46 @@
+@import "../../shared/variables.scss";
+
+.NavigationBar {
+  //   position: absolute;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding: 0 32px;
+  font-size: $fnt-size-big;
+  line-height: $fnt-lineHeight-big;
+  font-weight: 700;
+
+  .Logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    h3 {
+      margin-left: 8px;
+    }
+  }
+
+  .NavLink {
+    color: $clr-butteryWhite;
+    text-decoration: none;
+
+    &:hover {
+      color: $clr-primary;
+    }
+    &:active {
+      color: $clr-primary-hover;
+    }
+
+    &:first-of-type {
+      margin-right: 32px;
+    }
+  }
+
+  .ActiveNavLink {
+    color: $clr-primary;
+    text-decoration: underline;
+    &:active {
+      color: $clr-primary-hover;
+    }
+  }
+}

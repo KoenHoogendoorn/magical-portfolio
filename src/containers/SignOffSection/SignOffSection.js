@@ -23,11 +23,16 @@ const SignOffSection = (props) => {
           <a
             href="https://linkedin.com/in/koen-hoogendoorn-0853a290"
             target="_blank"
+            rel="noopener noreferrer"
           >
             LinkedIn
           </a>
           {" / "}
-          <a href="https://github.com/KoenHoogendoorn" target="_blank">
+          <a
+            href="https://github.com/KoenHoogendoorn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             GitHub
           </a>
         </p>

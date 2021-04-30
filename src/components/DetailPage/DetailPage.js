@@ -26,7 +26,10 @@ const DetailPage = (props) => {
       <NavLink
         className={classes.ProjectLink}
         activeClassName={classes.ActiveProjectLink}
-        to={`/${project.name.replace(/ +/g, "-").toLowerCase()}`}
+        to={`/${project.name
+          .replace(/ +/g, "-")
+          .replace(/'/g, "")
+          .toLowerCase()}`}
       >
         {project.name}
       </NavLink>

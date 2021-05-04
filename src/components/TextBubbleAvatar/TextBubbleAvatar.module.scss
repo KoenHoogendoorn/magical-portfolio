@@ -1,7 +1,7 @@
 @import "../../shared/variables.scss";
 
 .TextBubbleAvatar {
-  margin-top: 160px;
+  margin-top: $spc-between-sections-desktop;
   display: flex;
   align-items: center;
 }
@@ -58,4 +58,14 @@
 
 .FacingRight {
   margin-right: 16px;
+}
+
+@media screen and (max-width: 541px) {
+  .TextBubbleAvatar {
+    margin-top: $spc-between-sections-mobile;
+  }
+
+  .TextBubbleRectangle {
+    padding: 16px;
+  }
 }

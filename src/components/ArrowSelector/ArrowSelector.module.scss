@@ -12,6 +12,14 @@
   }
 }
 
+.FeaturedProjectsArrowSelector {
+  width: 33%;
+}
+
+.DndProjectsArrowSelector {
+  width: 100%;
+}
+
 .ToolName {
   height: 48px;
   background-color: $clr-martinique;
@@ -23,6 +31,8 @@
   border-radius: 8px;
 }
 
-// #FeaturedProjectsButton {
-//   width: 33%;
-// }
+@media screen and (max-width: 541px) {
+  .FeaturedProjectsArrowSelector {
+    width: 100%;
+  }
+}

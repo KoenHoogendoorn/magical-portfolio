@@ -25,7 +25,7 @@ const NavigationBar = (props) => (
         exact
         to={"/about-me"}
       >
-        About me
+        About
       </NavLink>
     </div>
   </nav>

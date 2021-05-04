@@ -32,3 +32,9 @@
 .Hidden {
   display: none;
 }
+
+@media screen and (max-width: 596px) {
+  .DndProjectCard {
+    width: 100%;
+  }
+}

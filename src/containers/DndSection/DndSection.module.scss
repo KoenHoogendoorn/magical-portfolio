@@ -1,11 +1,37 @@
+@import "../../shared/variables.scss";
+
 .DndSection {
   position: relative;
-  margin-top: 48px;
+  margin-top: $spc-under-textAvatar-desktop;
+
+  .IsometricMapImages {
+    width: 87.5%;
+    margin-top: 64px;
+    left: 0;
+    z-index: 0;
+  }
+
+  .IsometricDots {
+    position: absolute;
+    transition: opacity 0.4s ease;
+  }
+
+  .Invisible {
+    opacity: 0;
+  }
+
+  .Visible {
+    opacity: 1;
+  }
 }
 
-.IsometricMapImage {
-  width: 630px;
-  margin-top: 64px;
-  left: 0;
-  z-index: 0;
+@media screen and (max-width: 541px) {
+  .DndSection {
+    margin-top: $spc-under-textAvatar-mobile;
+
+    .IsometricMapImages {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
 }

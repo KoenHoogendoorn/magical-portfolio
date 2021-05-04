@@ -1,5 +1,7 @@
+@import "../../shared/variables.scss";
+
 .AdditionalProjects {
-  margin-top: 48px;
+  margin-top: $spc-under-textAvatar-desktop;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -10,6 +12,17 @@
   .AdditionalProject {
     button {
       margin-top: 8px;
+    }
+  }
+}
+
+@media screen and (max-width: 541px) {
+  .AdditionalProjects {
+    margin-top: $spc-under-textAvatar-mobile;
+    display: unset;
+
+    .AdditionalProject {
+      margin-top: 24px;
     }
   }
 }

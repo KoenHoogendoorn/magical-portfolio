@@ -7,8 +7,14 @@ import AvatarRight from "../../assets/home/KoenWizardCircle-right-big.png";
 import FullWidthTextBubble from "../../components/FullWidthTextBubble/FullWidthTextBubble";
 
 const SignOffSection = (props) => {
+  let signOffSectionClasses = `${classes.SignOffSection} `;
+
+  if (props.detailPage) {
+    signOffSectionClasses += `${classes.DetailPage} `;
+  }
+
   return (
-    <div className={classes.SignOffSection} style={props.style}>
+    <div className={signOffSectionClasses}>
       <FullWidthTextBubble pointPosition="center">
         <h1>I'm currently looking for new opportunities</h1>
         <p>

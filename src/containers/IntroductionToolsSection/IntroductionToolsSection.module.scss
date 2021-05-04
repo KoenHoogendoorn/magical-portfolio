@@ -1,3 +1,16 @@
+@import "../../shared/variables.scss";
+
 .BottomContainer {
   display: flex;
+}
+
+@media screen and (max-width: 541px) {
+  .BottomContainer {
+    flex-direction: column;
+
+    img {
+      width: 160px;
+      margin: 0 auto;
+    }
+  }
 }

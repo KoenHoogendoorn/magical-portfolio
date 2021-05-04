@@ -3,9 +3,13 @@ import { connect } from "react-redux";
 
 import classes from "./DndSection.module.scss";
 
-import isometricMap from "../../assets/home/isometric-Illustration/isometric-selector.png";
+import isometricSelectedLeft from "../../assets/home/isometric-Illustration/isometric-selected-left.png";
+import isometricSelectedRight from "../../assets/home/isometric-Illustration/isometric-selected-right.png";
+import isometricUnselectedLeft from "../../assets/home/isometric-Illustration/isometric-unselected-left.png";
+import isometricUnselectedRight from "../../assets/home/isometric-Illustration/isometric-unselected-right.png";
+import isometricMap from "../../assets/home/isometric-Illustration/isometric-map.png";
+
 import DndProjectSelector from "../../components/DndProjectSelector/DndProjectSelector";
-import IsometricMapDots from "../../components/IsometricMapDots/IsometricMapDots";
 
 const DndSection = (props) => {
   const [activeProjectId, setActiveProjectId] = useState("dnd-dq");
@@ -162,12 +166,43 @@ const DndSection = (props) => {
     setDndProjectsCopy(projects);
   };
 
+  let dotsClasses = `${classes.IsometricMapImages} ${classes.IsometricDots} `;
+  let selectedClassesLeft = dotsClasses;
+  let selectedClassesRight = dotsClasses;
+
+  if (activeProjectId.substring(4, 6) === "dq") {
+    selectedClassesLeft += `${classes.Visible} `;
+    selectedClassesRight += `${classes.Invisible} `;
+  } else if (activeProjectId.substring(4, 6) === "hc") {
+    selectedClassesLeft += `${classes.Invisible} `;
+    selectedClassesRight += `${classes.Visible} `;
+  }
+
   return (
     <div className={classes.DndSection}>
-      <IsometricMapDots left={true} activeProjectId={activeProjectId} />
-      <IsometricMapDots left={false} activeProjectId={activeProjectId} />
       <img
-        className={classes.IsometricMapImage}
+        className={dotsClasses}
+        src={isometricUnselectedLeft}
+        alt="Not glowing dot on the left."
+      />
+      <img
+        className={selectedClassesLeft}
+        src={isometricSelectedLeft}
+        alt="Glowing dot on the left."
+      />
+      <img
+        className={dotsClasses}
+        src={isometricUnselectedRight}
+        alt="Not glowing dot on the right."
+      />
+      <img
+        className={selectedClassesRight}
+        src={isometricSelectedRight}
+        alt="Glowing dot on the right."
+      />
+
+      <img
+        className={classes.IsometricMapImages}
         src={isometricMap}
         alt="Isometric illustration with glowing dot."
       />

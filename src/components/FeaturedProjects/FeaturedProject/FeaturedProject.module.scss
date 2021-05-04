@@ -46,8 +46,10 @@
 
   svg {
     position: absolute;
+    margin-left: -103.5%;
     margin-left: calc(-100% - 8px);
     margin-top: -10px;
+
     path {
       stroke: $clr-butteryWhite;
     }
@@ -85,8 +87,19 @@
   z-index: 1;
   transform: translatex(0) scale(1);
   filter: initial;
+  width: 238px;
 }
 
 .Right {
   transform: translatex(calc(100% + 16px)) scale(0.9);
+}
+
+@media screen and (max-width: 541px) {
+  .Left {
+    transform: translatex(-105%) scale(0.9);
+  }
+
+  .Right {
+    transform: translatex(105%) scale(0.9);
+  }
 }

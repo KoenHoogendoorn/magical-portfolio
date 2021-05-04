@@ -56,6 +56,7 @@
         opacity: 1;
       }
     }
+
     .ActiveProjectLink {
       color: $clr-primary;
       opacity: 1;
@@ -72,6 +73,44 @@
       &:last-of-type {
         display: none;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .DetailPage {
+    width: 90%; /*fallback for browsers dont use support calc*/
+    width: -webkit-calc(100% - 64px);
+    width: -moz-calc(100% - 64px);
+    width: calc(100% - 64px);
+    padding: 48px 0 64px 0;
+
+    .ContentContainer {
+      padding: 64px;
+
+      .Content {
+        margin-top: 16px;
+
+        p {
+          margin-bottom: 16px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 541px) {
+  .DetailPage {
+    width: 90%; /*fallback for browsers dont use support calc*/
+    width: -webkit-calc(100% - 32px);
+    width: -moz-calc(100% - 32px);
+    width: calc(100% - 32px);
+    padding: 16px 0 32px 0;
+
+    .ContentContainer {
+      padding: 24px 16px;
     }
   }
 }

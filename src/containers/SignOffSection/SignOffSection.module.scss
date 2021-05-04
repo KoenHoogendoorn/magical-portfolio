@@ -1,8 +1,30 @@
+@import "../../shared/variables.scss";
+
 .SignOffSection {
-  margin-top: 160px;
+  margin-top: $spc-between-sections-desktop;
+}
+
+.DetailPage {
+  width: 720px;
+  margin: 48px auto 0 auto;
 }
 
 .AvatarImage {
   display: block;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .DetailPage {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 541px) {
+  .SignOffSection {
+    margin-top: $spc-between-sections-mobile;
+  }
+
+  .DetailPage {
+    margin-top: 48px;
+  }
 }

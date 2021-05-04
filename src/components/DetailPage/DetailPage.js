@@ -64,7 +64,7 @@ const DetailPage = (props) => {
           {props.content}
         </ReactMarkdown>
       </div>
-      <SignOffSection style={{ width: "720px", margin: "48px auto 0 auto" }} />
+      <SignOffSection detailPage={true} />
     </React.Fragment>
   );
 

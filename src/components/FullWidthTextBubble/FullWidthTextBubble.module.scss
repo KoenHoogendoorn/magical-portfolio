@@ -10,6 +10,7 @@
   padding: 32px;
   position: relative;
   margin-bottom: 32px;
+
   &:after {
     content: "";
     height: 32px;
@@ -34,6 +35,25 @@
 
 .Center {
   &:after {
+    left: 49%;
+    left: -webkit-calc(50% - 16px);
+    left: -moz-calc(50% - 16px);
     left: calc(50% - 16px);
+  }
+}
+
+@media screen and (max-width: 541px) {
+  .FullWidthTextBubble {
+    padding: 24px;
+  }
+
+  .Left {
+    //on mobile, all these points are centererd
+    &:after {
+      left: 49%;
+      left: -webkit-calc(50% - 16px);
+      left: -moz-calc(50% - 16px);
+      left: calc(50% - 16px);
+    }
   }
 }

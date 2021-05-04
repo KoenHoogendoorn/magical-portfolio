@@ -9,3 +9,31 @@
     margin-top: 175px;
   }
 }
+
+@media screen and (max-width: 596px) {
+  .DndProjectSelector {
+    position: relative;
+    width: 100%;
+    margin-top: 16px;
+
+    .ArrowSelector {
+      margin-top: 147px;
+    }
+  }
+}
+
+@media screen and (max-width: 456px) {
+  .DndProjectSelector {
+    .ArrowSelector {
+      margin-top: 163px;
+    }
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .DndProjectSelector {
+    .ArrowSelector {
+      margin-top: 188px;
+    }
+  }
+}

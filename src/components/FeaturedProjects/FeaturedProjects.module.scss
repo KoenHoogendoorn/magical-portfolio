@@ -1,5 +1,7 @@
+@import "../../shared/variables.scss";
+
 .FeaturedProjects {
-  margin-top: 32px;
+  margin-top: $spc-under-textAvatar-desktop;
   width: 100%;
 }
 
@@ -9,4 +11,10 @@
   position: relative;
   height: 428px;
   transform-style: preserve-3d;
+}
+
+@media screen and (max-width: 541px) {
+  .FeaturedProjects {
+    margin-top: $spc-under-textAvatar-mobile;
+  }
 }

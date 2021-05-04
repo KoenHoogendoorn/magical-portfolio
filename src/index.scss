@@ -60,3 +60,25 @@ a {
     color: $clr-primary-active;
   }
 }
+
+@media screen and (max-width: 541px) {
+  body {
+    font-size: $fnt-size-medium;
+  }
+
+  p {
+    line-height: $fnt-lineHeight-medium;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+}

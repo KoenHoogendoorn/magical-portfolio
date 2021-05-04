@@ -39,11 +39,46 @@
   color: $clr-butteryWhite;
 }
 
-svg {
+.ToolButton ~ svg {
   position: absolute;
   margin-top: -6px;
   margin-left: -86px;
   path {
     stroke: $clr-butteryWhite;
+  }
+}
+
+@media screen and (max-width: 541px) {
+  .ToolButton {
+    width: 48px;
+    height: 48px;
+    font-size: 30px;
+    line-height: 30px;
+  }
+
+  .ToolButton ~ svg {
+    width: 63px;
+    margin-left: -70px;
+    path {
+      d: path(
+        "M68,2 h12 a24,24 0 0 1 14,14 v12 m0,40 v12 a24,24 0 0 1 -14,14 h-12 m-40,0 h-12 a24,24 0 0 1 -14,-14 v-12 m0,-40 v-12 a24,24 0 0 1 14,-14 h12"
+      );
+    }
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .ToolButton {
+    margin-right: 8px;
+    width: 44px;
+    height: 44px;
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  .ToolButton ~ svg {
+    width: 58px;
+    margin-left: -58px;
+    margin-top: -5px;
   }
 }

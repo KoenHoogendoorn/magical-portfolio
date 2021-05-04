@@ -68,7 +68,7 @@ const FeaturedProjects = (props) => {
     <div className={classes.FeaturedProjects}>
       <div className={classes.PreviewImages}>{projects}</div>
       <ArrowSelector
-        style={{ width: "33%" }}
+        featuredProjects={true}
         selectedProjectPath={selectedProjectPath}
         clickedLeft={() => clickLeftArrowHandler()}
         clickedRight={() => clickRightArrowHandler()}

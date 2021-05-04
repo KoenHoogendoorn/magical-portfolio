@@ -70,12 +70,6 @@ const FeaturedProject = (props) => {
     svgClass += `${classes.InactiveSvg} `;
   }
 
-  // if (props.activeProjectId === props.id) {
-  //   svgClass += `${classes.ActiveSvg} `
-  // } else {
-
-  // }
-
   return (
     <div
       id={props.id}

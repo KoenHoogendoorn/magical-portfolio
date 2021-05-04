@@ -1,7 +1,6 @@
 @import "../../shared/variables.scss";
 
 .NavigationBar {
-  //   position: absolute;
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
@@ -41,6 +40,39 @@
     text-decoration: underline;
     &:active {
       color: $clr-primary-hover;
+    }
+  }
+}
+
+@media screen and (max-width: 541px) {
+  .NavigationBar {
+    padding: 0 16px;
+
+    .NavLink {
+      white-space: nowrap;
+      font-size: $fnt-size-medium;
+
+      &:first-of-type {
+        margin-right: 24px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .NavigationBar {
+    .Logo h3 {
+      font-size: 16px;
+      margin-left: 0;
+    }
+    img {
+      display: none;
+    }
+
+    .NavLink {
+      &:first-of-type {
+        margin-right: 16px;
+      }
     }
   }
 }

@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./DndProjectSelector.module.scss";
 
 import ArrowSelector from "../ArrowSelector/ArrowSelector";
-// import DndProject from "./DndProjects/DndProject/DndProject";
 import ProjectCard from "../ProjectCard/ProjectCard";
 
 const DndProjectSelector = (props) => {
@@ -26,7 +25,7 @@ const DndProjectSelector = (props) => {
       <div className={classes.ArrowSelector}>
         <ArrowSelector
           selectedProjectPath={props.selectedProjectPath}
-          style={{ width: "100%" }}
+          dndProjects={true}
           clickedLeft={props.clickedLeft}
           clickedRight={props.clickedRight}
         />

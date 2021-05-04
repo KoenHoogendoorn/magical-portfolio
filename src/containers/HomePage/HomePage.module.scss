@@ -1,5 +1,17 @@
+@import "../../shared/variables.scss";
+
 .HomePage {
   width: 720px;
   margin: 0 auto;
-  padding: 112px 0 160px 0; //160 - 48 for navbar
+  padding: 112px 0 $spc-between-sections-desktop 0; //160 - 48 = 112 for navbar
+}
+
+@media screen and (max-width: 720px) {
+  .HomePage {
+    width: 90%; /*fallback for browsers dont use support calc*/
+    width: -webkit-calc(100% - 32px);
+    width: -moz-calc(100% - 32px);
+    width: calc(100% - 32px);
+    padding: 32px 0 $spc-between-sections-mobile 0; //80 - 48 = 32 for navbar
+  }
 }

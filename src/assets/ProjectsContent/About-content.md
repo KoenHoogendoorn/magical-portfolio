@@ -1,4 +1,4 @@
-![Koen meeting with client](ProjectsImages/TitiaHoogendoorn/TitiaHoogendoorn-meeting.jpg)
+![Portrait photo of Koen](ProjectsImages/About/About-KoenPortrait.jpg)
 
 Hi, I’m Koen and I love designing and developing digital products. Currently I’m based in Utrecht and I’ve been creating digital products for 7 years. Professional contacts describe me as a team player, hard worker and generally positive person.
 

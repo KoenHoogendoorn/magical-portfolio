@@ -14,6 +14,10 @@
   margin: 0 auto;
 }
 
+.Avatar160 {
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .DetailPage {
     width: 100%;
@@ -26,5 +30,13 @@
 
   .DetailPage {
     margin-top: 48px;
+  }
+
+  .Avatar230 {
+    display: none;
+  }
+
+  .Avatar160 {
+    display: block;
   }
 }

@@ -2,15 +2,26 @@
 
 .BottomContainer {
   display: flex;
+
+  .Avatar160 {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 541px) {
   .BottomContainer {
     flex-direction: column;
 
-    img {
-      width: 160px;
+    .AvatarImage {
       margin: 0 auto;
+    }
+
+    .Avatar230 {
+      display: none;
+    }
+
+    .Avatar160 {
+      display: initial;
     }
   }
 }

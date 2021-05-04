@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./SignOffSection.module.scss";
 
-import AvatarRight from "../../assets/home/KoenWizardCircle-right-big.png";
+import AvatarRight230 from "../../assets/home/KoenWizardCircle-right-230.svg";
+import AvatarRight160 from "../../assets/home/KoenWizardCircle-right-160.svg";
 
 import FullWidthTextBubble from "../../components/FullWidthTextBubble/FullWidthTextBubble";
 
@@ -44,8 +45,13 @@ const SignOffSection = (props) => {
         </p>
       </FullWidthTextBubble>
       <img
-        className={classes.AvatarImage}
-        src={AvatarRight}
+        className={`${classes.AvatarImage} ${classes.Avatar230}`}
+        src={AvatarRight230}
+        alt="Wizard with robe and staff"
+      />
+      <img
+        className={`${classes.AvatarImage} ${classes.Avatar160}`}
+        src={AvatarRight160}
         alt="Wizard with robe and staff"
       />
     </div>

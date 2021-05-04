@@ -60,6 +60,10 @@
   margin-right: 16px;
 }
 
+.Avatar86 {
+  display: none;
+}
+
 @media screen and (max-width: 541px) {
   .TextBubbleAvatar {
     margin-top: $spc-between-sections-mobile;
@@ -67,5 +71,13 @@
 
   .TextBubbleRectangle {
     padding: 16px;
+  }
+
+  .Avatar180 {
+    display: none;
+  }
+
+  .Avatar86 {
+    display: initial;
   }
 }

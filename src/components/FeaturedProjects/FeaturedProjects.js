@@ -7,10 +7,8 @@ import FeaturedProject from "./FeaturedProject/FeaturedProject";
 import ArrowSelector from "../ArrowSelector/ArrowSelector";
 
 const FeaturedProjects = (props) => {
-  const [activeProjectId, setActiveProjectId] = useState("fp-sk");
-  const [selectedProjectPath, setSelectedProjectPath] = useState(
-    "/stefano-keizers"
-  );
+  const [activeProjectId, setActiveProjectId] = useState("fp-ki");
+  const [selectedProjectPath, setSelectedProjectPath] = useState("/kinder");
 
   const setActiveProject = (index) => {
     props.setActiveFeaturedProjectHandler(index);

@@ -10,16 +10,6 @@ import HitpointCalculatorLogo from "../../assets/home/dnd-projects-logos/Hitpoin
 const initialState = {
   featuredProjects: [
     {
-      id: "fp-jk",
-      name: "Jelle Kuiper",
-      tagline: "A theater producer and marriage officiant",
-      image: JelleKuiperImg,
-      imageAlt: "Jelle Kuiper officiating a wedding ceremony",
-      position: "left",
-      development: false,
-      active: false
-    },
-    {
       id: "fp-sk",
       name: "Stefano Keizers",
       tagline: "Comedian, TV host, writer and all-round artist",
@@ -27,7 +17,7 @@ const initialState = {
       imageAlt: "Stefano Keizers without shirt staring forward menacingly",
       position: "center",
       development: false,
-      active: true
+      active: false
     },
     {
       id: "fp-ki",
@@ -37,6 +27,16 @@ const initialState = {
       imageAlt:
         "Koen Hoogendoorn wearing a Kinder shirt at a reception desk helping people",
       position: "right",
+      development: false,
+      active: true
+    },
+    {
+      id: "fp-jk",
+      name: "Jelle Kuiper",
+      tagline: "A theater producer and marriage officiant",
+      image: JelleKuiperImg,
+      imageAlt: "Jelle Kuiper officiating a wedding ceremony",
+      position: "left",
       development: false,
       active: false
     }

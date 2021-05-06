@@ -1,0 +1,24 @@
+<svg viewBox="0 0 100 175" width="264px" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M83,2 
+              h3
+              a8,8 0 0 1 9,9 
+              v3
+            m0,141.8 
+              v3 
+              a8,8 0 0 1 -9,9 
+              h-3 
+            m-69.8,0 
+              h-3 
+              a8,8 0 0 1 -9,-9 
+              v-3 
+            m0,-141.8 
+              v-3 
+              a8,8 0 0 1 9,-9 
+              h3"
+          fill="none"
+          stroke="#FFFFFF"
+          strokeWidth="4"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>

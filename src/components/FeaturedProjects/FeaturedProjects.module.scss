@@ -3,14 +3,14 @@
 .FeaturedProjects {
   margin-top: $spc-under-textAvatar-desktop;
   width: 100%;
-}
 
-.PreviewImages {
-  display: flex;
-  align-items: center;
-  position: relative;
-  height: 428px;
-  transform-style: preserve-3d;
+  .PreviewImages {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 428px;
+    transform-style: preserve-3d;
+  }
 }
 
 @media screen and (max-width: 541px) {

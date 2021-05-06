@@ -10,7 +10,7 @@
   cursor: pointer;
   transition: transform 0.5s ease, filter 0.5s ease, z-index 0.5s ease;
 
-  img {
+  .FeaturedProjectImage {
     width: 100%;
     height: 100%;
     border-radius: 16px;
@@ -44,7 +44,7 @@
     }
   }
 
-  svg {
+  .SelectorSvg {
     position: absolute;
     margin-left: -103.5%;
     margin-left: calc(-100% - 8px);
@@ -57,7 +57,7 @@
 
   .ActiveSvg {
     opacity: 1;
-    transition: opacity 0.2s ease;
+    transition: opacity 2s ease;
   }
 
   .InactiveSvg {
@@ -92,6 +92,12 @@
 
 .Right {
   transform: translatex(calc(100% + 16px)) scale(0.9);
+}
+
+@media screen and (max-width: 720px) {
+  .InactiveSvg {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 541px) {

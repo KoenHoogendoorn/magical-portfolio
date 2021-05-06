@@ -48,17 +48,29 @@
   }
 }
 
-@media screen and (max-width: 541px) {
+@media screen and (max-width: 720px) {
+  .ToolButton {
+    margin-top: 16px;
+
+    & ~ svg {
+      margin-top: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
   .ToolButton {
     width: 48px;
     height: 48px;
     font-size: 30px;
     line-height: 30px;
+    margin-top: 0;
   }
 
   .ToolButton ~ svg {
     width: 63px;
     margin-left: -70px;
+    margin-top: -6px;
     path {
       d: path(
         "M68,2 h12 a24,24 0 0 1 14,14 v12 m0,40 v12 a24,24 0 0 1 -14,14 h-12 m-40,0 h-12 a24,24 0 0 1 -14,-14 v-12 m0,-40 v-12 a24,24 0 0 1 14,-14 h12"

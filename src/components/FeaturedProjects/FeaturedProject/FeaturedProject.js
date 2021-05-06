@@ -80,7 +80,11 @@ const FeaturedProject = (props) => {
         alt={props.imageAlt}
         className={classes.FeaturedProjectImage}
       ></img>
-      <img src={FeaturedProjectsSelector} className={svgClass} />
+      <img
+        src={FeaturedProjectsSelector}
+        className={svgClass}
+        alt="Selector around a project"
+      />
     </div>
   );
 };

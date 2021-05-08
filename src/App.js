@@ -52,7 +52,6 @@ function App(props) {
           .replace(/ +/g, "-")
           .replace(/'/g, "")
           .toLowerCase()}`}
-        exact
       >
         <DetailPage
           key={project.id}

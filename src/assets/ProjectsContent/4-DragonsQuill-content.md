@@ -6,7 +6,7 @@ Dungeons and Dragons is a role playing game where people take control of heroes 
 
 In my D&D groups, I’m the DM. Preparing game sessions can get pretty confusing. There’s a lot going on in our imaginary world and a lot of possible ways the group can choose to go. I like to write down the possible people they could meet or possible places they could visit at the top of my google document. When I'm actually writing out possible scenes and I need to look up details from a person, I eventually get lost and frustrated by all the scrolling. This is why I created a system that uses digital index cards. The subjects of these cards can be linked to while writing out scenes so you can quickly find the relevant information.
 
-![Mockup of the Dragon's Quill project](ProjectsImages/DragonsQuill/DragonsQuill-mockup.png)
+![Mockup of the Dragon's Quill project](ProjectsImages/DragonsQuill/DragonsQuill-mockup.jpg)
 
 After taking an online React course, this was the first project I created. First I designed it in Figma and then developed it in React. It made me more comfortable with coding and really put me to the test of doing a project from beginning to end.
 

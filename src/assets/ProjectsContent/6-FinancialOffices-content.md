@@ -1,4 +1,4 @@
-![Mockup of the Financial offices website](ProjectsImages/FinancialOffices/FinancialOffices-mockup.png)
+![Mockup of the Financial offices website](ProjectsImages/FinancialOffices/FinancialOffices-mockup.jpg)
 
 While talking about what this site should propagate, my client and I worked out these requirements: generate trust, make people call and focus on our strengths.
 

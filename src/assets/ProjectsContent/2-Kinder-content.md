@@ -2,7 +2,7 @@
 
 Kinder wants people to do good, better. First they research charities and help them improve based on their results. If they do well enough, Kinder publishes them on their site and makes it easy for people to donate them. This way, people who lost trust in the charitable sector can donate confidently to transparent and effective organisations.
 
-![Mockup of donation tools](ProjectsImages/Kinder/Kinder-donationTool-mockup.png)
+![Mockup of donation tools](ProjectsImages/Kinder/Kinder-donationTool-mockup.jpg)
 
 I joined Kinder right at the start in 2017 as an interaction designer. As with most startups, I helped out with a lot of different tasks. One day I would design a complex user onboarding flow, and the other I would at the reception of an event, scanning tickets and being a representative of the company. Being a flat organization, I really liked the ability for every member of the company to bring new ideas to the table and seeing them come to life.
 
@@ -12,6 +12,6 @@ My main job at Kinder was to make sure all users would have a great experience w
 
 ![Photo of the team of Kinder having a brainstorm session](ProjectsImages/Kinder/Kinder-brainstormPhoto.jpg)
 
-![Mockup of a signup page for charities](ProjectsImages/Kinder/Kinder-organisations-mockup.png)
+![Mockup of a signup page for charities](ProjectsImages/Kinder/Kinder-organisations-mockup.jpg)
 
 More on Kinder can be found on their [website](https://kinder.world/)

@@ -4,8 +4,8 @@ import JelleKuiperImg from "../../assets/home/project-previews/JelleKuiper-selec
 import StefanoKeizersImg from "../../assets/home/project-previews/StefanoKeizers-selector.jpg";
 import KinderImg from "../../assets/home/project-previews/Kinder-selector.jpg";
 
-import DragonsQuillLogo from "../../assets/home/dnd-projects-logos/DragonsQuillLogo.png";
-import HitpointCalculatorLogo from "../../assets/home/dnd-projects-logos/HitpointCalculatorLogo.png";
+import DragonsQuillLogo from "../../assets/home/dnd-projects-logos/DragonsQuillLogo.svg";
+import HitpointCalculatorLogo from "../../assets/home/dnd-projects-logos/HitpointCalculatorLogo.svg";
 
 const initialState = {
   featuredProjects: [

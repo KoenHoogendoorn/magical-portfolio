@@ -4,7 +4,7 @@
   margin-top: $spc-between-sections-desktop;
 }
 
-.DetailPage {
+.AboutPage {
   width: 720px;
   margin: 48px auto 0 auto;
 }
@@ -19,7 +19,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .DetailPage {
+  .AboutPage {
     width: 100%;
   }
 }
@@ -28,7 +28,7 @@
     margin-top: $spc-between-sections-mobile;
   }
 
-  .DetailPage {
+  .AboutPage {
     margin-top: 48px;
   }
 

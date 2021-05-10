@@ -64,7 +64,7 @@ const DetailPage = (props) => {
           {props.content}
         </ReactMarkdown>
       </div>
-      <SignOffSection detailPage={true} />
+      <SignOffSection aboutPage={true} />
     </React.Fragment>
   );
 

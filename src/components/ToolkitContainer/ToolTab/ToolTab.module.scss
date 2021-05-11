@@ -1,0 +1,77 @@
+@import "../../../shared/variables.scss";
+
+.ToolTab {
+  margin-top: -4px;
+  padding: 8px 16px;
+  display: inline-block;
+  background-color: $clr-secondary;
+  border: 4px solid $clr-martinique;
+  font-weight: bold;
+
+  -webkit-border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  width: fit-content;
+  position: relative;
+  z-index: 1;
+
+  .DarkLayer {
+    width: calc(100% + 8px);
+    height: calc(100% + 4px);
+    position: absolute;
+    left: -4px;
+    top: 0;
+    background: #0c0e19;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 0.2;
+    }
+
+    &:active {
+      opacity: 0;
+    }
+  }
+
+  .Icon,
+  .ToolName {
+    display: inline;
+  }
+
+  .ToolName {
+    font-size: $fnt-size-small;
+    margin-left: 12px;
+    color: $clr-butteryWhite;
+  }
+
+  // remove default button styles
+  cursor: pointer;
+  outline: 0;
+
+  &:first-of-type {
+    margin-left: 32px;
+  }
+
+  &:last-of-type {
+    margin-left: 16px;
+  }
+}
+
+.Active {
+  z-index: 2;
+  border-top: 4px solid $clr-vulcan;
+}
+
+@media screen and (max-width: 541px) {
+  .ToolTab {
+    padding: 8px 12px;
+
+    &:first-of-type {
+      margin-left: 16px;
+    }
+
+    &:last-of-type {
+      margin-left: 8px;
+    }
+  }
+}

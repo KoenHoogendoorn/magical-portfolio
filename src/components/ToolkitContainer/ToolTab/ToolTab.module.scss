@@ -34,11 +34,11 @@
   }
 
   .Icon,
-  .ToolName {
+  .ToolkitName {
     display: inline;
   }
 
-  .ToolName {
+  .ToolkitName {
     font-size: $fnt-size-small;
     margin-left: 12px;
     color: $clr-butteryWhite;
@@ -72,6 +72,17 @@
 
     &:last-of-type {
       margin-left: 8px;
+    }
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .ToolTab {
+    .Icon {
+      display: none;
+    }
+    .ToolkitName {
+      margin-left: 0;
     }
   }
 }

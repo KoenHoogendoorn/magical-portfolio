@@ -5,7 +5,7 @@ import AvatarRight230 from "../../assets/home/KoenWizardCircle-right-230.svg";
 import AvatarRight160 from "../../assets/home/KoenWizardCircle-right-160.svg";
 
 import FullWidthTextBubble from "../../components/FullWidthTextBubble/FullWidthTextBubble";
-import ToolSelector from "../../components/ToolSelector/ToolSelector";
+import ToolkitContainer from "../../components/ToolkitContainer/ToolkitContainer";
 
 const IntroductionToolsSection = (props) => (
   <React.Fragment>
@@ -28,7 +28,7 @@ const IntroductionToolsSection = (props) => (
         src={AvatarRight160}
         alt="Wizard with robe and staff"
       />
-      <ToolSelector />
+      <ToolkitContainer />
     </div>
   </React.Fragment>
 );

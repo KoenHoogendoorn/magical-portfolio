@@ -1,0 +1,41 @@
+@import "../../../../shared/variables.scss";
+
+.IconCircle {
+  height: 40px;
+  width: 40px;
+  background-color: $clr-martinique;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  display: inline-block;
+
+  // text
+  text-align: center;
+  font-size: $fnt-size-medium;
+  line-height: 40px;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  color: $clr-butteryWhite;
+}
+
+.ToolName {
+  display: inline;
+  margin-left: 12px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 541px) {
+  .ToolName {
+    font-size: $fnt-size-small;
+  }
+}
+
+@media screen and (max-width: 364px) {
+  .Tool {
+    margin-top: 12px;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}

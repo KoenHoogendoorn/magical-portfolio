@@ -9,7 +9,9 @@ const ToolTab = (props) => {
 
   return (
     <button className={tabClasses} onClick={props.clicked}>
-      <h3>{props.children}</h3>
+      {props.active ? null : <div className={classes.DarkLayer}></div>}
+      <img className={classes.Icon} src={props.icon} />
+      <h3 className={classes.ToolkitName}>{props.children}</h3>
     </button>
   );
 };

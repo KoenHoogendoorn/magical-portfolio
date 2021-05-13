@@ -11,7 +11,7 @@ import ToolTab from "./ToolTab/ToolTab";
 
 const ToolkitContainer = (props) => {
   const [activeTab, setActiveTab] = useState("Design");
-  const [designTools, setDesignTools] = useState([
+  const designTools = [
     { name: "Sketch", icon: <i className="fab fa-sketch"></i> },
     { name: "Figma", icon: <i className="fab fa-figma"></i> },
     { name: "Illustrator", icon: "Ai" },
@@ -20,9 +20,9 @@ const ToolkitContainer = (props) => {
       name: "Pen & paper",
       icon: <i className="fas fa-pencil-ruler"></i>
     }
-  ]);
+  ];
 
-  const [developmentTools, setDevelopmentTools] = useState([
+  const developmentTools = [
     { name: "HTML", icon: <i className="fab fa-html5"></i> },
     { name: "CSS", icon: <i className="fab fa-css3-alt"></i> },
     { name: "React", icon: <i className="fab fa-react"></i> },
@@ -30,7 +30,7 @@ const ToolkitContainer = (props) => {
       name: "JavaScript",
       icon: <i className="fab fa-js-square"></i>
     }
-  ]);
+  ];
 
   const tools = activeTab === "Design" ? designTools : developmentTools;
 

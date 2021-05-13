@@ -1,0 +1,33 @@
+@import "../../../shared/variables.scss";
+
+.GameMenu {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 16px auto;
+
+  .DragonCircle {
+    display: block;
+    margin: 0 auto;
+    -webkit-filter: drop-shadow(
+      0px 4px 8px rgba($color: $clr-vulcan, $alpha: 0.75)
+    );
+    filter: drop-shadow(0px 4px 8px rgba($color: $clr-vulcan, $alpha: 0.75));
+  }
+
+  .MenuButtonsContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+
+    button {
+      display: inline-block;
+
+      &:last-of-type {
+        margin-left: 16px;
+      }
+    }
+  }
+}

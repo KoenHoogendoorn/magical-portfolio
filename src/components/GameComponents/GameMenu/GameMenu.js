@@ -3,7 +3,7 @@ import classes from "./GameMenu.module.scss";
 
 import DragonCircle from "../../../assets/home/dragon-game/DragonCircle.svg";
 
-import Button from "../../../components/Button/Button";
+import Button from "../../Button/Button";
 
 const GameMenu = (props) => (
   <div className={classes.GameMenu}>

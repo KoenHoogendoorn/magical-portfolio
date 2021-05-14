@@ -1,11 +1,6 @@
 @import "../../../shared/variables.scss";
 
 .GameMenu {
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  right: 0;
-  width: 100%;
   margin: 16px auto;
 
   .DragonCircle {

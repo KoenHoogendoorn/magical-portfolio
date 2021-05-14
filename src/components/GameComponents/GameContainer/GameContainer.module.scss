@@ -1,0 +1,70 @@
+@import "../../../shared/variables.scss";
+
+.GameContainer {
+  .GameHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .TurnIndicator {
+      padding: 8px 16px;
+      background-color: $clr-martinique;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      border-radius: 8px;
+      font-family: "Quando", serif;
+      font-size: 16px;
+    }
+
+    .CloseIcon {
+      cursor: pointer;
+      font-size: 32px;
+
+      &:hover {
+        color: $clr-arrow-hover;
+      }
+
+      &:active {
+        color: $clr-arrow-active;
+      }
+    }
+  }
+  .GameScreen {
+    margin-top: 8px;
+    height: 418px;
+
+    .CharactersContainer {
+      position: absolute;
+      display: flex;
+      width: 100%;
+      height: inherit;
+      padding-bottom: 64px;
+
+      .GameScreenHalf {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        width: 50%;
+
+        .CharacterContainer {
+          .CharacterIllustration {
+            display: block;
+            margin: 0 auto;
+          }
+
+          .WizardIllustration {
+            height: 140px;
+          }
+        }
+      }
+    }
+
+    .BackgroundImage {
+      width: 100%;
+      -webkit-border-radius: 16px;
+      -moz-border-radius: 16px;
+      border-radius: 16px;
+      border: 4px solid $clr-martinique;
+    }
+  }
+}

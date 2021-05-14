@@ -4,12 +4,16 @@ import { Link } from "react-router-dom";
 import classes from "./AdditionalProjectsSection.module.scss";
 
 import TextBubbleAvatar from "../../components/TextBubbleAvatar/TextBubbleAvatar";
-import GameMenu from "./GameMenu/GameMenu";
+import GameMenu from "../../components/GameComponents/GameMenu/GameMenu";
+import GameContainer from "../../components/GameComponents/GameContainer/GameContainer";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import Button from "../../components/Button/Button";
 
 const AdditionalProjectsSection = (props) => {
   const [gameState, setGameState] = useState("unplayed"); // options: unplayed/skipped/running/closed/won/lost
+
+  const [dragonLives, setDragonLives] = useState(10);
+  const [wizardLives, setWizardLives] = useState(5);
 
   const projects = props.additionalProjects.map((project) => (
     <div key={`div-${project.id}`} className={classes.AdditionalProject}>
@@ -29,13 +33,13 @@ const AdditionalProjectsSection = (props) => {
 
   let AdditionalProjectClasses = `${classes.AdditionalProjects} `;
 
-  if (gameState === ("unplayed" || "running")) {
+  if (gameState === "unplayed" || gameState === "running") {
     AdditionalProjectClasses += `${classes.Darkened} `;
   }
 
   let textBubbleContent = (
     <React.Fragment>
-      <h2>Darn, a dragon is blockin the other projects I want to show you.</h2>
+      <h2>Darn, a dragon is blocking the other projects I want to show you.</h2>
       <p>Help me fight the dragon to free them. </p>
     </React.Fragment>
   );
@@ -55,15 +59,11 @@ const AdditionalProjectsSection = (props) => {
         </React.Fragment>
       );
       gameElement = (
-        <div className={classes.GameContainer}>
-          <div className={classes.GameHeader}>
-            <div className={classes.TurnIndicator}>Placeholder</div>
-            <i
-              onClick={() => setGameState("unplayed")}
-              className={`fas fa-times-circle ${classes.CloseIcon}`}
-            ></i>
-          </div>
-        </div>
+        <GameContainer
+          clickedCloseIcon={() => setGameState("unplayed")}
+          dragonLives={dragonLives}
+          wizardLives={wizardLives}
+        />
       );
       break;
 

@@ -20,21 +20,12 @@
 }
 
 .GameSection {
-  .GameHeader {
-    display: flex;
-    justify-content: space-between;
-
-    .CloseIcon {
-      cursor: pointer;
-      &:hover {
-        color: $clr-arrow-hover;
-      }
-
-      &:active {
-        color: $clr-arrow-active;
-      }
-    }
-  }
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  width: 720px;
+  margin: 0 auto;
 }
 
 .AdditionalProjects {

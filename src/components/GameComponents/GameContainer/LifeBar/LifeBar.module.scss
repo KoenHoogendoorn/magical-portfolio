@@ -1,0 +1,19 @@
+@import "../../../../shared/variables.scss";
+
+.LifeBar {
+  width: 50%; //fallback for ie
+  width: fit-content;
+  margin: 16px auto 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px 8px;
+  grid-template-areas:
+    ". . . . ."
+    ". . . . .";
+
+  .HeartIcon {
+    color: $clr-mediumCarmine;
+    font-size: 32px;
+  }
+}

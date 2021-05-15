@@ -67,4 +67,10 @@
       border: 4px solid $clr-martinique;
     }
   }
+
+  .WizardAttackContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
 }

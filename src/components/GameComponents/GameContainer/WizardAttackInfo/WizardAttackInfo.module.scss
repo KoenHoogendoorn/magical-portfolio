@@ -1,0 +1,39 @@
+@import "../../../../shared/variables.scss";
+
+.WizardAttackInfo {
+  width: 49%; //fallback
+  width: calc(50% - 8px);
+  padding: 24px;
+  background-color: $clr-vulcan;
+  border: 4px solid $clr-martinique;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+
+  .AttackInfoName {
+    margin-bottom: 4px;
+  }
+
+  .AttackInfoIcon {
+    margin-right: 8px;
+  }
+
+  .HitChanceContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .DamageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .HeartsContainer {
+      .HeartIcon {
+        color: $clr-mediumCarmine;
+        margin-left: 4px;
+      }
+    }
+  }
+}

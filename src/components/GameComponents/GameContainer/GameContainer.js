@@ -6,6 +6,7 @@ import DragonIllustration from "../../../assets/home/dragon-game/Dragon.svg";
 import WizardIllustration from "../../../assets/home/dragon-game/Wizard.svg";
 
 import LifeBar from "./LifeBar/LifeBar";
+import WizardAttackInfo from "./WizardAttackInfo/WizardAttackInfo";
 
 const GameContainer = (props) => {
   const cclasses = `${classes.CharacterIllustration} ${classes.WizardIllustration}`;
@@ -45,6 +46,20 @@ const GameContainer = (props) => {
           alt="Game background of a night sky."
           src={GameBackgroundImage}
           className={classes.BackgroundImage}
+        />
+      </div>
+      <div className={classes.WizardAttackContainer}>
+        <WizardAttackInfo
+          icon={<i className="fas fa-fire"></i>}
+          name={"Fireball"}
+          hitChance={0.75}
+          damage={4}
+        />
+        <WizardAttackInfo
+          icon={<i className="fas fa-bolt"></i>}
+          name={"Ligntening Bolt"}
+          hitChance={0.9}
+          damage={3}
         />
       </div>
     </div>

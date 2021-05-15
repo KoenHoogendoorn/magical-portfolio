@@ -49,6 +49,10 @@
   filter: brightness(50%);
 }
 
+.ExtraSpace {
+  margin-bottom: 400px; //240 (to align with signoffsection + 160
+}
+
 @media screen and (max-width: 541px) {
   .AdditionalProjects {
     margin-top: $spc-under-textAvatar-mobile;

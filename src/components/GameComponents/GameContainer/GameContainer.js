@@ -6,10 +6,10 @@ import DragonIllustration from "../../../assets/home/dragon-game/Dragon.svg";
 import WizardIllustration from "../../../assets/home/dragon-game/Wizard.svg";
 
 import LifeBar from "./LifeBar/LifeBar";
-import WizardAttackInfo from "./WizardAttackInfo/WizardAttackInfo";
+import WizardAttack from "./WizardAttack/WizardAttack";
 
 const GameContainer = (props) => {
-  const cclasses = `${classes.CharacterIllustration} ${classes.WizardIllustration}`;
+  const wizardIllustrationClasses = `${classes.CharacterIllustration} ${classes.WizardIllustration}`;
   return (
     <div className={classes.GameContainer}>
       <div className={classes.GameHeader}>
@@ -34,7 +34,7 @@ const GameContainer = (props) => {
           <div className={classes.GameScreenHalf}>
             <div className={classes.CharacterContainer}>
               <img
-                className={cclasses}
+                className={wizardIllustrationClasses}
                 alt="Wizard Illustration."
                 src={WizardIllustration}
               />
@@ -49,17 +49,19 @@ const GameContainer = (props) => {
         />
       </div>
       <div className={classes.WizardAttackContainer}>
-        <WizardAttackInfo
+        <WizardAttack
           icon={<i className="fas fa-fire"></i>}
           name={"Fireball"}
-          hitChance={0.75}
-          damage={4}
+          hitChance={props.wizardAttacksInfo.fireBall.hitChance}
+          damage={props.wizardAttacksInfo.fireBall.damage}
+          clicked={props.clickedFireBall}
         />
-        <WizardAttackInfo
+        <WizardAttack
           icon={<i className="fas fa-bolt"></i>}
           name={"Ligntening Bolt"}
-          hitChance={0.9}
-          damage={3}
+          hitChance={props.wizardAttacksInfo.lighteningBolt.hitChance}
+          damage={props.wizardAttacksInfo.lighteningBolt.damage}
+          clicked={props.clickedLighteningBolt}
         />
       </div>
     </div>

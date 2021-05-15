@@ -15,6 +15,17 @@ const AdditionalProjectsSection = (props) => {
   const [dragonLives, setDragonLives] = useState(10);
   const [wizardLives, setWizardLives] = useState(5);
 
+  const wizardAttacksInfo = {
+    fireBall: {
+      hitChance: 0.7,
+      damage: 2
+    },
+    lighteningBolt: {
+      hitChance: 0.9,
+      damage: 1
+    }
+  };
+
   const projects = props.additionalProjects.map((project) => (
     <div key={`div-${project.id}`} className={classes.AdditionalProject}>
       <ProjectCard
@@ -37,6 +48,10 @@ const AdditionalProjectsSection = (props) => {
     AdditionalProjectClasses += `${classes.Darkened} `;
   }
 
+  if (gameState === "running") {
+    AdditionalProjectClasses += `${classes.ExtraSpace} `;
+  }
+
   let textBubbleContent = (
     <React.Fragment>
       <h2>Darn, a dragon is blocking the other projects I want to show you.</h2>
@@ -51,6 +66,30 @@ const AdditionalProjectsSection = (props) => {
     />
   );
 
+  const castFireBall = () => {
+    const chance = Math.random();
+
+    if (chance < wizardAttacksInfo.fireBall.hitChance) {
+      //hits
+      setDragonLives(dragonLives - wizardAttacksInfo.fireBall.damage);
+      console.log("fireball hit");
+    } else {
+      console.log("fireball miss");
+    }
+  };
+
+  const castLighteningBolt = () => {
+    const chance = Math.random();
+
+    if (chance < wizardAttacksInfo.lighteningBolt.hitChance) {
+      //hits
+      setDragonLives(dragonLives - wizardAttacksInfo.lighteningBolt.damage);
+      console.log("lighteningBolt hit");
+    } else {
+      console.log("lighteningBolt miss");
+    }
+  };
+
   switch (gameState) {
     case "running":
       textBubbleContent = (
@@ -63,6 +102,9 @@ const AdditionalProjectsSection = (props) => {
           clickedCloseIcon={() => setGameState("unplayed")}
           dragonLives={dragonLives}
           wizardLives={wizardLives}
+          wizardAttacksInfo={wizardAttacksInfo}
+          clickedFireBall={() => castFireBall()}
+          clickedLighteningBolt={() => castLighteningBolt()}
         />
       );
       break;

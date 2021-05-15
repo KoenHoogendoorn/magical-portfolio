@@ -27,7 +27,7 @@ const GameContainer = (props) => {
                 alt="Dragon Illustration."
                 src={DragonIllustration}
               />
-              <LifeBar numberOfLives={props.dragonLives} />
+              <LifeBar maxLives={10} currentLives={props.dragonLives} />
             </div>
           </div>
           <div className={classes.GameScreenHalf}>
@@ -37,7 +37,7 @@ const GameContainer = (props) => {
                 alt="Wizard Illustration."
                 src={WizardIllustration}
               />
-              <LifeBar numberOfLives={props.wizardLives} />
+              <LifeBar maxLives={5} currentLives={props.wizardLives} />
             </div>
           </div>
         </div>

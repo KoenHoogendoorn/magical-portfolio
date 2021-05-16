@@ -5,9 +5,11 @@ import GameBackgroundImage from "../../../assets/home/dragon-game/GameBackground
 import DragonIllustration from "../../../assets/home/dragon-game/Dragon.svg";
 import WizardIllustration from "../../../assets/home/dragon-game/Wizard.svg";
 import GameWinScreen from "../../../assets/home/dragon-game/GameWinScreen.svg";
+import GameLoseScreen from "../../../assets/home/dragon-game/GameLoseScreen.svg";
 
 import LifeBar from "./LifeBar/LifeBar";
 import WizardAttack from "./WizardAttack/WizardAttack";
+import Button from "../../Button/Button";
 
 const GameContainer = (props) => {
   const wizardIllustrationClasses = `${classes.CharacterIllustration} ${classes.WizardIllustration}`;
@@ -32,6 +34,31 @@ const GameContainer = (props) => {
             src={GameWinScreen}
             className={classes.BackgroundImage}
           />
+          <div className={classes.ButtonsBar}>
+            <Button priority="primary" clicked={props.clickedContinue}>
+              Continue
+            </Button>
+          </div>
+        </div>
+      );
+      break;
+
+    case "lost":
+      content = (
+        <div className={classes.GameContainer}>
+          <img
+            alt="Game background with 'You Lose' written on it."
+            src={GameLoseScreen}
+            className={classes.BackgroundImage}
+          />
+          <div className={classes.ButtonsBar}>
+            <Button priority="primary" clicked={props.clickedAgain}>
+              Play again
+            </Button>
+            <Button priority="secondary" clicked={props.clickedSkip}>
+              Skip fight
+            </Button>
+          </div>
         </div>
       );
       break;

@@ -13,7 +13,7 @@ const AdditionalProjectsSection = (props) => {
   const initialDragonLives = 10;
   const initialWizardLives = 5;
 
-  const [gameState, setGameState] = useState("unplayed"); // options: unplayed/skipped/running/closed/won/lost
+  const [gameState, setGameState] = useState("unplayed"); // options: unplayed/skipped/running/won/lost/played
   const [gameEvent, setGameEvent] = useState("WizardTurn"); // options: WizardTurn/FireBallAnimation/LighteningBoltAnimation/DragonTurn/FirebreathAnimation/ClawAnimation
   const [dragonLives, setDragonLives] = useState(initialDragonLives);
   const [wizardLives, setWizardLives] = useState(initialWizardLives);
@@ -42,45 +42,11 @@ const AdditionalProjectsSection = (props) => {
     }
   };
 
-  const projects = props.additionalProjects.map((project) => (
-    <div key={`div-${project.id}`} className={classes.AdditionalProject}>
-      <ProjectCard
-        key={project.id}
-        name={project.name}
-        id={project.id}
-        tagline={project.tagline}
-        development={project.development}
-        dndSection={false}
-      />
-      <Link to={`/${project.name.replace(/ +/g, "-").toLowerCase()}`}>
-        <Button priority={"primary"}>Read more</Button>
-      </Link>
-    </div>
-  ));
-
-  let AdditionalProjectClasses = `${classes.AdditionalProjects} `;
-
-  if (gameState === "unplayed" || gameState === "running") {
-    AdditionalProjectClasses += `${classes.Darkened} `;
-  }
-
-  if (gameState === "running") {
-    AdditionalProjectClasses += `${classes.ExtraSpace} `;
-  }
-
-  let textBubbleContent = (
-    <React.Fragment>
-      <h2>Darn, a dragon is blocking the other projects I want to show you.</h2>
-      <p>Help me fight the dragon to free them. </p>
-    </React.Fragment>
-  );
-
-  let gameElement = (
-    <GameMenu
-      clickedPrimary={() => setGameState("running")}
-      clickedSecondary={() => setGameState("skipped")}
-    />
-  );
+  const restartGameHandler = () => {
+    setGameState("unplayed");
+    setDragonLives(initialDragonLives);
+    setWizardLives(initialWizardLives);
+  };
 
   const gameContainer = (
     <GameContainer
@@ -92,6 +58,9 @@ const AdditionalProjectsSection = (props) => {
       clickedLighteningBolt={() => castSpell("lighteningBolt")}
       gameState={gameState}
       gameEvent={gameEvent}
+      clickedContinue={() => setGameState("played")}
+      clickedAgain={() => restartGameHandler()}
+      clickedSkip={() => setGameState("skipped")}
     />
   );
 
@@ -142,6 +111,21 @@ const AdditionalProjectsSection = (props) => {
     dragonAttack();
   };
 
+  let textBubbleContent = (
+    //unplayed
+    <React.Fragment>
+      <h2>Darn, a dragon is blocking the other projects I want to show you.</h2>
+      <p>Help me fight the dragon to free them. </p>
+    </React.Fragment>
+  );
+
+  let gameElement = (
+    <GameMenu
+      clickedPrimary={() => setGameState("running")}
+      clickedSecondary={() => setGameState("skipped")}
+    />
+  );
+
   switch (gameState) {
     case "running":
       textBubbleContent = (
@@ -154,20 +138,13 @@ const AdditionalProjectsSection = (props) => {
 
     case "skipped":
       textBubbleContent = (
-        <h2>You won, the dragon is gone! Now it's save show you my projects</h2>
-      );
-      gameElement = null;
-      break;
-
-    case "won":
-      textBubbleContent = (
         <React.Fragment>
           <h2>Some more projects I worked on that I really like</h2>
           <p>
             Changed your mind on fighting the dragon? No worries, you can always{" "}
             <button
               className={classes.TextLinkButton}
-              onClick={() => setGameState("unplayed")}
+              onClick={() => restartGameHandler()}
             >
               go back
             </button>
@@ -175,11 +152,83 @@ const AdditionalProjectsSection = (props) => {
           </p>
         </React.Fragment>
       );
+      gameElement = null;
+      break;
+
+    case "won":
+      textBubbleContent = (
+        <React.Fragment>
+          <h2>Finally, the dragon is defeated! Congratulations!</h2>
+        </React.Fragment>
+      );
       gameElement = gameContainer; //win screen is embedded.
       break;
 
-    default:
+    case "lost":
+      textBubbleContent = (
+        <React.Fragment>
+          <h2>Stupid dragon, when will we ever beat it?</h2>
+        </React.Fragment>
+      );
+      gameElement = gameContainer;
       break;
+
+    case "played":
+      textBubbleContent = (
+        <React.Fragment>
+          <h2>
+            You won, the dragon is gone! Now it's save show you my projects
+          </h2>
+          <p>
+            Want to fight the dragon again?{" "}
+            <button
+              className={classes.TextLinkButton}
+              onClick={() => restartGameHandler()}
+            >
+              Click here
+            </button>
+            .
+          </p>
+        </React.Fragment>
+      );
+      gameElement = null;
+      break;
+
+    default:
+      //unplayed
+      <React.Fragment>
+        <h2>
+          Darn, a dragon is blocking the other projects I want to show you.
+        </h2>
+        <p>Help me fight the dragon to free them. </p>
+      </React.Fragment>;
+      break;
+  }
+
+  const projects = props.additionalProjects.map((project) => (
+    <div key={`div-${project.id}`} className={classes.AdditionalProject}>
+      <ProjectCard
+        key={project.id}
+        name={project.name}
+        id={project.id}
+        tagline={project.tagline}
+        development={project.development}
+        dndSection={false}
+      />
+      <Link to={`/${project.name.replace(/ +/g, "-").toLowerCase()}`}>
+        <Button priority={"primary"}>Read more</Button>
+      </Link>
+    </div>
+  ));
+
+  let AdditionalProjectClasses = `${classes.AdditionalProjects} `;
+
+  if (gameState === "unplayed" || gameState === "running") {
+    AdditionalProjectClasses += `${classes.Darkened} `;
+  }
+
+  if (gameState === "running") {
+    AdditionalProjectClasses += `${classes.ExtraSpace} `;
   }
 
   return (

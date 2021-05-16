@@ -12,6 +12,16 @@ import WizardAttack from "./WizardAttack/WizardAttack";
 const GameContainer = (props) => {
   const wizardIllustrationClasses = `${classes.CharacterIllustration} ${classes.WizardIllustration}`;
 
+  let activeCharacter;
+  switch (props.gameEvent) {
+    case "WizardTurn" || "FireBallAnimation" || "LighteningBoltAnimation":
+      activeCharacter = "Your turn";
+      break;
+    default:
+      activeCharacter = "Dragon's turn";
+      break;
+  }
+
   let content;
   switch (props.gameState) {
     case "won":
@@ -30,7 +40,7 @@ const GameContainer = (props) => {
       content = (
         <div className={classes.GameContainer}>
           <div className={classes.GameHeader}>
-            <div className={classes.TurnIndicator}>Placeholder</div>
+            <div className={classes.TurnIndicator}>{activeCharacter}</div>
             <i
               onClick={props.clickedCloseIcon}
               className={`fas fa-times-circle ${classes.CloseIcon}`}

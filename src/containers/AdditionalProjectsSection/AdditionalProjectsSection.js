@@ -11,7 +11,6 @@ import Button from "../../components/Button/Button";
 
 const AdditionalProjectsSection = (props) => {
   const [gameState, setGameState] = useState("unplayed"); // options: unplayed/skipped/running/closed/won/lost
-
   const [dragonLives, setDragonLives] = useState(10);
   const [wizardLives, setWizardLives] = useState(5);
 
@@ -66,27 +65,33 @@ const AdditionalProjectsSection = (props) => {
     />
   );
 
-  const castFireBall = () => {
+  const gameContainer = (
+    <GameContainer
+      clickedCloseIcon={() => setGameState("unplayed")}
+      dragonLives={dragonLives}
+      wizardLives={wizardLives}
+      wizardAttacksInfo={wizardAttacksInfo}
+      clickedFireBall={() => castSpell("fireBall")}
+      clickedLighteningBolt={() => castSpell("lighteningBolt")}
+      gameState={gameState}
+    />
+  );
+
+  const castSpell = (spellName) => {
     const chance = Math.random();
-
-    if (chance < wizardAttacksInfo.fireBall.hitChance) {
+    const spell = wizardAttacksInfo[spellName];
+    if (chance < spell.hitChance) {
       //hits
-      setDragonLives(dragonLives - wizardAttacksInfo.fireBall.damage);
-      console.log("fireball hit");
+      if (dragonLives <= spell.damage) {
+        //win
+        setGameState("won");
+      } else {
+        setDragonLives(dragonLives - spell.damage);
+        console.log(spell + "hit");
+      }
     } else {
-      console.log("fireball miss");
-    }
-  };
-
-  const castLighteningBolt = () => {
-    const chance = Math.random();
-
-    if (chance < wizardAttacksInfo.lighteningBolt.hitChance) {
-      //hits
-      setDragonLives(dragonLives - wizardAttacksInfo.lighteningBolt.damage);
-      console.log("lighteningBolt hit");
-    } else {
-      console.log("lighteningBolt miss");
+      //miss
+      console.log(spell + "miss");
     }
   };
 
@@ -97,19 +102,17 @@ const AdditionalProjectsSection = (props) => {
           <h2>Cast spells to defeat the dragon!</h2>
         </React.Fragment>
       );
-      gameElement = (
-        <GameContainer
-          clickedCloseIcon={() => setGameState("unplayed")}
-          dragonLives={dragonLives}
-          wizardLives={wizardLives}
-          wizardAttacksInfo={wizardAttacksInfo}
-          clickedFireBall={() => castFireBall()}
-          clickedLighteningBolt={() => castLighteningBolt()}
-        />
-      );
+      gameElement = gameContainer;
       break;
 
     case "skipped":
+      textBubbleContent = (
+        <h2>You won, the dragon is gone! Now it's save show you my projects</h2>
+      );
+      gameElement = null;
+      break;
+
+    case "won":
       textBubbleContent = (
         <React.Fragment>
           <h2>Some more projects I worked on that I really like</h2>
@@ -125,8 +128,9 @@ const AdditionalProjectsSection = (props) => {
           </p>
         </React.Fragment>
       );
-      gameElement = null;
+      gameElement = gameContainer; //win screen is embedded.
       break;
+
     default:
       break;
   }

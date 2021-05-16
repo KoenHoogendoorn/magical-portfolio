@@ -24,21 +24,21 @@ const GameContainer = (props) => {
           <div className={classes.GameScreenHalf}>
             <div className={classes.CharacterContainer}>
               <img
-                className={classes.CharacterIllustration}
-                alt="Dragon Illustration."
-                src={DragonIllustration}
-              />
-              <LifeBar maxLives={10} currentLives={props.dragonLives} />
-            </div>
-          </div>
-          <div className={classes.GameScreenHalf}>
-            <div className={classes.CharacterContainer}>
-              <img
                 className={wizardIllustrationClasses}
                 alt="Wizard Illustration."
                 src={WizardIllustration}
               />
               <LifeBar maxLives={5} currentLives={props.wizardLives} />
+            </div>
+          </div>
+          <div className={classes.GameScreenHalf}>
+            <div className={classes.CharacterContainer}>
+              <img
+                className={classes.CharacterIllustration}
+                alt="Dragon Illustration."
+                src={DragonIllustration}
+              />
+              <LifeBar maxLives={10} currentLives={props.dragonLives} />
             </div>
           </div>
         </div>

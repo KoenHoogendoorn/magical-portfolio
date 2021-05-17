@@ -8,6 +8,7 @@ import GameWinScreen from "../../../assets/home/dragon-game/GameWinScreen.svg";
 import GameLoseScreen from "../../../assets/home/dragon-game/GameLoseScreen.svg";
 
 import LifeBar from "./LifeBar/LifeBar";
+import FireBall from "./FireBall/FireBall";
 import WizardAttack from "./WizardAttack/WizardAttack";
 import Button from "../../Button/Button";
 
@@ -16,7 +17,7 @@ const GameContainer = (props) => {
 
   let activeCharacter;
   switch (props.gameEvent) {
-    case "WizardTurn" || "FireBallAnimation" || "LighteningBoltAnimation":
+    case "WizardTurn" || "FireBallAnimation" || "lightningBoltAnimation":
       activeCharacter = "Your turn";
       break;
     default:
@@ -82,6 +83,7 @@ const GameContainer = (props) => {
                     alt="Wizard Illustration."
                     src={WizardIllustration}
                   />
+                  <FireBall spellCasted={props.fireBallCasted} />
                   <LifeBar maxLives={5} currentLives={props.wizardLives} />
                 </div>
               </div>
@@ -113,9 +115,9 @@ const GameContainer = (props) => {
             <WizardAttack
               icon={<i className="fas fa-bolt"></i>}
               name={"Ligntening Bolt"}
-              hitChance={props.wizardAttacksInfo.lighteningBolt.hitChance}
-              damage={props.wizardAttacksInfo.lighteningBolt.damage}
-              clicked={props.clickedLighteningBolt}
+              hitChance={props.wizardAttacksInfo.lightningBolt.hitChance}
+              damage={props.wizardAttacksInfo.lightningBolt.damage}
+              clicked={props.clickedlightningBolt}
             />
           </div>
         </div>

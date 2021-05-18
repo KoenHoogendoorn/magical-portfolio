@@ -12,6 +12,7 @@ import FireBall from "./FireBall/FireBall";
 import LightningBolt from "./LightningBolt/LightningBolt";
 import WizardAttack from "./WizardAttack/WizardAttack";
 import Button from "../../Button/Button";
+import ClawMarks from "./ClawMarks/ClawMarks";
 
 const GameContainer = (props) => {
   const wizardIllustrationClasses = `${classes.CharacterIllustration} ${classes.WizardIllustration}`;
@@ -83,6 +84,15 @@ const GameContainer = (props) => {
                     className={wizardIllustrationClasses}
                     alt="Wizard Illustration."
                     src={WizardIllustration}
+                  />
+                  <ClawMarks
+                    attackCasted={props.clawCasted}
+                    attackMiss={props.clawMissed}
+                  />
+                  <ClawMarks
+                    attackCasted={props.clawCasted}
+                    attackMiss={props.clawMissed}
+                    duplicate={true}
                   />
                   <FireBall
                     spellCasted={props.fireBallCasted}

@@ -6,6 +6,7 @@ import LightningBoltMiss from "../../../../assets/home/dragon-game/LightningBolt
 
 const LightningBolt = (props) => {
   let lightningBoltClasses;
+
   if (props.spellCasted) {
     lightningBoltClasses = `${classes.LightningBolt} `;
     if (props.spellMiss) {
@@ -14,6 +15,7 @@ const LightningBolt = (props) => {
   } else {
     lightningBoltClasses = `${classes.NotActive} `;
   }
+
   return (
     <img
       src={props.spellMiss ? LightningBoltMiss : LightningBoltHit}

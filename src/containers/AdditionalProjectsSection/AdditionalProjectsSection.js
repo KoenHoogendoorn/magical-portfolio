@@ -22,6 +22,8 @@ const AdditionalProjectsSection = (props) => {
   const [lightningBoltAnimation, setLightningBoltAnimation] = useState(false);
   const [lightningBoltMissAnimation, setLightningBoltMissAnimation] =
     useState(false);
+  const [clawMissAnimation, setClawMissAnimation] = useState(false);
+  const [clawAnimation, setClawAnimation] = useState(false);
 
   const wizardAttacksInfo = {
     fireBall: {
@@ -41,7 +43,7 @@ const AdditionalProjectsSection = (props) => {
       attackChance: 0.3
     },
     claw: {
-      hitChance: 0.5,
+      hitChance: 0.1, //0.5
       damage: 1,
       attackChance: 0.7
     }
@@ -66,6 +68,8 @@ const AdditionalProjectsSection = (props) => {
       clickedContinue={() => setGameState("played")}
       clickedAgain={() => restartGameHandler()}
       clickedSkip={() => setGameState("skipped")}
+      clawCasted={clawAnimation}
+      clawMissed={clawMissAnimation}
       fireBallCasted={fireBallAnimation}
       fireBallMissed={fireBallMissAnimation}
       lightningBoltCasted={lightningBoltAnimation}
@@ -74,6 +78,38 @@ const AdditionalProjectsSection = (props) => {
   );
 
   // DRAGON ATTACKS
+  const attackDamageHandler = (currentAttack, currentAttackType) => {
+    if (wizardLives <= currentAttack.damage) {
+      //win
+      setGameState("lost");
+    } else {
+      setWizardLives(wizardLives - currentAttack.damage);
+      console.log(currentAttackType + " hit");
+    }
+  };
+
+  const clawMissHandler = () => {
+    setClawAnimation(true);
+    setClawMissAnimation(true);
+    setGameEvent("DragonAttackAnimation");
+
+    setTimeout(() => {
+      setClawAnimation(false);
+      setClawMissAnimation(false);
+      setGameEvent("WizardTurn");
+    }, 900);
+  };
+
+  const clawHitHandler = (currentAttack, currentAttackType) => {
+    setClawAnimation(true);
+    setGameEvent("DragonAttackAnimation");
+
+    setTimeout(() => {
+      setClawAnimation(false);
+      attackDamageHandler(currentAttack, currentAttackType);
+      setGameEvent("WizardTurn");
+    }, 900);
+  };
 
   const dragonAttack = () => {
     setGameEvent("DragonTurn");
@@ -87,17 +123,18 @@ const AdditionalProjectsSection = (props) => {
 
     const hitChance = Math.random();
     const currentAttack = dragonAttacksInfo[currentAttackType];
+
     if (hitChance < currentAttack.hitChance) {
       //hits
-      if (wizardLives <= currentAttack.damage) {
-        //win
-        setGameState("lost");
-      } else {
-        setWizardLives(wizardLives - currentAttack.damage);
-        console.log(currentAttackType + " hit");
-      }
+      currentAttackType === "fireBreath"
+        ? clawHitHandler(currentAttack, currentAttackType)
+        : clawHitHandler(currentAttack, currentAttackType);
     } else {
       //miss
+      currentAttackType === "fireBreath"
+        ? clawMissHandler(currentAttack, currentAttackType)
+        : clawMissHandler(currentAttack, currentAttackType);
+
       console.log(currentAttackType + " miss");
     }
     setGameEvent("WizardTurn");
@@ -120,7 +157,6 @@ const AdditionalProjectsSection = (props) => {
   const fireBallMissHandler = () => {
     setFireBallAnimation(true);
     setFireBallMissAnimation(true);
-
     setGameEvent("WizardAttackAnimation");
 
     setTimeout(() => {

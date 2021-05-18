@@ -9,6 +9,7 @@ import GameLoseScreen from "../../../assets/home/dragon-game/GameLoseScreen.svg"
 
 import LifeBar from "./LifeBar/LifeBar";
 import FireBall from "./FireBall/FireBall";
+import LightningBolt from "./LightningBolt/LightningBolt";
 import WizardAttack from "./WizardAttack/WizardAttack";
 import Button from "../../Button/Button";
 
@@ -17,7 +18,7 @@ const GameContainer = (props) => {
 
   let activeCharacter;
   switch (props.gameEvent) {
-    case "WizardTurn" || "FireBallAnimation" || "lightningBoltAnimation":
+    case "WizardTurn" || "WizardAttackAnimation":
       activeCharacter = "Your turn";
       break;
     default:
@@ -83,7 +84,14 @@ const GameContainer = (props) => {
                     alt="Wizard Illustration."
                     src={WizardIllustration}
                   />
-                  <FireBall spellCasted={props.fireBallCasted} />
+                  <FireBall
+                    spellCasted={props.fireBallCasted}
+                    spellMiss={props.fireBallMissed}
+                  />
+                  <LightningBolt
+                    spellCasted={props.lightningBoltCasted}
+                    spellMiss={props.lightningBoltMissed}
+                  />
                   <LifeBar maxLives={5} currentLives={props.wizardLives} />
                 </div>
               </div>

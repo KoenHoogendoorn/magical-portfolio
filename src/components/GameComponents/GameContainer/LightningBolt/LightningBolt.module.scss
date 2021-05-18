@@ -1,0 +1,42 @@
+.NotActive {
+  display: none;
+}
+
+.LightningBolt {
+  opacity: 1;
+  animation: flash 200ms linear 0s infinite, opacity 900ms 0s linear 2;
+  position: absolute;
+  top: 28%;
+  left: 28%;
+}
+
+.Miss {
+  top: -4%;
+}
+
+@keyframes flash {
+  0% {
+    transform: skew(-2deg, -2deg);
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

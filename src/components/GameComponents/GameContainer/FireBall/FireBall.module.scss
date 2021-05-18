@@ -15,7 +15,6 @@ $white: rgb(255, 255, 255);
     height: 35px;
     display: flex;
     align-items: center;
-    // transform: translate(0px);
     opacity: 0;
     animation-name: move-fireball;
     animation-duration: 900ms;
@@ -73,6 +72,20 @@ $white: rgb(255, 255, 255);
   }
 }
 
+.FireBallDragon {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  left: unset;
+  right: 30%;
+
+  .FireDragon {
+    animation-name: move-fireball-fromDragon;
+  }
+  .FireMiss {
+    animation-name: move-fireball-miss;
+  }
+}
+
 //FIREBALL HIT
 
 @keyframes burn-left {
@@ -110,8 +123,26 @@ $white: rgb(255, 255, 255);
     transform: translate(550%);
   }
   100% {
-    transform: translate(650%);
     opacity: 0;
+    transform: translate(650%);
+  }
+}
+
+@keyframes move-fireball-fromDragon {
+  0% {
+    transform: translate(0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    transform: translate(830%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(930%);
   }
 }
 

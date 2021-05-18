@@ -97,6 +97,7 @@ const GameContainer = (props) => {
                   <FireBall
                     spellCasted={props.fireBallCasted}
                     spellMiss={props.fireBallMissed}
+                    fromDragon={props.fireBreathCasted}
                   />
                   <LightningBolt
                     spellCasted={props.lightningBoltCasted}

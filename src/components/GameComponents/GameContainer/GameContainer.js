@@ -16,6 +16,7 @@ import ClawMarks from "./ClawMarks/ClawMarks";
 
 const GameContainer = (props) => {
   const wizardIllustrationClasses = `${classes.CharacterIllustration} ${classes.WizardIllustration}`;
+  const dragonIllustrationClasses = `${classes.CharacterIllustration} ${classes.DragonIllustration}`;
 
   let activeCharacter;
   switch (props.gameEvent) {
@@ -80,11 +81,17 @@ const GameContainer = (props) => {
             <div className={classes.CharactersContainer}>
               <div className={classes.GameScreenHalf}>
                 <div className={classes.CharacterContainer}>
-                  <img
-                    className={wizardIllustrationClasses}
-                    alt="Wizard Illustration."
-                    src={WizardIllustration}
-                  />
+                  <div class={classes.Circle}>
+                    <div class={classes.Rotate}>
+                      <div class={classes.CounterRotate}>
+                        <img
+                          className={wizardIllustrationClasses}
+                          alt="Wizard Illustration."
+                          src={WizardIllustration}
+                        />
+                      </div>
+                    </div>
+                  </div>
                   <ClawMarks
                     attackCasted={props.clawCasted}
                     attackMiss={props.clawMissed}
@@ -110,7 +117,7 @@ const GameContainer = (props) => {
               <div className={classes.GameScreenHalf}>
                 <div className={classes.CharacterContainer}>
                   <img
-                    className={classes.CharacterIllustration}
+                    className={dragonIllustrationClasses}
                     alt="Dragon Illustration."
                     src={DragonIllustration}
                   />
@@ -135,7 +142,7 @@ const GameContainer = (props) => {
             />
             <WizardAttack
               icon={<i className="fas fa-bolt"></i>}
-              name={"lightning Bolt"}
+              name={"Lightning Bolt"}
               hitChance={props.wizardAttacksInfo.lightningBolt.hitChance}
               damage={props.wizardAttacksInfo.lightningBolt.damage}
               clicked={props.clickedlightningBolt}

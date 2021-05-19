@@ -17,6 +17,12 @@
   i {
     font-size: $fnt-size-medium;
   }
+
+  &:disabled {
+    opacity: 0.4;
+
+    cursor: unset;
+  }
 }
 
 .Primary {
@@ -27,9 +33,14 @@
     background-color: $clr-primary-hover;
     color: $clr-secondary-hover;
   }
+
   &:active {
     background-color: $clr-primary-active;
     color: $clr-secondary-active;
+  }
+  &:disabled {
+    background: $clr-primary;
+    color: $clr-pesto;
   }
 }
 
@@ -44,6 +55,7 @@
     color: $clr-primary-hover;
     border: 2px solid $clr-primary-hover;
   }
+
   &:active {
     background-color: $clr-secondary-active;
     color: $clr-primary-active;

@@ -37,7 +37,11 @@ const WizardAttackInfo = (props) => {
           <div className={classes.HeartsContainer}>{hearts}</div>
         </div>
       </div>
-      <Button priority="primary" clicked={props.clicked}>
+      <Button
+        disabled={props.notPlayersTurn}
+        priority="primary"
+        clicked={props.clicked}
+      >
         Cast spell
       </Button>
     </div>

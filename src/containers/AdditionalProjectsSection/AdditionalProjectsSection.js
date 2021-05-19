@@ -33,7 +33,7 @@ const AdditionalProjectsSection = (props) => {
       damage: 2
     },
     lightningBolt: {
-      hitChance: 0.9,
+      hitChance: 0.9, // 0.9
       damage: 1
     }
   };
@@ -70,6 +70,7 @@ const AdditionalProjectsSection = (props) => {
       clickedContinue={() => setGameState("played")}
       clickedAgain={() => restartGameHandler()}
       clickedSkip={() => setGameState("skipped")}
+      notPlayersTurn={gameEvent !== "WizardTurn" ? true : false}
       clawCasted={clawAnimation}
       clawMissed={clawMissAnimation}
       fireBreathCasted={fireBreathAnimation}
@@ -93,11 +94,11 @@ const AdditionalProjectsSection = (props) => {
   };
 
   const fireBreathMissHandler = () => {
+    setGameEvent("DragonAttackAnimation");
     setFireBallAnimation(true);
     setFireBreathAnimation(true);
     // setFireBallMissAnimation(true);
     setFireBreathMissAnimation(true);
-    setGameEvent("DragonAttackAnimation");
 
     setTimeout(() => {
       setFireBallAnimation(false);
@@ -108,9 +109,9 @@ const AdditionalProjectsSection = (props) => {
   };
 
   const fireBreathHitHandler = (currentAttack, currentAttackType) => {
+    setGameEvent("DragonAttackAnimation");
     setFireBallAnimation(true);
     setFireBreathAnimation(true);
-    setGameEvent("DragonAttackAnimation");
 
     setTimeout(() => {
       setFireBreathAnimation(false);
@@ -121,9 +122,9 @@ const AdditionalProjectsSection = (props) => {
   };
 
   const clawMissHandler = () => {
+    setGameEvent("DragonAttackAnimation");
     setClawAnimation(true);
     setClawMissAnimation(true);
-    setGameEvent("DragonAttackAnimation");
 
     setTimeout(() => {
       setClawAnimation(false);
@@ -133,8 +134,8 @@ const AdditionalProjectsSection = (props) => {
   };
 
   const clawHitHandler = (currentAttack, currentAttackType) => {
-    setClawAnimation(true);
     setGameEvent("DragonAttackAnimation");
+    setClawAnimation(true);
 
     setTimeout(() => {
       setClawAnimation(false);
@@ -169,7 +170,6 @@ const AdditionalProjectsSection = (props) => {
 
       console.log(currentAttackType + " miss");
     }
-    setGameEvent("WizardTurn");
   };
 
   // END DRAGON ATTACKS
@@ -194,9 +194,7 @@ const AdditionalProjectsSection = (props) => {
     setTimeout(() => {
       setFireBallAnimation(false);
       setFireBallMissAnimation(false);
-      setTimeout(() => {
-        dragonAttack();
-      }, 100);
+      dragonAttack();
     }, 900);
   };
 

@@ -131,6 +131,7 @@ const GameContainer = (props) => {
               hitChance={props.wizardAttacksInfo.fireBall.hitChance}
               damage={props.wizardAttacksInfo.fireBall.damage}
               clicked={props.clickedFireBall}
+              notPlayersTurn={props.notPlayersTurn}
             />
             <WizardAttack
               icon={<i className="fas fa-bolt"></i>}
@@ -138,6 +139,7 @@ const GameContainer = (props) => {
               hitChance={props.wizardAttacksInfo.lightningBolt.hitChance}
               damage={props.wizardAttacksInfo.lightningBolt.damage}
               clicked={props.clickedlightningBolt}
+              notPlayersTurn={props.notPlayersTurn}
             />
           </div>
         </div>

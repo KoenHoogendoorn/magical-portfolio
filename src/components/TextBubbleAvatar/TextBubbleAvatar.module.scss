@@ -38,12 +38,14 @@
 .PointerRight {
   &:after {
     right: -13px;
+    -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
   }
 }
 .PointerLeft {
   &:after {
     left: -13px;
+    -webkit-transform: rotate(315deg);
     transform: rotate(315deg);
   }
 }

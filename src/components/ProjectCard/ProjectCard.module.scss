@@ -18,14 +18,17 @@
 }
 
 .Left {
+  -webkit-transform: translateX(calc(-100% - 16px));
   transform: translateX(calc(-100% - 16px));
 }
 
 .Center {
+  -webkit-transform: translateX(0);
   transform: translateX(0);
 }
 
 .Right {
+  -webkit-transform: translateX(calc(100% + 16px));
   transform: translateX(calc(100% + 16px));
 }
 

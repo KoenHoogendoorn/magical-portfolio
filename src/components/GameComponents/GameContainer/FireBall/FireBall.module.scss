@@ -17,6 +17,8 @@ $white: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     opacity: 0;
+    // -webkit-animation: move-fireball 900ms ease-in 0s 1;
+    // animation: move-fireball 900ms ease-in 0s 1;
     animation-name: move-fireball;
     animation-duration: 900ms;
     animation-iteration-count: 1;
@@ -31,9 +33,13 @@ $white: rgb(255, 255, 255);
       border-bottom-right-radius: 70%;
       border-bottom-left-radius: 70%;
       border-top-left-radius: 70%;
+      -webkit-transform: rotate(-135deg) skew(-10deg, -10deg);
       transform: rotate(-135deg) skew(-10deg, -10deg);
       background-color: $red;
       z-index: 1;
+
+      // -webkit-animation: burn-left 300ms ease 0s infinite forwards;
+      // animation: burn-left 300ms ease 0s infinite forwards;
 
       animation-iteration-count: infinite;
       animation-fill-mode: forwards;
@@ -62,19 +68,23 @@ $white: rgb(255, 255, 255);
 
     .FlameMiss {
       top: 0;
+      -webkit-animation-name: burn-left-miss;
       animation-name: burn-left-miss;
       &:nth-of-type(2n) {
+        -webkit-animation-name: burn-right-miss;
         animation-name: burn-right-miss;
       }
     }
   }
 
   .FireMiss {
+    -webkit-animation-name: move-fireball-miss;
     animation-name: move-fireball-miss;
   }
 }
 
 .FireBallMiss {
+  -webkit-transform: rotate(25deg);
   transform: rotate(25deg);
 }
 
@@ -85,15 +95,18 @@ $white: rgb(255, 255, 255);
   right: 30%;
 
   .FireDragon {
+    -webkit-animation-name: move-fireball-fromDragon;
     animation-name: move-fireball-fromDragon;
   }
 
   .FireMiss {
+    -webkit-animation-name: move-fireball-miss-fromDragon;
     animation-name: move-fireball-miss-fromDragon;
   }
 }
 
 .FireBallDragonMiss {
+  -webkit-transform: rotate(-126deg);
   transform: rotate(-126deg);
 }
 
@@ -102,10 +115,12 @@ $white: rgb(255, 255, 255);
 @keyframes burn-left {
   0%,
   100% {
+    -webkit-transform: rotate(-135deg) skew(-10deg, -10deg) scale(1);
     transform: rotate(-135deg) skew(-10deg, -10deg) scale(1);
   }
   30%,
   60% {
+    -webkit-transform: rotate(-134deg) skew(-15deg, -15deg) scale(1.01);
     transform: rotate(-134deg) skew(-15deg, -15deg) scale(1.01);
   }
 }
@@ -113,34 +128,40 @@ $white: rgb(255, 255, 255);
 @keyframes burn-right {
   0%,
   100% {
+    -webkit-transform: rotate(-135deg) skew(-10deg, -10deg) scale(1);
     transform: rotate(-135deg) skew(-10deg, -10deg) scale(1);
   }
   30%,
   60% {
+    -webkit-transform: rotate(-134deg) skew(-5deg, -5deg) scale(1.01);
     transform: rotate(-134deg) skew(-5deg, -5deg) scale(1.01);
   }
 }
 
 @keyframes move-fireball {
   0% {
-    transform: translate(0);
     opacity: 0;
+    -webkit-transform: translate(0);
+    transform: translate(0);
   }
   40% {
     opacity: 1;
   }
   60% {
     opacity: 1;
+    -webkit-transform: translate(550%);
     transform: translate(550%);
   }
   100% {
     opacity: 0;
+    -webkit-transform: translate(650%);
     transform: translate(650%);
   }
 }
 
 @keyframes move-fireball-fromDragon {
   0% {
+    -webkit-transform: translate(0);
     transform: translate(0);
     opacity: 0;
   }
@@ -149,10 +170,12 @@ $white: rgb(255, 255, 255);
   }
   60% {
     opacity: 1;
+    -webkit-transform: translate(830%);
     transform: translate(830%);
   }
   100% {
     opacity: 0;
+    -webkit-transform: translate(930%);
     transform: translate(930%);
   }
 }
@@ -162,10 +185,12 @@ $white: rgb(255, 255, 255);
 @keyframes burn-left-miss {
   0%,
   100% {
+    -webkit-transform: rotate(-180deg) skew(-10deg, -10deg) scale(1);
     transform: rotate(-180deg) skew(-10deg, -10deg) scale(1);
   }
   30%,
   60% {
+    -webkit-transform: rotate(-179deg) skew(-12deg, -12deg) scale(1.01);
     transform: rotate(-179deg) skew(-12deg, -12deg) scale(1.01);
   }
 }
@@ -173,10 +198,12 @@ $white: rgb(255, 255, 255);
 @keyframes burn-right-miss {
   0%,
   100% {
+    -webkit-transform: rotate(-180deg) skew(-10deg, -10deg) scale(1);
     transform: rotate(-180deg) skew(-10deg, -10deg) scale(1);
   }
   30%,
   60% {
+    -webkit-transform: rotate(-179deg) skew(-6deg, -6deg) scale(1.01);
     transform: rotate(-179deg) skew(-6deg, -6deg) scale(1.01);
   }
 }
@@ -184,6 +211,7 @@ $white: rgb(255, 255, 255);
 @keyframes move-fireball-miss {
   0% {
     opacity: 0;
+    -webkit-transform: translate(0);
     transform: translate(0);
   }
   40% {
@@ -191,10 +219,12 @@ $white: rgb(255, 255, 255);
   }
   60% {
     opacity: 1;
+    -webkit-transform: translateX(500%) translateY(-500%);
     transform: translateX(500%) translateY(-500%);
   }
   100% {
     opacity: 0;
+    -webkit-transform: translateX(600%) translateY(-600%);
     transform: translateX(600%) translateY(-600%);
   }
 }
@@ -202,6 +232,7 @@ $white: rgb(255, 255, 255);
 @keyframes move-fireball-miss-fromDragon {
   0% {
     opacity: 0;
+    -webkit-transform: translate(0);
     transform: translate(0);
   }
   40% {
@@ -209,10 +240,12 @@ $white: rgb(255, 255, 255);
   }
   60% {
     opacity: 1;
+    -webkit-transform: translateX(650%) translateY(-650%);
     transform: translateX(650%) translateY(-650%);
   }
   100% {
     opacity: 0;
+    -webkit-transform: translateX(800%) translateY(-800%);
     transform: translateX(800%) translateY(-800%);
   }
 }

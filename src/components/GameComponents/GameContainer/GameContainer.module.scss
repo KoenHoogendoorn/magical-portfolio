@@ -50,14 +50,20 @@
           .Circle {
             -webkit-transform: scaleX(2);
             transform: scaleX(2);
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
             border-radius: 50%;
 
             .Rotate {
               height: 10px;
+              -webkit-animation: floating-wizard 3s infinite linear;
               animation: floating-wizard 3s infinite linear;
+              -webkit-transform-origin: 50% 50%;
               transform-origin: 50% 50%;
 
               .CounterRotate {
+                -webkit-animation: floating-wizard-counterCircle 3s infinite
+                  linear;
                 animation: floating-wizard-counterCircle 3s infinite linear;
 
                 .WizardIllustration {
@@ -67,6 +73,7 @@
                   right: 0;
                   position: absolute;
                   -webkit-transform: scaleX(0.5);
+                  transform: scaleX(0.5);
                 }
               }
             }
@@ -78,6 +85,7 @@
           }
 
           .DragonIllustration {
+            -webkit-animation: floating-dragon 2s linear 0s infinite;
             animation: floating-dragon 2s linear 0s infinite;
           }
         }
@@ -110,53 +118,43 @@
   }
 }
 
-@keyframes floating-wizard {
-  0% {
-    transform: translateX(0) translateY(0);
-  }
-  20% {
-    transform: translateX(3%) translateY(-3%);
-  }
-  40% {
-    transform: translateY(-4%);
-  }
-  60% {
-    transform: translateX(-3%) translateY(-3%);
-  }
-  80% {
-    transform: translateX(-3%) translateY(0);
-  }
-}
-
 @keyframes floating-dragon {
   0% {
+    -webkit-transform: translateX(0) translateY(0);
     transform: translateX(0) translateY(0);
   }
   25% {
+    -webkit-transform: translateX(0) translateY(-2%);
     transform: translateX(0) translateY(-2%);
   }
   75% {
+    -webkit-transform: translateX(0) translateY(2%);
     transform: translateX(0) translateY(2%);
   }
   100% {
+    -webkit-transform: translateX(0) translateY(0);
     transform: translateX(0) translateY(0);
   }
 }
 
 @keyframes floating-wizard {
   from {
+    -webkit-transform: rotateZ(0deg);
     transform: rotateZ(0deg);
   }
   to {
+    -webkit-transform: rotateZ(360deg);
     transform: rotateZ(360deg);
   }
 }
 
 @keyframes floating-wizard-counterCircle {
   from {
+    -webkit-transform: rotateZ(360deg);
     transform: rotateZ(360deg);
   }
   to {
+    -webkit-transform: rotateZ(0deg);
     transform: rotateZ(0deg);
   }
 }

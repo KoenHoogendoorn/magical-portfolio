@@ -1,9 +1,9 @@
-<svg width="307" height="234" viewBox="0 0 307 234" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="308" height="234" viewBox="0 0 308 234" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d)">
-<path d="M12.4934 151.867L77.2375 130.333L93.8109 99.4022L135.589 100.775M135.589 100.775L150.563 67.8379L192.908 56.3497M135.589 100.775L184.575 102.964L201.337 123.558L228.976 108.185M192.908 56.3497L200.44 47.3354M192.908 56.3497L205.239 62.037L207.66 69.8588L215.767 65.3496M256.615 92.813L228.976 108.185M256.615 92.813L265.621 82.9789M256.615 92.813L272.132 94.6849M282.994 95.9952L272.132 94.6849M228.976 108.185L227.245 85.9869L263.116 68.9315L261.716 52.0985M261.716 52.0985L260.315 35.2655L256.833 33.3421M261.716 52.0985L271.338 45.5407L276.05 49.6752M265.621 82.9789L277.99 80.9251M265.621 82.9789L267.911 74.95M272.132 94.6849L275.255 100.299" stroke="#B6F2FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12.8066 151.585L77.5514 130.054L94.1256 99.1231L135.903 100.497M135.903 100.497L150.879 67.5604L193.224 56.0735M135.903 100.497L184.89 102.687L201.651 123.282L229.29 107.91M193.224 56.0735L200.757 47.0594M193.224 56.0735L205.555 61.7611L207.975 69.583L216.083 65.074M256.93 92.5387L229.29 107.91M256.93 92.5387L265.936 82.7048M256.93 92.5387L272.447 94.411M283.308 95.7217L272.447 94.411M229.29 107.91L227.56 85.7117L263.432 68.6573L262.032 51.8243M262.032 51.8243L260.632 34.9912L257.149 33.0678M262.032 51.8243L271.654 45.2668L276.366 49.4014M265.936 82.7048L278.305 80.6514M265.936 82.7048L268.227 74.676M272.447 94.411L275.569 100.026" stroke="url(#paint0_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 <defs>
-<filter id="filter0_d" x="0.0585938" y="0.882812" width="306.667" height="232.574" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_d" x="0.37207" y="0.608398" width="306.669" height="232.568" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
 <feOffset/>
@@ -12,5 +12,11 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
 </filter>
+<linearGradient id="paint0_linear" x1="12.0281" y1="151.053" x2="285.22" y2="66.1902" gradientUnits="userSpaceOnUse">
+<stop offset="0.00520833" stop-color="#B6F2FF" stop-opacity="0"/>
+<stop offset="0.15625" stop-color="#B6F2FF" stop-opacity="0.58"/>
+<stop offset="0.302083" stop-color="#B6F2FF"/>
+<stop offset="1" stop-color="#B6F2FF"/>
+</linearGradient>
 </defs>
 </svg>

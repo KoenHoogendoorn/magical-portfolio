@@ -1,6 +1,6 @@
 <svg width="351" height="124" viewBox="0 0 351 124" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d)">
-<path d="M9.5 16.5L89 31.5L124 9L166.5 34.5M166.5 34.5L201 9L251.5 21.5M166.5 34.5L216 65L221.5 96H259M251.5 21.5L264.5 16.5M251.5 21.5L261 34.5L259 44H270M296.5 96H259M296.5 96L311.5 91M296.5 96L311.5 106.882M322 114.5L311.5 106.882M259 96L270 72L317 75L325.25 56.75M325.25 56.75L333.5 38.5L331 34.5M325.25 56.75L339 55.5L341.5 62.5M311.5 91L325.5 96M311.5 91L318.5 84M311.5 106.882V114.5" stroke="#B6F2FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.5 16.5L89 31.5L124 9L166.5 34.5M166.5 34.5L201 9L251.5 21.5M166.5 34.5L216 65L221.5 96H259M251.5 21.5L264.5 16.5M251.5 21.5L261 34.5L259 44H270M296.5 96H259M296.5 96L311.5 91M296.5 96L311.5 106.882M322 114.5L311.5 106.882M259 96L270 72L317 75L325.25 56.75M325.25 56.75L333.5 38.5L331 34.5M325.25 56.75L339 55.5L341.5 62.5M311.5 91L325.5 96M311.5 91L318.5 84M311.5 106.882V114.5" stroke="url(#paint0_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 <defs>
 <filter id="filter0_d" x="0.5" y="0" width="350" height="123.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -12,5 +12,11 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
 </filter>
+<linearGradient id="paint0_linear" x1="9.00003" y1="15.5" x2="341" y2="85" gradientUnits="userSpaceOnUse">
+<stop offset="0.00520833" stop-color="#B6F2FF" stop-opacity="0"/>
+<stop offset="0.15625" stop-color="#B6F2FF" stop-opacity="0.58"/>
+<stop offset="0.302083" stop-color="#B6F2FF"/>
+<stop offset="1" stop-color="#B6F2FF"/>
+</linearGradient>
 </defs>
 </svg>

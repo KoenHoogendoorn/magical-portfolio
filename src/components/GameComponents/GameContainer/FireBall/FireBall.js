@@ -3,21 +3,24 @@ import classes from "./FireBall.module.scss";
 
 const FireBall = (props) => {
   let fireBallClasses = `${classes.FireBall} `;
-  if (props.fromDragon) {
+  if (props.dragonAttacked) {
     fireBallClasses += `${classes.FireBallDragon} `;
   }
 
   let fireClasses = `${classes.Fire} `;
-  if (props.spellMiss) {
-    fireClasses += `${classes.FireMiss} `;
-  }
-  if (props.fromDragon) {
+  if (props.dragonAttacked) {
     fireClasses += `${classes.FireDragon} `;
   }
 
   let flameClasses = `${classes.Flame} `;
-  if (props.spellMiss) {
+  if (props.spellMiss || props.dragonMissed) {
+    fireClasses += `${classes.FireMiss} `;
     flameClasses += `${classes.FlameMiss} `;
+    fireBallClasses += `${classes.FireBallMiss} `;
+  }
+
+  if (props.dragonMissed) {
+    fireBallClasses += `${classes.FireBallDragonMiss} `;
   }
 
   return (

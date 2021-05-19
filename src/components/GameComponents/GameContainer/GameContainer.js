@@ -97,7 +97,8 @@ const GameContainer = (props) => {
                   <FireBall
                     spellCasted={props.fireBallCasted}
                     spellMiss={props.fireBallMissed}
-                    fromDragon={props.fireBreathCasted}
+                    dragonAttacked={props.fireBreathCasted}
+                    dragonMissed={props.fireBreathMissed}
                   />
                   <LightningBolt
                     spellCasted={props.lightningBoltCasted}
@@ -133,7 +134,7 @@ const GameContainer = (props) => {
             />
             <WizardAttack
               icon={<i className="fas fa-bolt"></i>}
-              name={"Ligntening Bolt"}
+              name={"lightning Bolt"}
               hitChance={props.wizardAttacksInfo.lightningBolt.hitChance}
               damage={props.wizardAttacksInfo.lightningBolt.damage}
               clicked={props.clickedlightningBolt}

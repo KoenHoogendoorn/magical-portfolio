@@ -23,7 +23,7 @@ $white: rgb(255, 255, 255);
 
     .Flame {
       position: absolute;
-      right: 0; // <-
+      right: 0;
       opacity: 0.9;
       width: 100%;
       height: 100%;
@@ -67,9 +67,14 @@ $white: rgb(255, 255, 255);
       }
     }
   }
+
   .FireMiss {
     animation-name: move-fireball-miss;
   }
+}
+
+.FireBallMiss {
+  transform: rotate(25deg);
 }
 
 .FireBallDragon {
@@ -81,9 +86,14 @@ $white: rgb(255, 255, 255);
   .FireDragon {
     animation-name: move-fireball-fromDragon;
   }
+
   .FireMiss {
-    animation-name: move-fireball-miss;
+    animation-name: move-fireball-miss-fromDragon;
   }
+}
+
+.FireBallDragonMiss {
+  transform: rotate(-126deg);
 }
 
 //FIREBALL HIT
@@ -180,10 +190,28 @@ $white: rgb(255, 255, 255);
   }
   60% {
     opacity: 1;
-    transform: translateX(180px) translateY(-180px);
+    transform: translateX(500%) translateY(-500%);
   }
   100% {
     opacity: 0;
-    transform: translateX(200px) translateY(-200px);
+    transform: translateX(600%) translateY(-600%);
+  }
+}
+
+@keyframes move-fireball-miss-fromDragon {
+  0% {
+    opacity: 0;
+    transform: translate(0);
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(650%) translateY(-650%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(800%) translateY(-800%);
   }
 }

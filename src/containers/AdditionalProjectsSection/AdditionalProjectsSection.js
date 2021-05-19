@@ -25,10 +25,11 @@ const AdditionalProjectsSection = (props) => {
   const [clawMissAnimation, setClawMissAnimation] = useState(false);
   const [clawAnimation, setClawAnimation] = useState(false);
   const [fireBreathAnimation, setFireBreathAnimation] = useState(false);
+  const [fireBreathMissAnimation, setFireBreathMissAnimation] = useState(false);
 
   const wizardAttacksInfo = {
     fireBall: {
-      hitChance: 0.7,
+      hitChance: 0.7, // 0.7
       damage: 2
     },
     lightningBolt: {
@@ -39,14 +40,14 @@ const AdditionalProjectsSection = (props) => {
 
   const dragonAttacksInfo = {
     fireBreath: {
-      hitChance: 0.5, //0.4
+      hitChance: 0.4, // 0.4
       damage: 2,
-      attackChance: 0.99 //0.3
+      attackChance: 0.9 // 0.3
     },
     claw: {
-      hitChance: 0.5,
+      hitChance: 0.5, //0.5
       damage: 1,
-      attackChance: 0.01 //0.7
+      attackChance: 0.7 //0.7
     }
   };
 
@@ -72,6 +73,7 @@ const AdditionalProjectsSection = (props) => {
       clawCasted={clawAnimation}
       clawMissed={clawMissAnimation}
       fireBreathCasted={fireBreathAnimation}
+      fireBreathMissed={fireBreathMissAnimation}
       fireBallCasted={fireBallAnimation}
       fireBallMissed={fireBallMissAnimation}
       lightningBoltCasted={lightningBoltAnimation}
@@ -82,7 +84,7 @@ const AdditionalProjectsSection = (props) => {
   // DRAGON ATTACKS
   const attackDamageHandler = (currentAttack, currentAttackType) => {
     if (wizardLives <= currentAttack.damage) {
-      //win
+      //dragon wins
       setGameState("lost");
     } else {
       setWizardLives(wizardLives - currentAttack.damage);
@@ -93,20 +95,21 @@ const AdditionalProjectsSection = (props) => {
   const fireBreathMissHandler = () => {
     setFireBallAnimation(true);
     setFireBreathAnimation(true);
-    setFireBallMissAnimation(true);
+    // setFireBallMissAnimation(true);
+    setFireBreathMissAnimation(true);
     setGameEvent("DragonAttackAnimation");
 
     setTimeout(() => {
       setFireBallAnimation(false);
       setFireBreathAnimation(false);
-      setFireBallMissAnimation(false);
+      setFireBreathMissAnimation(false);
       setGameEvent("WizardTurn");
     }, 900);
   };
 
   const fireBreathHitHandler = (currentAttack, currentAttackType) => {
-    setFireBreathAnimation(true);
     setFireBallAnimation(true);
+    setFireBreathAnimation(true);
     setGameEvent("DragonAttackAnimation");
 
     setTimeout(() => {
@@ -175,7 +178,7 @@ const AdditionalProjectsSection = (props) => {
 
   const spellDamageHandler = (spell, spellName) => {
     if (dragonLives <= spell.damage) {
-      //win
+      //wizard wins
       setGameState("won");
     } else {
       setDragonLives(dragonLives - spell.damage);
@@ -184,20 +187,22 @@ const AdditionalProjectsSection = (props) => {
   };
 
   const fireBallMissHandler = () => {
+    setGameEvent("WizardAttackAnimation");
     setFireBallAnimation(true);
     setFireBallMissAnimation(true);
-    setGameEvent("WizardAttackAnimation");
 
     setTimeout(() => {
       setFireBallAnimation(false);
       setFireBallMissAnimation(false);
-      dragonAttack();
+      setTimeout(() => {
+        dragonAttack();
+      }, 100);
     }, 900);
   };
 
   const fireBallHitHandler = (spell, spellName) => {
-    setFireBallAnimation(true);
     setGameEvent("WizardAttackAnimation");
+    setFireBallAnimation(true);
 
     setTimeout(() => {
       setFireBallAnimation(false);
@@ -207,10 +212,9 @@ const AdditionalProjectsSection = (props) => {
   };
 
   const lightningBoltMissHandler = () => {
+    setGameEvent("WizardAttackAnimation");
     setLightningBoltAnimation(true);
     setLightningBoltMissAnimation(true);
-
-    setGameEvent("WizardAttackAnimation");
 
     setTimeout(() => {
       setLightningBoltAnimation(false);
@@ -220,8 +224,8 @@ const AdditionalProjectsSection = (props) => {
   };
 
   const lightningboltHandler = (spell, spellName) => {
-    setLightningBoltAnimation(true);
     setGameEvent("WizardAttackAnimation");
+    setLightningBoltAnimation(true);
 
     setTimeout(() => {
       setLightningBoltAnimation(false);
@@ -240,7 +244,6 @@ const AdditionalProjectsSection = (props) => {
         : lightningboltHandler(spell, spellName);
     } else {
       //miss
-
       spellName === "fireBall"
         ? fireBallMissHandler()
         : lightningBoltMissHandler();

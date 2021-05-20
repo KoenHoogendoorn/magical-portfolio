@@ -263,6 +263,53 @@ $white: rgb(255, 255, 255);
   .FireBallDragon {
     top: 26%;
   }
+
+  .FireBallDragonMiss {
+    -webkit-transform: rotate(-121deg);
+    transform: rotate(-121deg);
+  }
+
+  @keyframes move-fireball-miss {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translateX(400%) translateY(-400%);
+      transform: translateX(400%) translateY(-400%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateX(500%) translateY(-500%);
+      transform: translateX(500%) translateY(-500%);
+    }
+  }
+
+  @keyframes move-fireball-miss-fromDragon {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      // -webkit-transform: translateX(550%) translateY(-550%);
+      transform: translateX(550%) translateY(-550%);
+    }
+    100% {
+      opacity: 0;
+      // -webkit-transform: translateX(640%) translateY(-640%);
+      transform: translateX(640%) translateY(-640%);
+    }
+  }
 }
 
 @media screen and (max-width: 620px) {

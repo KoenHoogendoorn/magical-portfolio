@@ -172,7 +172,7 @@
                 height: 4px;
                 .CounterRotate {
                   .WizardIllustration {
-                    width: 47%;
+                    width: 50%;
                   }
                 }
               }
@@ -190,7 +190,8 @@
     }
   }
 }
-@media screen and (max-width: 451px) {
+
+@media screen and (max-width: 541px) {
   .GameContainer {
     .GameScreen {
       .CharactersContainer {
@@ -199,6 +200,72 @@
             .Circle {
               .Rotate {
                 height: 2px;
+                .CounterRotate {
+                  .WizardIllustration {
+                    width: 59%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 451px) {
+  .GameContainer {
+    .GameScreen {
+      .CharactersContainer {
+        .GameScreenHalf {
+          .CharacterContainer {
+            .Circle {
+              .Rotate {
+                height: 1px;
+                .CounterRotate {
+                  .WizardIllustration {
+                    width: 42%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .GameContainer {
+    .GameScreen {
+      .CharactersContainer {
+        .GameScreenHalf {
+          .CharacterContainer {
+            .Circle {
+              .Rotate {
+                .CounterRotate {
+                  .WizardIllustration {
+                    width: 47%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 321px) {
+  .GameContainer {
+    .GameScreen {
+      .CharactersContainer {
+        .GameScreenHalf {
+          .CharacterContainer {
+            .Circle {
+              .Rotate {
                 .CounterRotate {
                   .WizardIllustration {
                     width: 42%;

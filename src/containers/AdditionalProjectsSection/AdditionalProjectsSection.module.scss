@@ -46,6 +46,7 @@
 
 .Darkened {
   opacity: 0.6;
+  -webkit-filter: brightness(50%);
   filter: brightness(50%);
 }
 
@@ -53,10 +54,23 @@
   margin-bottom: 400px; //240 (to align with signoffsection + 160
 }
 
+@media screen and (max-width: 720px) {
+  .AdditionalProjectsSection {
+    width: 100%;
+
+    .GameSection {
+      width: 90%; /*fallback for browsers dont use support calc*/
+      width: -webkit-calc(100% - 32px);
+      width: -moz-calc(100% - 32px);
+      width: calc(100% - 32px);
+    }
+  }
+}
+
 @media screen and (max-width: 541px) {
   .AdditionalProjects {
     margin-top: $spc-under-textAvatar-mobile;
-    display: unset;
+    display: block;
 
     .AdditionalProject {
       margin-top: 24px;

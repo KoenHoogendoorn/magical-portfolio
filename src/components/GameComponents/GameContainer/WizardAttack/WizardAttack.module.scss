@@ -41,3 +41,52 @@
     }
   }
 }
+
+@media screen and (max-width: 541px) {
+  .WizardAttack {
+    width: 49%; //fallback
+    width: calc(50% - 4px);
+    .WizardAttackInfo {
+      padding: 16px;
+    }
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .WizardAttack {
+    .WizardAttackInfo {
+      .AttackInfoName {
+        font-size: 14px;
+        .AttackInfoIcon {
+          font-size: 12px;
+          margin-right: 4px;
+        }
+      }
+
+      p {
+        font-size: $fnt-size-small;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .WizardAttack {
+    .WizardAttackInfo {
+      .AttackInfoName {
+        .AttackInfoIcon {
+          display: none;
+        }
+      }
+      p {
+        font-size: 14px;
+      }
+
+      .DamageContainer {
+        .HeartsContainer {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

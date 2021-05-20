@@ -17,3 +17,29 @@
     font-size: 32px;
   }
 }
+
+@media screen and (max-width: 720px) {
+  .LifeBar {
+    .HeartIcon {
+      font-size: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 541px) {
+  .LifeBar {
+    margin: 8px auto 0 auto;
+    gap: 4px 4px;
+    .HeartIcon {
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .LifeBar {
+    .HeartIcon {
+      font-size: 16px;
+    }
+  }
+}

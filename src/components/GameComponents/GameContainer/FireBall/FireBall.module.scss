@@ -38,13 +38,13 @@ $white: rgb(255, 255, 255);
       background-color: $red;
       z-index: 1;
 
-      // -webkit-animation: burn-left 300ms ease 0s infinite forwards;
-      // animation: burn-left 300ms ease 0s infinite forwards;
+      -webkit-animation: burn-left 300ms ease 0s infinite forwards;
+      animation: burn-left 300ms ease 0s infinite forwards;
 
-      animation-iteration-count: infinite;
-      animation-fill-mode: forwards;
-      animation-name: burn-left;
-      animation-duration: 300ms;
+      // animation-iteration-count: infinite;
+      // animation-fill-mode: forwards;
+      // animation-name: burn-left;
+      // animation-duration: 300ms;
 
       &:nth-of-type(2n) {
         animation-name: burn-right;
@@ -92,7 +92,7 @@ $white: rgb(255, 255, 255);
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   left: unset;
-  right: 30%;
+  right: 40%;
 
   .FireDragon {
     -webkit-animation-name: move-fireball-fromDragon;
@@ -247,5 +247,248 @@ $white: rgb(255, 255, 255);
     opacity: 0;
     -webkit-transform: translateX(800%) translateY(-800%);
     transform: translateX(800%) translateY(-800%);
+  }
+}
+
+//--- MEDIAQUERIES
+
+@media screen and (max-width: 720px) {
+  .FireBall {
+    top: 20%;
+    .Fire {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .FireBallDragon {
+    top: 26%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .FireBall {
+    top: 18%;
+  }
+  .FireBallDragon {
+    top: 23%;
+  }
+
+  .FireBallMiss {
+    -webkit-transform: rotate(32deg);
+    transform: rotate(32deg);
+  }
+
+  .FireBallDragonMiss {
+    -webkit-transform: rotate(-115deg);
+    transform: rotate(-115deg);
+  }
+
+  @keyframes move-fireball-miss {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translateX(500%) translateY(-500%);
+      transform: translateX(500%) translateY(-500%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateX(600%) translateY(-600%);
+      transform: translateX(600%) translateY(-600%);
+    }
+  }
+
+  @keyframes move-fireball-miss-fromDragon {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translateX(380%) translateY(-380%);
+      transform: translateX(380%) translateY(-380%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateX(490%) translateY(-490%);
+      transform: translateX(490%) translateY(-490%);
+    }
+  }
+}
+
+@media screen and (max-width: 451px) {
+  .FireBall {
+    top: 21%;
+    .Fire {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .FireBallDragon {
+    top: 25%;
+  }
+
+  .FireBallMiss {
+    -webkit-transform: rotate(22deg);
+    transform: rotate(22deg);
+  }
+
+  .FireBallDragonMiss {
+    -webkit-transform: rotate(-115deg);
+    transform: rotate(-115deg);
+  }
+
+  @keyframes move-fireball-fromDragon {
+    0% {
+      -webkit-transform: translate(0);
+      transform: translate(0);
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translate(630%);
+      transform: translate(630%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translate(730%);
+      transform: translate(730%);
+    }
+  }
+
+  @keyframes move-fireball-miss {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translateX(340%) translateY(-340%);
+      transform: translateX(340%) translateY(-340%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateX(440%) translateY(-440%);
+      transform: translateX(440%) translateY(-440%);
+    }
+  }
+
+  @keyframes move-fireball-miss-fromDragon {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      // -webkit-transform: translateX(380%) translateY(-380%);
+      transform: translateX(460%) translateY(-460%);
+    }
+    100% {
+      opacity: 0;
+      // -webkit-transform: translateX(490%) translateY(-490%);
+      transform: translateX(500%) translateY(-500%);
+    }
+  }
+}
+
+@media screen and (max-width: 361px) {
+  .FireBallDragon {
+    top: 22%;
+  }
+  @keyframes move-fireball {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translate(450%);
+      transform: translate(450%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translate(560%);
+      transform: translate(560%);
+    }
+  }
+
+  @keyframes move-fireball-fromDragon {
+    0% {
+      -webkit-transform: translate(0);
+      transform: translate(0);
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translate(510%);
+      transform: translate(510%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translate(610%);
+      transform: translate(610%);
+    }
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .FireBall {
+    top: 17%;
+    .Fire {
+      width: 15px;
+      height: 15px;
+    }
+  }
+  .FireBallDragon {
+    top: 21%;
+  }
+
+  @keyframes move-fireball-fromDragon {
+    0% {
+      -webkit-transform: translate(0);
+      transform: translate(0);
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translate(580%);
+      transform: translate(580%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translate(680%);
+      transform: translate(680%);
+    }
   }
 }

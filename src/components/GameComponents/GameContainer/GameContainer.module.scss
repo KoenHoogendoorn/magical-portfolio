@@ -48,14 +48,14 @@
 
         .CharacterContainer {
           .Circle {
-            -webkit-transform: scaleX(2);
-            transform: scaleX(2);
+            -webkit-transform: scaleX(3);
+            transform: scaleX(3);
             -webkit-border-radius: 50%;
             -moz-border-radius: 50%;
             border-radius: 50%;
 
             .Rotate {
-              height: 10px;
+              height: 4px;
               -webkit-animation: floating-wizard 3s infinite linear;
               animation: floating-wizard 3s infinite linear;
               -webkit-transform-origin: 50% 50%;
@@ -72,8 +72,8 @@
                   left: 0;
                   right: 0;
                   position: absolute;
-                  -webkit-transform: scaleX(0.5);
-                  transform: scaleX(0.5);
+                  -webkit-transform: scaleX(0.33);
+                  transform: scaleX(0.33);
                 }
               }
             }
@@ -156,5 +156,59 @@
   to {
     -webkit-transform: rotateZ(0deg);
     transform: rotateZ(0deg);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .GameContainer {
+    .GameScreen {
+      height: inherit;
+      .CharactersContainer {
+        .GameScreenHalf {
+          .CharacterContainer {
+            padding-top: 20%;
+            .Circle {
+              .Rotate {
+                height: 4px;
+                .CounterRotate {
+                  .WizardIllustration {
+                    width: 47%;
+                  }
+                }
+              }
+            }
+
+            .CharacterIllustration {
+              width: 90%;
+            }
+          }
+        }
+      }
+    }
+    .WizardAttackContainer {
+      margin-top: 4px;
+    }
+  }
+}
+@media screen and (max-width: 451px) {
+  .GameContainer {
+    .GameScreen {
+      .CharactersContainer {
+        .GameScreenHalf {
+          .CharacterContainer {
+            .Circle {
+              .Rotate {
+                height: 2px;
+                .CounterRotate {
+                  .WizardIllustration {
+                    width: 42%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

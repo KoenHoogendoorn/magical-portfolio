@@ -31,25 +31,25 @@ const AdditionalProjectsSection = (props) => {
 
   const wizardAttacksInfo = {
     fireBall: {
-      hitChance: 0.9, // 0.7
-      damage: 0 // 2
+      hitChance: 0.7, // 0.7
+      damage: 2 // 2
     },
     lightningBolt: {
       hitChance: 0.9, // 0.9
-      damage: 0 // 1
+      damage: 1 // 1
     }
   };
 
   const dragonAttacksInfo = {
     fireBreath: {
-      hitChance: 0.5, // 0.4
-      damage: 0, // 2
-      attackChance: 0.5 // 0.3
+      hitChance: 0.4, // 0.4
+      damage: 2, // 2
+      attackChance: 0.3 // 0.3
     },
     claw: {
       hitChance: 0.5, //0.5
-      damage: 0, // 1
-      attackChance: 0.5 //0.7
+      damage: 1, // 1
+      attackChance: 0.7 //0.7
     }
   };
 

@@ -60,3 +60,29 @@
     opacity: 0;
   }
 }
+
+@media screen and (max-width: 601px) {
+  .ClawMarks {
+    top: 25%;
+    width: 90px;
+  }
+}
+
+@media screen and (max-width: 501px) {
+  .ClawMarks {
+    top: 20%;
+    width: 80px;
+  }
+}
+
+@media screen and (max-width: 401px) {
+  .ClawMarks {
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .ClawMarks {
+    width: 50px;
+  }
+}

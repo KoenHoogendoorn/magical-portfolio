@@ -16,7 +16,7 @@ const WizardAttackInfo = (props) => {
   const hitChanceArray = hitChance.toString().split("");
   hitChanceArray.splice(0, 2);
   if (hitChanceArray.length === 1) {
-    hitChanceArray.push("0"); //makes 0.9 into 0.90
+    hitChanceArray.push("0"); //e.g. makes 0.9 into 0.90
   }
   const hitPercentage = hitChanceArray.join("") + "%";
 

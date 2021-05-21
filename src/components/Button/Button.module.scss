@@ -19,8 +19,6 @@
   }
 
   &:disabled {
-    opacity: 0.4;
-
     cursor: unset;
   }
 }
@@ -39,8 +37,8 @@
     color: $clr-secondary-active;
   }
   &:disabled {
-    background: $clr-primary;
-    color: $clr-pesto;
+    background: $clr-irishCoffee;
+    color: $clr-secondary;
   }
 }
 

@@ -388,7 +388,12 @@ const AdditionalProjectsSection = (props) => {
 
   let AdditionalProjectClasses = `${classes.AdditionalProjects} `;
 
-  if (gameState === "unplayed" || gameState === "running") {
+  if (
+    gameState === "unplayed" ||
+    gameState === "running" ||
+    gameState === "won" ||
+    gameState === "lost"
+  ) {
     AdditionalProjectClasses += `${classes.Darkened} `;
   }
 

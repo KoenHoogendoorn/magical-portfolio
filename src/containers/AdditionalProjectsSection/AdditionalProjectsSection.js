@@ -169,20 +169,22 @@ const AdditionalProjectsSection = (props) => {
 
     const hitChance = Math.random();
     const currentAttack = dragonAttacksInfo[currentAttackType];
+    setTimeout(() => {
+      //or else it attacks too quick.
+      if (hitChance < currentAttack.hitChance) {
+        //hits
+        currentAttackType === "fireBreath"
+          ? fireBreathHitHandler(currentAttack, currentAttackType)
+          : clawHitHandler(currentAttack, currentAttackType);
+      } else {
+        //miss
+        currentAttackType === "fireBreath"
+          ? fireBreathMissHandler(currentAttack, currentAttackType)
+          : clawMissHandler(currentAttack, currentAttackType);
 
-    if (hitChance < currentAttack.hitChance) {
-      //hits
-      currentAttackType === "fireBreath"
-        ? fireBreathHitHandler(currentAttack, currentAttackType)
-        : clawHitHandler(currentAttack, currentAttackType);
-    } else {
-      //miss
-      currentAttackType === "fireBreath"
-        ? fireBreathMissHandler(currentAttack, currentAttackType)
-        : clawMissHandler(currentAttack, currentAttackType);
-
-      console.log(currentAttackType + " miss");
-    }
+        console.log(currentAttackType + " miss");
+      }
+    }, 300);
   };
 
   // END DRAGON ATTACKS

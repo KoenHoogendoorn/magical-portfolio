@@ -26,10 +26,12 @@ const AdditionalProjectsSection = (props) => {
   const [clawAnimation, setClawAnimation] = useState(false);
   const [fireBreathAnimation, setFireBreathAnimation] = useState(false);
   const [fireBreathMissAnimation, setFireBreathMissAnimation] = useState(false);
+  const [wizardGotHit, setWizardGotHit] = useState(false);
+  const [dragonGotHit, setDragonGotHit] = useState(false);
 
   const wizardAttacksInfo = {
     fireBall: {
-      hitChance: 0.01, // 0.7
+      hitChance: 0.9, // 0.7
       damage: 0 // 2
     },
     lightningBolt: {
@@ -40,14 +42,14 @@ const AdditionalProjectsSection = (props) => {
 
   const dragonAttacksInfo = {
     fireBreath: {
-      hitChance: 0.01, // 0.4
+      hitChance: 0.5, // 0.4
       damage: 0, // 2
-      attackChance: 0.9 // 0.3
+      attackChance: 0.5 // 0.3
     },
     claw: {
       hitChance: 0.5, //0.5
       damage: 0, // 1
-      attackChance: 0.1 //0.7
+      attackChance: 0.5 //0.7
     }
   };
 
@@ -79,6 +81,8 @@ const AdditionalProjectsSection = (props) => {
       fireBallMissed={fireBallMissAnimation}
       lightningBoltCasted={lightningBoltAnimation}
       lightningBoltMissed={lightningBoltMissAnimation}
+      wizardGotHit={wizardGotHit}
+      dragonGotHit={dragonGotHit}
     />
   );
 
@@ -97,7 +101,6 @@ const AdditionalProjectsSection = (props) => {
     setGameEvent("DragonAttackAnimation");
     setFireBallAnimation(true);
     setFireBreathAnimation(true);
-    // setFireBallMissAnimation(true);
     setFireBreathMissAnimation(true);
 
     setTimeout(() => {
@@ -114,10 +117,15 @@ const AdditionalProjectsSection = (props) => {
     setFireBreathAnimation(true);
 
     setTimeout(() => {
+      setWizardGotHit(true);
+    }, 600);
+
+    setTimeout(() => {
       setFireBreathAnimation(false);
       setFireBallAnimation(false);
       attackDamageHandler(currentAttack, currentAttackType);
       setGameEvent("WizardTurn");
+      setWizardGotHit(false);
     }, 900);
   };
 
@@ -138,9 +146,14 @@ const AdditionalProjectsSection = (props) => {
     setClawAnimation(true);
 
     setTimeout(() => {
+      setWizardGotHit(true);
+    }, 600);
+
+    setTimeout(() => {
       setClawAnimation(false);
       attackDamageHandler(currentAttack, currentAttackType);
       setGameEvent("WizardTurn");
+      setWizardGotHit(false);
     }, 900);
   };
 
@@ -203,9 +216,14 @@ const AdditionalProjectsSection = (props) => {
     setFireBallAnimation(true);
 
     setTimeout(() => {
+      setDragonGotHit(true);
+    }, 600);
+
+    setTimeout(() => {
       setFireBallAnimation(false);
       spellDamageHandler(spell, spellName);
       dragonAttack();
+      setDragonGotHit(false);
     }, 900);
   };
 
@@ -226,9 +244,14 @@ const AdditionalProjectsSection = (props) => {
     setLightningBoltAnimation(true);
 
     setTimeout(() => {
+      setDragonGotHit(true);
+    }, 600);
+
+    setTimeout(() => {
       setLightningBoltAnimation(false);
       spellDamageHandler(spell, spellName);
       dragonAttack();
+      setDragonGotHit(false);
     }, 900);
   };
 

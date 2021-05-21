@@ -3,7 +3,9 @@ import classes from "./GameContainer.module.scss";
 
 import GameBackgroundImage from "../../../assets/home/dragon-game/GameBackground.svg";
 import DragonIllustration from "../../../assets/home/dragon-game/Dragon.svg";
+import DragonIllustrationRed from "../../../assets/home/dragon-game/Dragon-Red.svg";
 import WizardIllustration from "../../../assets/home/dragon-game/Wizard.svg";
+import WizardIllustrationRed from "../../../assets/home/dragon-game/Wizard-Red.svg";
 import GameWinScreen from "../../../assets/home/dragon-game/GameWinScreen.svg";
 import GameLoseScreen from "../../../assets/home/dragon-game/GameLoseScreen.svg";
 
@@ -26,6 +28,17 @@ const GameContainer = (props) => {
     default:
       activeCharacter = "Dragon's turn";
       break;
+  }
+
+  let wizardGotHitAnimationClasses = `${classes.Invisible} `;
+  let dragonGotHitAnimationClasses = `${classes.Invisible} `;
+
+  if (props.wizardGotHit) {
+    wizardGotHitAnimationClasses += `${classes.HitAnimation} `;
+  }
+
+  if (props.dragonGotHit) {
+    dragonGotHitAnimationClasses += `${classes.HitAnimation} `;
   }
 
   let content;
@@ -86,8 +99,13 @@ const GameContainer = (props) => {
                       <div class={classes.CounterRotate}>
                         <img
                           className={wizardIllustrationClasses}
-                          alt="Wizard Illustration."
+                          alt="Wizard illustration."
                           src={WizardIllustration}
+                        />
+                        <img
+                          className={`${wizardIllustrationClasses} ${wizardGotHitAnimationClasses} `}
+                          alt="Red filter over wizard illustration."
+                          src={WizardIllustrationRed}
                         />
                       </div>
                     </div>
@@ -116,11 +134,18 @@ const GameContainer = (props) => {
               </div>
               <div className={classes.GameScreenHalf}>
                 <div className={classes.CharacterContainer}>
-                  <img
-                    className={dragonIllustrationClasses}
-                    alt="Dragon Illustration."
-                    src={DragonIllustration}
-                  />
+                  <div className={classes.DragonIllustrationContainer}>
+                    <img
+                      className={dragonIllustrationClasses}
+                      alt="Dragon illustration."
+                      src={DragonIllustration}
+                    />
+                    <img
+                      className={`${dragonIllustrationClasses} ${dragonGotHitAnimationClasses} `}
+                      alt="Red filter over dragon illustration."
+                      src={DragonIllustrationRed}
+                    />
+                  </div>
                   <LifeBar maxLives={10} currentLives={props.dragonLives} />
                 </div>
               </div>

@@ -448,12 +448,12 @@ $white: rgb(255, 255, 255);
     }
     60% {
       opacity: 1;
-      // -webkit-transform: translateX(380%) translateY(-380%);
+      -webkit-transform: translateX(460%) translateY(-460%);
       transform: translateX(460%) translateY(-460%);
     }
     100% {
       opacity: 0;
-      // -webkit-transform: translateX(490%) translateY(-490%);
+      -webkit-transform: translateX(500%) translateY(-500%);
       transform: translateX(500%) translateY(-500%);
     }
   }

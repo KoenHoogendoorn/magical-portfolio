@@ -14,20 +14,21 @@ import FireBall from "./FireBall/FireBall";
 import LightningBolt from "./LightningBolt/LightningBolt";
 import WizardAttack from "./WizardAttack/WizardAttack";
 import Button from "../../Button/Button";
-import ClawMarks from "./ClawMarks/ClawMarks";
+import DragonTeeth from "./DragonTeeth/DragonTeeth";
 
 const GameContainer = (props) => {
   const wizardIllustrationClasses = `${classes.CharacterIllustration} ${classes.WizardIllustration}`;
   const dragonIllustrationClasses = `${classes.CharacterIllustration} ${classes.DragonIllustration}`;
 
   let activeCharacter;
-  switch (props.gameEvent) {
-    case "WizardTurn" || "WizardAttackAnimation":
-      activeCharacter = "Your turn";
-      break;
-    default:
-      activeCharacter = "Dragon's turn";
-      break;
+
+  if (
+    props.gameEvent === "WizardTurn" ||
+    props.gameEvent === "WizardAttackAnimation"
+  ) {
+    activeCharacter = "Your turn";
+  } else {
+    activeCharacter = "Dragon's turn";
   }
 
   let wizardGotHitAnimationClasses = `${classes.Invisible} `;
@@ -110,14 +111,9 @@ const GameContainer = (props) => {
                       </div>
                     </div>
                   </div>
-                  <ClawMarks
-                    attackCasted={props.clawCasted}
-                    attackMiss={props.clawMissed}
-                  />
-                  <ClawMarks
-                    attackCasted={props.clawCasted}
-                    attackMiss={props.clawMissed}
-                    duplicate={true}
+                  <DragonTeeth
+                    attackCasted={props.biteCasted}
+                    attackMiss={props.biteMissed}
                   />
                   <FireBall
                     spellCasted={props.fireBallCasted}

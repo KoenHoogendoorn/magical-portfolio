@@ -1,0 +1,541 @@
+$orange: rgb(255, 106, 0);
+$red: rgb(255, 34, 0);
+$yellow: rgb(255, 200, 0);
+$blue: rgb(0, 55, 255);
+$white: rgb(255, 255, 255);
+
+.FireBall {
+  position: absolute;
+  top: 28%;
+  left: 30%;
+  z-index: 3;
+
+  .Fire {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    // -webkit-animation: move-fireball 900ms ease-in 0s 1;
+    // animation: move-fireball 900ms ease-in 0s 1;
+    animation-name: move-fireball;
+    animation-duration: 900ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+
+    .Flame {
+      position: absolute;
+      right: 0;
+      opacity: 0.9;
+      width: 100%;
+      height: 100%;
+      border-bottom-right-radius: 70%;
+      border-bottom-left-radius: 70%;
+      border-top-left-radius: 70%;
+      -webkit-transform: rotate(-135deg) skew(-10deg, -10deg);
+      transform: rotate(-135deg) skew(-10deg, -10deg);
+      background-color: $red;
+      z-index: 1;
+
+      -webkit-animation: burn-left 300ms ease 0s infinite forwards;
+      animation: burn-left 300ms ease 0s infinite forwards;
+
+      // animation-iteration-count: infinite;
+      // animation-fill-mode: forwards;
+      // animation-name: burn-left;
+      // animation-duration: 300ms;
+
+      &:nth-of-type(2n) {
+        animation-name: burn-right;
+        animation-duration: 400ms;
+      }
+
+      &:nth-of-type(2) {
+        height: 80%;
+        width: 80%;
+        background-color: $orange;
+        z-index: 2;
+      }
+
+      &:nth-of-type(3) {
+        height: 50%;
+        width: 50%;
+        background-color: $yellow;
+        z-index: 3;
+      }
+    }
+
+    .FlameMiss {
+      top: 0;
+      -webkit-animation-name: burn-left-miss;
+      animation-name: burn-left-miss;
+      &:nth-of-type(2n) {
+        -webkit-animation-name: burn-right-miss;
+        animation-name: burn-right-miss;
+      }
+    }
+  }
+
+  .FireMiss {
+    -webkit-animation-name: move-fireball-miss;
+    animation-name: move-fireball-miss;
+  }
+}
+
+.FireBallMiss {
+  -webkit-transform: rotate(25deg);
+  transform: rotate(25deg);
+}
+
+.FireBallDragon {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  left: unset;
+  right: 40%;
+
+  .FireDragon {
+    -webkit-animation-name: move-fireball-fromDragon;
+    animation-name: move-fireball-fromDragon;
+  }
+
+  .FireMiss {
+    -webkit-animation-name: move-fireball-miss-fromDragon;
+    animation-name: move-fireball-miss-fromDragon;
+  }
+}
+
+.FireBallDragonMiss {
+  -webkit-transform: rotate(-126deg);
+  transform: rotate(-126deg);
+}
+
+//FIREBALL HIT
+
+@keyframes burn-left {
+  0%,
+  100% {
+    -webkit-transform: rotate(-135deg) skew(-10deg, -10deg) scale(1);
+    transform: rotate(-135deg) skew(-10deg, -10deg) scale(1);
+  }
+  30%,
+  60% {
+    -webkit-transform: rotate(-134deg) skew(-15deg, -15deg) scale(1.01);
+    transform: rotate(-134deg) skew(-15deg, -15deg) scale(1.01);
+  }
+}
+
+@keyframes burn-right {
+  0%,
+  100% {
+    -webkit-transform: rotate(-135deg) skew(-10deg, -10deg) scale(1);
+    transform: rotate(-135deg) skew(-10deg, -10deg) scale(1);
+  }
+  30%,
+  60% {
+    -webkit-transform: rotate(-134deg) skew(-5deg, -5deg) scale(1.01);
+    transform: rotate(-134deg) skew(-5deg, -5deg) scale(1.01);
+  }
+}
+
+@keyframes move-fireball {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate(550%);
+    transform: translate(550%);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(650%);
+    transform: translate(650%);
+  }
+}
+
+@keyframes move-fireball-fromDragon {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate(650%);
+    transform: translate(650%);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(780%);
+    transform: translate(780%);
+  }
+}
+
+//FIREBALL MISS
+
+@keyframes burn-left-miss {
+  0%,
+  100% {
+    -webkit-transform: rotate(-180deg) skew(-10deg, -10deg) scale(1);
+    transform: rotate(-180deg) skew(-10deg, -10deg) scale(1);
+  }
+  30%,
+  60% {
+    -webkit-transform: rotate(-179deg) skew(-12deg, -12deg) scale(1.01);
+    transform: rotate(-179deg) skew(-12deg, -12deg) scale(1.01);
+  }
+}
+
+@keyframes burn-right-miss {
+  0%,
+  100% {
+    -webkit-transform: rotate(-180deg) skew(-10deg, -10deg) scale(1);
+    transform: rotate(-180deg) skew(-10deg, -10deg) scale(1);
+  }
+  30%,
+  60% {
+    -webkit-transform: rotate(-179deg) skew(-6deg, -6deg) scale(1.01);
+    transform: rotate(-179deg) skew(-6deg, -6deg) scale(1.01);
+  }
+}
+
+@keyframes move-fireball-miss {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(500%) translateY(-500%);
+    transform: translateX(500%) translateY(-500%);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(600%) translateY(-600%);
+    transform: translateX(600%) translateY(-600%);
+  }
+}
+
+@keyframes move-fireball-miss-fromDragon {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(650%) translateY(-650%);
+    transform: translateX(650%) translateY(-650%);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(800%) translateY(-800%);
+    transform: translateX(800%) translateY(-800%);
+  }
+}
+
+//--- MEDIAQUERIES
+
+@media screen and (max-width: 720px) {
+  .FireBall {
+    top: 20%;
+    .Fire {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .FireBallDragon {
+    top: 26%;
+  }
+
+  .FireBallDragonMiss {
+    -webkit-transform: rotate(-121deg);
+    transform: rotate(-121deg);
+  }
+
+  @keyframes move-fireball-miss {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translateX(400%) translateY(-400%);
+      transform: translateX(400%) translateY(-400%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateX(500%) translateY(-500%);
+      transform: translateX(500%) translateY(-500%);
+    }
+  }
+
+  @keyframes move-fireball-miss-fromDragon {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      // -webkit-transform: translateX(550%) translateY(-550%);
+      transform: translateX(550%) translateY(-550%);
+    }
+    100% {
+      opacity: 0;
+      // -webkit-transform: translateX(640%) translateY(-640%);
+      transform: translateX(640%) translateY(-640%);
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .FireBall {
+    top: 18%;
+  }
+  .FireBallDragon {
+    top: 23%;
+  }
+
+  .FireBallMiss {
+    -webkit-transform: rotate(32deg);
+    transform: rotate(32deg);
+  }
+
+  .FireBallDragonMiss {
+    -webkit-transform: rotate(-115deg);
+    transform: rotate(-115deg);
+  }
+
+  @keyframes move-fireball-miss {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translateX(500%) translateY(-500%);
+      transform: translateX(500%) translateY(-500%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateX(600%) translateY(-600%);
+      transform: translateX(600%) translateY(-600%);
+    }
+  }
+
+  @keyframes move-fireball-miss-fromDragon {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translateX(380%) translateY(-380%);
+      transform: translateX(380%) translateY(-380%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateX(490%) translateY(-490%);
+      transform: translateX(490%) translateY(-490%);
+    }
+  }
+}
+
+@media screen and (max-width: 451px) {
+  .FireBall {
+    top: 21%;
+    .Fire {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .FireBallDragon {
+    top: 25%;
+  }
+
+  .FireBallMiss {
+    -webkit-transform: rotate(22deg);
+    transform: rotate(22deg);
+  }
+
+  .FireBallDragonMiss {
+    -webkit-transform: rotate(-115deg);
+    transform: rotate(-115deg);
+  }
+
+  @keyframes move-fireball-fromDragon {
+    0% {
+      -webkit-transform: translate(0);
+      transform: translate(0);
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translate(630%);
+      transform: translate(630%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translate(730%);
+      transform: translate(730%);
+    }
+  }
+
+  @keyframes move-fireball-miss {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translateX(340%) translateY(-340%);
+      transform: translateX(340%) translateY(-340%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateX(440%) translateY(-440%);
+      transform: translateX(440%) translateY(-440%);
+    }
+  }
+
+  @keyframes move-fireball-miss-fromDragon {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translateX(460%) translateY(-460%);
+      transform: translateX(460%) translateY(-460%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateX(500%) translateY(-500%);
+      transform: translateX(500%) translateY(-500%);
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .FireBallDragon {
+    top: 22%;
+  }
+  @keyframes move-fireball {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translate(450%);
+      transform: translate(450%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translate(560%);
+      transform: translate(560%);
+    }
+  }
+
+  @keyframes move-fireball-fromDragon {
+    0% {
+      -webkit-transform: translate(0);
+      transform: translate(0);
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translate(540%);
+      transform: translate(540%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translate(640%);
+      transform: translate(640%);
+    }
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .FireBall {
+    top: 17%;
+    .Fire {
+      width: 15px;
+      height: 15px;
+    }
+  }
+  .FireBallDragon {
+    top: 21%;
+  }
+
+  @keyframes move-fireball-fromDragon {
+    0% {
+      -webkit-transform: translate(0);
+      transform: translate(0);
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translate(580%);
+      transform: translate(580%);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translate(680%);
+      transform: translate(680%);
+    }
+  }
+}

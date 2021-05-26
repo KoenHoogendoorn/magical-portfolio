@@ -80,17 +80,20 @@
 }
 
 .Left {
+  -webkit-transform: translatex(calc(-100% - 16px)) scale(0.9);
   transform: translatex(calc(-100% - 16px)) scale(0.9);
 }
 
 .Center {
   z-index: 1;
+  -webkit-transform: translatex(0) scale(1);
   transform: translatex(0) scale(1);
   filter: initial;
   width: 238px;
 }
 
 .Right {
+  -webkit-transform: translatex(calc(100% + 16px)) scale(0.9);
   transform: translatex(calc(100% + 16px)) scale(0.9);
 }
 
@@ -102,10 +105,12 @@
 
 @media screen and (max-width: 541px) {
   .Left {
+    -webkit-transform: translatex(-105%) scale(0.9);
     transform: translatex(-105%) scale(0.9);
   }
 
   .Right {
+    -webkit-transform: translatex(105%) scale(0.9);
     transform: translatex(105%) scale(0.9);
   }
 }

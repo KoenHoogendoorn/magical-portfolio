@@ -1,0 +1,140 @@
+.NotActive {
+  display: none;
+}
+
+.DragonTeethContainer {
+  position: absolute;
+  width: 100px;
+  top: 35%;
+  left: 18%;
+  z-index: 3;
+
+  .DragonTeeth {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .TopTeeth {
+    z-index: 4;
+    animation: chomp-down 900ms ease-in 0s 1;
+  }
+
+  .BotTeeth {
+    margin-top: 15%;
+    z-index: 3;
+    animation: chomp-up 900ms ease-in 0s 1;
+  }
+}
+
+.BiteMiss {
+  left: 35%;
+}
+
+@keyframes chomp-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-70%);
+  }
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(0) translateX(0);
+  }
+
+  52% {
+    transform: translateY(0) translateX(-3%);
+  }
+
+  54% {
+    transform: translateY(1%) translateX(3%);
+  }
+  56% {
+    transform: translateY(0) translateX(0%);
+  }
+
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes chomp-up {
+  0% {
+    opacity: 0;
+    transform: translateY(70%);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(0) translateX(0);
+  }
+
+  52% {
+    transform: translateY(0) translateX(3%);
+  }
+
+  54% {
+    transform: translateY(-1%) translateX(-3%);
+  }
+  56% {
+    transform: translateY(0) translateX(0%);
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 601px) {
+  .DragonTeethContainer {
+    top: 25%;
+    width: 90px;
+    left: 16%;
+  }
+
+  .BiteMiss {
+    left: 35%;
+  }
+}
+
+@media screen and (max-width: 501px) {
+  .DragonTeethContainer {
+    top: 20%;
+    width: 80px;
+    left: 15%;
+  }
+  .BiteMiss {
+    left: 35%;
+  }
+}
+
+@media screen and (max-width: 401px) {
+  .DragonTeethContainer {
+    top: 25%;
+    width: 60px;
+    left: 15%;
+  }
+  .BiteMiss {
+    left: 35%;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .DragonTeethContainer {
+    top: 20%;
+    width: 50px;
+  }
+}

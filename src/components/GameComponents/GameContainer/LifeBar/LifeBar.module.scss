@@ -1,0 +1,45 @@
+@import "../../../../shared/variables.scss";
+
+.LifeBar {
+  width: 50%; //fallback for ie
+  width: fit-content;
+  margin: 16px auto 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px 8px;
+  grid-template-areas:
+    ". . . . ."
+    ". . . . .";
+
+  .HeartIcon {
+    color: $clr-mediumCarmine;
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .LifeBar {
+    .HeartIcon {
+      font-size: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 541px) {
+  .LifeBar {
+    margin: 8px auto 0 auto;
+    gap: 4px 4px;
+    .HeartIcon {
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .LifeBar {
+    .HeartIcon {
+      font-size: 16px;
+    }
+  }
+}

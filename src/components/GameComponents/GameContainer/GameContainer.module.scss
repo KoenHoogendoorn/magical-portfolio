@@ -1,0 +1,321 @@
+@import "../../../shared/variables.scss";
+
+.GameContainer {
+  .GameHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .TurnIndicator {
+      padding: 8px 16px;
+      background-color: $clr-martinique;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      border-radius: 8px;
+      font-family: "Quando", serif;
+      font-size: 16px;
+    }
+
+    .CloseIcon {
+      cursor: pointer;
+      font-size: 32px;
+
+      &:hover {
+        color: $clr-arrow-hover;
+      }
+
+      &:active {
+        color: $clr-arrow-active;
+      }
+    }
+  }
+  .GameScreen {
+    margin-top: 8px;
+    height: 418px;
+
+    .CharactersContainer {
+      position: absolute;
+      display: flex;
+      width: 100%;
+      height: inherit;
+      padding-bottom: 64px;
+
+      .GameScreenHalf {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        width: 50%;
+
+        .CharacterContainer {
+          .Circle {
+            //een
+            -webkit-transform: scaleX(3);
+            transform: scaleX(3);
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+
+            .Rotate {
+              //twee
+              height: 4px;
+              -webkit-animation: floating-wizard 3s infinite linear;
+              animation: floating-wizard 3s infinite linear;
+              -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+
+              .CounterRotate {
+                //drie
+                -webkit-animation: floating-wizard-counterCircle 3s infinite
+                  linear;
+                animation: floating-wizard-counterCircle 3s infinite linear;
+
+                .WizardIllustration {
+                  position: absolute;
+                  width: 75px;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  -webkit-transform: scaleX(0.33);
+                  transform: scaleX(0.33);
+                }
+              }
+            }
+          }
+
+          .CharacterIllustration {
+            display: block;
+            margin: 0 auto;
+          }
+
+          .DragonIllustrationContainer {
+            transform: translate(0);
+            -webkit-animation: floating-dragon 2s linear 0s infinite;
+            animation: floating-dragon 2s linear 0s infinite;
+
+            .DragonIllustration {
+              width: 278px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .Invisible {
+    position: absolute;
+    width: inherit;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+  }
+
+  .HitAnimation {
+    animation: hit-animation 300ms linear 0s 1;
+  }
+
+  .BackgroundImage {
+    width: 100%;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+    border: 4px solid $clr-martinique;
+  }
+
+  .WizardAttackContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+
+  .ButtonsBar {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+
+    button:nth-of-type(2) {
+      margin-left: 16px;
+    }
+  }
+}
+
+@keyframes floating-dragon {
+  0% {
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    -webkit-transform: translateX(0) translateY(-2%);
+    transform: translateX(0) translateY(-2%);
+  }
+  75% {
+    -webkit-transform: translateX(0) translateY(2%);
+    transform: translateX(0) translateY(2%);
+  }
+  100% {
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes floating-wizard {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes floating-wizard-counterCircle {
+  from {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+  to {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes hit-animation {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .GameContainer {
+    .GameScreen {
+      height: inherit;
+      .CharactersContainer {
+        .GameScreenHalf {
+          .CharacterContainer {
+            padding-top: 20%;
+            .Circle {
+              .Rotate {
+                height: 4px;
+                .CounterRotate {
+                  .WizardIllustration {
+                    width: 50%;
+                  }
+                }
+              }
+            }
+            .DragonIllustrationContainer {
+              .DragonIllustration {
+                width: 90%;
+              }
+            }
+          }
+        }
+      }
+    }
+    .WizardAttackContainer {
+      margin-top: 4px;
+    }
+  }
+}
+
+@media screen and (max-width: 541px) {
+  .GameContainer {
+    .GameScreen {
+      .CharactersContainer {
+        .GameScreenHalf {
+          .CharacterContainer {
+            .Circle {
+              .Rotate {
+                height: 2px;
+                .CounterRotate {
+                  .WizardIllustration {
+                    width: 59%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 451px) {
+  .GameContainer {
+    .GameScreen {
+      .CharactersContainer {
+        .GameScreenHalf {
+          .CharacterContainer {
+            .Circle {
+              .Rotate {
+                height: 1px;
+                .CounterRotate {
+                  .WizardIllustration {
+                    width: 42%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .GameContainer {
+    .GameScreen {
+      .CharactersContainer {
+        .GameScreenHalf {
+          .CharacterContainer {
+            .Circle {
+              .Rotate {
+                .CounterRotate {
+                  .WizardIllustration {
+                    width: 47%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 321px) {
+  .GameContainer {
+    .GameScreen {
+      .CharactersContainer {
+        .GameScreenHalf {
+          .CharacterContainer {
+            .Circle {
+              .Rotate {
+                .CounterRotate {
+                  .WizardIllustration {
+                    width: 42%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

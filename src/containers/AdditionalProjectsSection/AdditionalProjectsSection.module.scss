@@ -1,5 +1,33 @@
 @import "../../shared/variables.scss";
 
+.TextLinkButton {
+  background: none;
+  color: $clr-primary;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    color: $clr-primary-hover;
+  }
+
+  &:active {
+    color: $clr-primary-active;
+  }
+}
+
+.GameSection {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  width: 720px;
+  margin: 0 auto;
+}
+
 .AdditionalProjects {
   margin-top: $spc-under-textAvatar-desktop;
   display: grid;
@@ -16,10 +44,33 @@
   }
 }
 
+.Darkened {
+  opacity: 0.6;
+  -webkit-filter: brightness(50%);
+  filter: brightness(50%);
+}
+
+.ExtraSpace {
+  margin-bottom: 400px; //240 (to align with signoffsection + 160
+}
+
+@media screen and (max-width: 720px) {
+  .AdditionalProjectsSection {
+    width: 100%;
+
+    .GameSection {
+      width: 90%; /*fallback for browsers dont use support calc*/
+      width: -webkit-calc(100% - 32px);
+      width: -moz-calc(100% - 32px);
+      width: calc(100% - 32px);
+    }
+  }
+}
+
 @media screen and (max-width: 541px) {
   .AdditionalProjects {
     margin-top: $spc-under-textAvatar-mobile;
-    display: unset;
+    display: block;
 
     .AdditionalProject {
       margin-top: 24px;

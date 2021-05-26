@@ -20,10 +20,6 @@ const HomePage = (props) => (
       <p>So I made these tools to help me</p>
     </TextBubbleAvatar>
     <DndSection />
-    <TextBubbleAvatar avatarLeft={false}>
-      <h2>Darn, a dragon is blockin the other projects I want to show you.</h2>
-      <p>Help me fight the dragon to free them. </p>
-    </TextBubbleAvatar>
     <AdditionalProjectsSection />
     <SignOffSection />
   </div>

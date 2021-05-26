@@ -44,12 +44,12 @@ const AdditionalProjectsSection = (props) => {
     fireBreath: {
       hitChance: 0.4, // 0.4
       damage: 2, // 2
-      attackChance: 0.3 // 0.3
+      attackChance: 0.35 // 0.35
     },
     bite: {
       hitChance: 0.5, //0.5
       damage: 1, // 1
-      attackChance: 0.7 //0.7
+      attackChance: 0.65 //0.65
     }
   };
 

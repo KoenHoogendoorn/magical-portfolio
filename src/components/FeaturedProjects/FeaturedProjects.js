@@ -52,6 +52,7 @@ const FeaturedProjects = (props) => {
       key={project.id}
       id={project.id}
       clicked={() => setActiveProject(index)}
+      selectedProjectPath={selectedProjectPath}
       name={project.name}
       tagline={project.tagline}
       image={project.image}

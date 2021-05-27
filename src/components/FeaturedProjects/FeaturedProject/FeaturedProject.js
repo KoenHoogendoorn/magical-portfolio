@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./FeaturedProject.module.scss";
+import { Link } from "react-router-dom";
 
-import FeaturedProjectsSelector from "../../../assets/home/FeaturedProjectsSelector.svg";
 import Tag from "../../Tag/Tag";
 
 const FeaturedProject = (props) => {
@@ -65,27 +65,59 @@ const FeaturedProject = (props) => {
   }
 
   return (
-    <div
+    <Link
       id={props.id}
       className={FeaturedProjectClasses}
-      onClick={props.clicked}
+      to={
+        props.id === props.activeProjectId ? props.selectedProjectPath : false
+      }
+      onClick={props.id === props.activeProjectId ? false : props.clicked}
     >
       <div className={classes.ProjectInformationContainer}>
         <h3>{props.name}</h3>
         <p>{props.tagline}</p>
         <Tag bgLight={true}>Design</Tag>
       </div>
-      <img
-        src={props.image}
-        alt={props.imageAlt}
-        className={classes.FeaturedProjectImage}
-      ></img>
-      <img
-        src={FeaturedProjectsSelector}
+
+      <figure className={classes.FeaturedProjectImageContainer}>
+        <img
+          src={props.image}
+          alt={props.imageAlt}
+          className={classes.FeaturedProjectImage}
+        />
+      </figure>
+
+      <svg
+        viewBox="0 0 100 175"
+        width="264px"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
         className={svgClass}
-        alt="Selector around a project"
-      />
-    </div>
+      >
+        <path
+          d="M83,2 
+        h3
+        a8,8 0 0 1 9,9 
+        v3
+      m0,141.8 
+        v3 
+        a8,8 0 0 1 -9,9 
+        h-3 
+      m-69.8,0 
+        h-3 
+        a8,8 0 0 1 -9,-9 
+        v-3 
+      m0,-141.8 
+        v-3 
+        a8,8 0 0 1 9,-9 
+        h3"
+          fill="none"
+          stroke="#fffce8"
+          strokeWidth="4"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
+    </Link>
   );
 };
 

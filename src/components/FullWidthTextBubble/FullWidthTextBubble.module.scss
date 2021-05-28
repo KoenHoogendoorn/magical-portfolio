@@ -42,18 +42,20 @@
   }
 }
 
-@media screen and (max-width: 541px) {
-  .FullWidthTextBubble {
-    padding: 24px;
-  }
-
+@media screen and (max-width: 695px) {
   .Left {
-    //on mobile, all these points are centererd
+    //on smaller dimensions, all these points are centererd
     &:after {
       left: 49%;
       left: -webkit-calc(50% - 16px);
       left: -moz-calc(50% - 16px);
       left: calc(50% - 16px);
     }
+  }
+}
+
+@media screen and (max-width: 621px) {
+  .FullWidthTextBubble {
+    padding: 24px;
   }
 }

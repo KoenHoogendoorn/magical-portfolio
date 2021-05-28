@@ -24,11 +24,15 @@
     }
   }
 }
-
-@media screen and (max-width: 541px) {
+@media screen and (max-width: 695px) {
   .ToolkitContainer {
     margin-top: 24px;
     margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 541px) {
+  .ToolkitContainer {
     .ToolKit {
       padding: 16px;
       h3 {

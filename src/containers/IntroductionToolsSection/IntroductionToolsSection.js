@@ -22,11 +22,15 @@ const IntroductionToolsSection = (props) => (
         className={`${classes.AvatarImage} ${classes.Avatar230}`}
         src={AvatarRight230}
         alt="Wizard with robe and staff"
+        width="230"
+        height="230"
       />
       <img
         className={`${classes.AvatarImage} ${classes.Avatar160}`}
         src={AvatarRight160}
         alt="Wizard with robe and staff"
+        width="160"
+        height="160"
       />
       <ToolkitContainer />
     </div>

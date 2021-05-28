@@ -46,6 +46,8 @@ const initialState = {
       id: "dnd-dq",
       name: "Dragon's Quill",
       logo: DragonsQuillLogo,
+      logoWidth: "185",
+      logoHeight: "32",
       alt: "Dragon's Quill logo",
       tagline: "Helps people write structured RPG adventures",
       position: "center",
@@ -56,6 +58,8 @@ const initialState = {
       id: "dnd-hc",
       name: "Hitpoint Calculator",
       logo: HitpointCalculatorLogo,
+      logoWidth: "213",
+      logoHeight: "24",
       alt: "Hitpoint Calculator logo",
       tagline:
         "Helps people who suck at math to track hitpoints in D&D battles",

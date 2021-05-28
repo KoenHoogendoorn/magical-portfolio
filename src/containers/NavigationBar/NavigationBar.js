@@ -7,7 +7,12 @@ import KoenAvatar from "../../assets/KoenWizard-avatar.svg";
 const NavigationBar = (props) => (
   <nav className={classes.NavigationBar}>
     <Link className={classes.Logo} to={"/"}>
-      <img src={KoenAvatar} alt="Illustrative face of Koen" />
+      <img
+        width="32"
+        height="32"
+        src={KoenAvatar}
+        alt="Illustrative face of Koen"
+      />
       <h3>Koen Hoogendoorn</h3>
     </Link>
     <div className={classes.NavigationLinks}>

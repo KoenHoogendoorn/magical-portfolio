@@ -11,6 +11,8 @@ const GameMenu = (props) => (
       alt="Illustration of a dragon flying in a moonlit sky."
       className={classes.DragonCircle}
       src={DragonCircle}
+      width="335"
+      height="298"
     ></img>
     <div className={classes.MenuButtonsContainer}>
       <Button priority={"primary"} clicked={props.clickedPrimary}>

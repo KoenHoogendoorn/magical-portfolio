@@ -18,11 +18,15 @@ const TextBubbleAvatar = (props) => {
           className={`${classes.Avatar} ${classes.FacingRight} ${classes.Avatar180}`}
           src={AvatarFacingRight180}
           alt="Wizard with robe and staff"
+          width="180"
+          height="180"
         />
         <img
           className={`${classes.Avatar} ${classes.FacingRight} ${classes.Avatar86}`}
           src={AvatarFacingRight86}
           alt="Wizard with robe and staff"
+          width="86"
+          height="86"
         />
         <div
           className={`${classes.TextBubbleRectangle} ${classes.PointerLeft}`}
@@ -43,11 +47,15 @@ const TextBubbleAvatar = (props) => {
           className={`${classes.Avatar} ${classes.FacingLeft} ${classes.Avatar180}`}
           src={AvatarFacingLeft180}
           alt="Wizard with robe and staff"
+          width="180"
+          height="180"
         />
         <img
           className={`${classes.Avatar} ${classes.FacingLeft} ${classes.Avatar86}`}
           src={AvatarFacingLeft86}
           alt="Wizard with robe and staff"
+          width="86"
+          height="86"
         />
       </React.Fragment>
     );

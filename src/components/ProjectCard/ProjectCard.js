@@ -35,7 +35,13 @@ const ProjectCard = (props) => {
   //End Dnd section classes
 
   const title = props.dndSection ? (
-    <img className={classes.DndLogo} src={props.logo} alt={props.alt} />
+    <img
+      className={classes.DndLogo}
+      width={props.logoWidth}
+      height={props.logoHeight}
+      src={props.logo}
+      alt={props.alt}
+    />
   ) : (
     <h3>{props.name}</h3>
   );

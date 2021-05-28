@@ -13,9 +13,8 @@ import DndProjectSelector from "../../components/DndProjectSelector/DndProjectSe
 
 const DndSection = (props) => {
   const [activeProjectId, setActiveProjectId] = useState("dnd-dq");
-  const [selectedProjectPath, setSelectedProjectPath] = useState(
-    "/dragons-quill"
-  );
+  const [selectedProjectPath, setSelectedProjectPath] =
+    useState("/dragons-quill");
   const [dndProjectsCopy, setDndProjectsCopy] = useState([]);
 
   useEffect(() => {
@@ -205,6 +204,8 @@ const DndSection = (props) => {
         className={classes.IsometricMapImages}
         src={isometricMap}
         alt="Isometric illustration with glowing dot."
+        width="630"
+        height="426"
       />
       <DndProjectSelector
         selectedProjectPath={selectedProjectPath}

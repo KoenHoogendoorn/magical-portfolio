@@ -79,13 +79,11 @@ const FeaturedProject = (props) => {
         <Tag bgLight={true}>Design</Tag>
       </div>
 
-      <figure className={classes.FeaturedProjectImageContainer}>
-        <img
-          src={props.image}
-          alt={props.imageAlt}
-          className={classes.FeaturedProjectImage}
-        />
-      </figure>
+      <img
+        src={props.image}
+        alt={props.imageAlt}
+        className={classes.FeaturedProjectImage}
+      />
 
       <svg
         viewBox="0 0 100 175"

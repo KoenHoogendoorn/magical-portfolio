@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { connect } from "react-redux";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 
 import classes from "./App.module.scss";
 
-import HomePage from "./containers/HomePage/HomePage";
-import DetailPage from "./components/DetailPage/DetailPage";
 import LoadingVideo from "./assets/home/Loading.mp4";
 import NavigationBar from "./containers/NavigationBar/NavigationBar";
+
+const DetailPage = React.lazy(() =>
+  import("./components/DetailPage/DetailPage")
+);
+
+const HomePage = React.lazy(() => import("./containers/HomePage/HomePage"));
 
 function App(props) {
   const [projectsTexts, setProjectsTexts] = useState(null);
@@ -67,25 +71,27 @@ function App(props) {
 
   let content;
 
+  const loadingVideo = (
+    <video className={classes.LoadingGif} autoplay="autoplay" loop="loop">
+      <source src={LoadingVideo} type="video/mp4" />
+    </video>
+  );
+
   if (projectsTexts !== null) {
     content = (
       <div className="App">
         <NavigationBar />
-        <Switch>
-          {projects}
-          <Route path="/" exact component={HomePage} />
-          <Redirect to="/" />
-        </Switch>
+        <Suspense fallback={loadingVideo}>
+          <Switch>
+            {projects}
+            <Route path="/" exact component={HomePage} />
+            <Redirect to="/" />
+          </Switch>
+        </Suspense>
       </div>
     );
   } else {
-    content = (
-      <div className="App">
-        <video className={classes.LoadingGif} autoplay="autoplay" loop="loop">
-          <source src={LoadingVideo} type="video/mp4" />
-        </video>
-      </div>
-    );
+    content = <div className="App">{loadingVideo}</div>;
   }
 
   return content;

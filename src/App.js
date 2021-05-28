@@ -6,7 +6,7 @@ import classes from "./App.module.scss";
 
 import HomePage from "./containers/HomePage/HomePage";
 import DetailPage from "./components/DetailPage/DetailPage";
-import LoadingGif from "./assets/home/Loading.gif";
+import LoadingVideo from "./assets/home/Loading.mp4";
 import NavigationBar from "./containers/NavigationBar/NavigationBar";
 
 function App(props) {
@@ -81,11 +81,9 @@ function App(props) {
   } else {
     content = (
       <div className="App">
-        <img
-          className={classes.LoadingGif}
-          src={LoadingGif}
-          alt={"Loading..."}
-        ></img>
+        <video className={classes.LoadingGif} autoplay="autoplay" loop="loop">
+          <source src={LoadingVideo} type="video/mp4" />
+        </video>
       </div>
     );
   }

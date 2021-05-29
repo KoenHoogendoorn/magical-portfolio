@@ -23,17 +23,19 @@ function App(props) {
   );
 
   useEffect(() => {
-    const fetchFiles = async () => {
-      const files = await Promise.all(
-        markdownFiles.map((file) =>
-          fetch(file.default).then((res) => res.text())
-        )
-      ).catch((err) => console.error(err));
+    if (projectsTexts === null) {
+      const fetchFiles = async () => {
+        const files = await Promise.all(
+          markdownFiles.map((file) =>
+            fetch(file.default).then((res) => res.text())
+          )
+        ).catch((err) => console.error(err));
 
-      setProjectsTexts(files);
-    };
-    fetchFiles();
-  }, [markdownFiles]);
+        setProjectsTexts(files);
+      };
+      fetchFiles();
+    }
+  }, [markdownFiles, projectsTexts]);
 
   // get projects metadata
   const fprojects = [...props.featuredProjects];

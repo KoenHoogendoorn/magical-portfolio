@@ -74,7 +74,7 @@ function App(props) {
   let content;
 
   const loadingVideo = (
-    <video className={classes.LoadingGif} autoplay="autoplay" loop="loop">
+    <video className={classes.LoadingGif} autoPlay="autoplay" loop="loop">
       <source src={LoadingVideo} type="video/mp4" />
     </video>
   );

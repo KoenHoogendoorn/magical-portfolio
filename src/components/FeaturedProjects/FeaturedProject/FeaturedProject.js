@@ -68,10 +68,10 @@ const FeaturedProject = (props) => {
     <Link
       id={props.id}
       className={FeaturedProjectClasses}
-      to={
-        props.id === props.activeProjectId ? props.selectedProjectPath : false
-      }
-      onClick={props.id === props.activeProjectId ? false : props.clicked}
+      to={props.id === props.activeProjectId ? props.selectedProjectPath : ""}
+      onClick={props.id === props.activeProjectId ? () => {} : props.clicked}
+      onTouchStart={props.onTouchStart}
+      onTouchEnd={props.onTouchEnd}
     >
       <div className={classes.ProjectInformationContainer}>
         <h3>{props.name}</h3>

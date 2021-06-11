@@ -119,6 +119,11 @@
 }
 
 @media screen and (max-width: 541px) {
+  .FeaturedProject {
+    // touch-action: none;
+    // pointer-events: none;
+  }
+
   .Left {
     -webkit-transform: translatex(-105%) scale(0.9);
     transform: translatex(-105%) scale(0.9);

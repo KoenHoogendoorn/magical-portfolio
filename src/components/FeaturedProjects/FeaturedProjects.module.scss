@@ -16,5 +16,6 @@
 @media screen and (max-width: 541px) {
   .FeaturedProjects {
     margin-top: $spc-under-textAvatar-mobile;
+    touch-action: pan-y;
   }
 }

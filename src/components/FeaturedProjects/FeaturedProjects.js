@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 import * as actions from "../../store/actions/actionIndex";
 import classes from "./FeaturedProjects.module.scss";
 
@@ -9,6 +10,8 @@ import ArrowSelector from "../ArrowSelector/ArrowSelector";
 const FeaturedProjects = (props) => {
   const [activeProjectId, setActiveProjectId] = useState("fp-ki");
   const [selectedProjectPath, setSelectedProjectPath] = useState("/kinder");
+
+  const history = useHistory();
 
   const setActiveProject = (index) => {
     props.setActiveFeaturedProjectHandler(index);
@@ -47,6 +50,29 @@ const FeaturedProjects = (props) => {
     setActiveProject(newActiveProjectIndex);
   };
 
+  // ---- mouse/touch gestures ---- //
+  let x0 = null;
+
+  const lock = (e) => {
+    //locks on to start of tap
+    x0 = e.changedTouches[0].clientX;
+  };
+
+  const move = (e) => {
+    e.preventDefault();
+    //gets difference and see's if x axis increased or decreased
+    let dx = e.changedTouches[0].clientX - x0;
+    let s = Math.sign(dx);
+
+    if (s === 0 && e.currentTarget.id === activeProjectId) {
+      history.push(selectedProjectPath);
+    } else if (s === -1) {
+      clickRightArrowHandler();
+    } else if (s === 1) {
+      clickLeftArrowHandler();
+    }
+  };
+
   const projects = props.featuredProjects.map((project, index) => (
     <FeaturedProject
       key={project.id}
@@ -60,6 +86,8 @@ const FeaturedProjects = (props) => {
       active={project.active}
       activeProjectId={activeProjectId}
       featuredProjects={props.featuredProjects}
+      onTouchStart={lock}
+      onTouchEnd={move}
     />
   ));
 

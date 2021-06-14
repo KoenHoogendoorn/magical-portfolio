@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import gfm from "remark-gfm";
 import classes from "./DetailPage.module.scss";
 
 import Tag from "../Tag/Tag";
@@ -47,7 +48,7 @@ const DetailPage = (props) => {
           <Tag bgLight={true}>Design</Tag>
           {props.development ? <Tag bgLight={true}>Development</Tag> : null}
         </div>
-        <ReactMarkdown className={classes.Content}>
+        <ReactMarkdown remarkPlugins={[gfm]} className={classes.Content}>
           {props.content}
         </ReactMarkdown>
       </div>
@@ -60,7 +61,7 @@ const DetailPage = (props) => {
       <div className={classes.ContentContainer}>
         <h1>{props.name}</h1>
         <p>{props.tagline}</p>
-        <ReactMarkdown className={classes.Content}>
+        <ReactMarkdown remarkPlugins={[gfm]} className={classes.Content}>
           {props.content}
         </ReactMarkdown>
       </div>

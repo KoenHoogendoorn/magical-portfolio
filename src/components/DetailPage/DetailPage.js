@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
@@ -38,6 +38,42 @@ const DetailPage = (props) => {
     </React.Fragment>
   ));
 
+  const [enlargedImageSrc, setEnlargedImageSrc] = useState("");
+
+  const closeModal = () => {
+    setEnlargedImageSrc("");
+    document.body.classList.remove(classes.StopScroll);
+  };
+
+  const openModal = (event) => {
+    setEnlargedImageSrc(event.currentTarget.attributes[0].nodeValue);
+    document.body.classList.add(classes.StopScroll);
+  };
+
+  const imageElement = ({ node, ...props }) => {
+    // const currentSrc = node.currentTarget.attributes[0].nodeValue;
+    const enlargedImage = (
+      <div className={classes.BlackLayerModal} onClick={() => closeModal()}>
+        <img className={classes.EnlargedImage} {...props} />
+        <button className={classes.CloseIcon}>
+          <i className="fas fa-times" onClick={() => closeModal()}></i>
+        </button>
+      </div>
+    );
+
+    const normalSizedImage = (
+      <img onClick={(event) => openModal(event)} {...props} />
+    );
+
+    let image = normalSizedImage;
+
+    if (enlargedImageSrc === props.src) {
+      image = enlargedImage;
+    }
+
+    return image;
+  };
+
   const projectContent = (
     <React.Fragment>
       <ScrollToTopOnMount />
@@ -48,7 +84,13 @@ const DetailPage = (props) => {
           <Tag bgLight={true}>Design</Tag>
           {props.development ? <Tag bgLight={true}>Development</Tag> : null}
         </div>
-        <ReactMarkdown remarkPlugins={[gfm]} className={classes.Content}>
+        <ReactMarkdown
+          remarkPlugins={[gfm]}
+          className={classes.Content}
+          components={{
+            img: ({ node, ...props }) => imageElement({ node, ...props })
+          }}
+        >
           {props.content}
         </ReactMarkdown>
       </div>

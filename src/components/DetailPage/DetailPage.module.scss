@@ -1,5 +1,14 @@
 @import "../../shared/variables.scss";
 
+// gebruik dit: https://stackoverflow.com/questions/47706903/add-a-class-to-the-html-body-tag-with-react
+// en haal alle store dingen weg wat te maken heeft met scrollingstate
+
+.StopScroll {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 .DetailPage {
   box-sizing: border-box;
   width: 968px; //720 + 120 padding + 4 border
@@ -24,6 +33,52 @@
 
         img {
           width: 100%;
+          cursor: pointer;
+        }
+
+        .BlackLayerModal {
+          position: fixed;
+          cursor: pointer;
+          z-index: 1;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba($color: $clr-vulcan, $alpha: 0.9);
+
+          .EnlargedImage {
+            cursor: default;
+            width: auto;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
+
+          .CloseIcon {
+            // remove default button styles
+            border: none;
+            cursor: pointer;
+            background: none;
+            outline: 0;
+            padding: 0;
+            //---
+            position: fixed;
+            top: 24px;
+            right: 32px;
+
+            i {
+              font-size: 40px;
+              color: $clr-arrow;
+
+              &:hover {
+                color: $clr-arrow-hover;
+              }
+              &:active {
+                color: $clr-arrow-active;
+              }
+            }
+          }
         }
 
         &:last-child {
@@ -101,6 +156,26 @@
     }
   }
 }
+
+@media screen and (max-width: 1540px) {
+  .DetailPage {
+    .ContentContainer {
+      .Content {
+        p {
+          .BlackLayerModal {
+            .EnlargedImage {
+              width: 92%;
+            }
+            .CloseIcon {
+              right: 4%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 541px) {
   .DetailPage {
     width: 90%; /*fallback for browsers dont use support calc*/

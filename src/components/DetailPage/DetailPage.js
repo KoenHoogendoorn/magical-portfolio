@@ -51,14 +51,17 @@ const DetailPage = (props) => {
   };
 
   const imageElement = ({ node, ...props }) => {
-    // const currentSrc = node.currentTarget.attributes[0].nodeValue;
     const enlargedImage = (
-      <div className={classes.BlackLayerModal} onClick={() => closeModal()}>
-        <img className={classes.EnlargedImage} {...props} />
+      <span className={classes.BlackLayerModal} onClick={() => closeModal()}>
+        <img
+          className={classes.EnlargedImage}
+          onClick={(event) => event.stopPropagation()}
+          {...props}
+        />
         <button className={classes.CloseIcon}>
           <i className="fas fa-times" onClick={() => closeModal()}></i>
         </button>
-      </div>
+      </span>
     );
 
     const normalSizedImage = (
